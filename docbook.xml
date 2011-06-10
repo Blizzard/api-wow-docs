@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book version="5.0" xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <title>Blizzard Community Platform API Documentation</title>
+
+    <author>
+      <personname><firstname>Nick</firstname><surname>Gerakines</surname></personname>
+
+      <affiliation>
+        <orgname>Blizzard Entertainment</orgname>
+        <address><email>ngerakines@blizzard.com</email></address>
+      </affiliation>
+    </author>
+
+    <pubdate>6/10/2011</pubdate>
+
+    <abstract>
+      <para>This is the documentation for the RESTful APIs exposed through the
+      World of Warcraft community site as a service to the World of Warcraft
+      community.</para>
+    </abstract>
+  </info>
+
+  <chapter>
+    <title>Features</title>
+
+    <section>
+      <title>Introduction</title>
+
+      <para>The Blizzard Community Platform API provides a number of resources
+      for developers and Wow enthusiasts to gather data about their
+      characters, guilds and arena teams. This documentation is primarily for
+      developers and third parties.</para>
+
+      <para>Blizzard's epic gaming experiences often take place in game, but
+      can lead to rewarding and lasting experiences out of game as well.
+      Through exposing key sets of data, we can enable the community to create
+      extended communities to continue that epic experience.</para>
+    </section>
+
+    <section>
+      <title>API Features</title>
+
+      <para>The API has a number of features that you, as a developer, should
+      be aware of.</para>
+
+      <section>
+        <title>Access and Regions</title>
+
+        <para>To access the API, HTTP requests can be made to specific urls
+        and resources exposed on the regional battle.net domains.</para>
+
+        <example>
+          <title>An example request</title>
+
+          <programlisting>GET /api/wow/realm/status HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+        </example>
+
+        <example>
+          <title>An example response</title>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{"realms":[ ... ]}</programlisting>
+        </example>
+
+        <para>The regions where this API is available are:<itemizedlist>
+            <listitem>
+              <para>us.battle.net</para>
+            </listitem>
+
+            <listitem>
+              <para>eu.battle.net</para>
+            </listitem>
+
+            <listitem>
+              <para>kr.battle.net</para>
+            </listitem>
+
+            <listitem>
+              <para>tw.battle.net</para>
+            </listitem>
+
+            <listitem>
+              <para>battlenet.com.cn</para>
+            </listitem>
+          </itemizedlist></para>
+
+        <para>The data available through the API is limited to the region that
+        it is in. Hence, US APIs accessed through us.battle.net will only
+        contain data within US battlegroups and realms and supports the
+        locales of the us.battle.net/wow community site.</para>
+      </section>
+
+      <section>
+        <title>REST</title>
+
+        <para>The API is <emphasis>mostly</emphasis> restful. Data is exposed
+        in the form of URIs that represent resources and can be fetched with
+        HTTP clients (like web browsers). At this time, the entirety of the
+        API is limited to read-only operations.<remark>I'm not terribly
+        pleased with this section. Things we should probably also reference
+        include any quirks or behaviors that are un-rest-like.</remark></para>
+      </section>
+
+      <section>
+        <title>Authentication</title>
+
+        <para>API authentication describes how applications will be asked to
+        use an identification and signing process to access the API.</para>
+
+        <para>Explain the backstory of application identification and
+        authentication.</para>
+
+        <para>List and describe the perks of opting into this process.</para>
+
+        <para>Describe the signing process and the changes in how API requests
+        are crafted and made.</para>
+      </section>
+
+      <section>
+        <title>Formats and Protocols</title>
+
+        <para>While giving a history of what formats and protocols were
+        supported, list those that are supported now.</para>
+
+        <para>Explain what JSON is and how JSONP can be used.</para>
+      </section>
+
+      <section>
+        <title>Cached Data and Availability</title>
+
+        <para>Explain that not all data is immediately available. Explain that
+        we don’t serve requests asking for data that isn’t immediately
+        available.</para>
+
+        <para>Provide an example of the request-reject process and what
+        try-again means.</para>
+      </section>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>APIs</title>
+
+    <para>The following sections document the actual API resources and how
+    they are used.</para>
+
+    <section>
+      <title>Characters</title>
+
+      <para>Character APIs currently provide character profile
+      information.</para>
+
+      <section>
+        <title>Profile API</title>
+
+        <para>The character profile API is the primary way to access character
+        information.</para>
+
+        <para>Introduction to the resource.</para>
+
+        <para>URL structure and components</para>
+
+        <para>Required fields</para>
+
+        <para>Optional Fields</para>
+
+        <para>Field definitions</para>
+
+        <para>Example request</para>
+
+        <para>Example response</para>
+
+        <para>Response description</para>
+
+        <para>Response fields</para>
+
+        <para>Error handling</para>
+      </section>
+    </section>
+
+    <section>
+      <title>Guilds</title>
+
+      <para>Guild APIs currently provide guild profile information.</para>
+    </section>
+
+    <section>
+      <title>Realms</title>
+
+      <para>Realm APIs currently provide realm status information.</para>
+    </section>
+
+    <section>
+      <title>Static Data</title>
+
+      <para>The static data APIs provide information that can compliment
+      profile information to provide structure or definition to the data
+      provided.</para>
+
+      <section>
+        <title>Character Races</title>
+
+        <para>The character races data API provides a list of character
+        races.</para>
+      </section>
+
+      <section>
+        <title>Character Classes</title>
+
+        <para>The character classes data API provides a list of character
+        classes.</para>
+      </section>
+
+      <section>
+        <title>Guild Rewards</title>
+
+        <para>The guild rewards data API provides a list of all guild
+        rewards.</para>
+      </section>
+
+      <section>
+        <title>Guild Perks</title>
+
+        <para>The guild perks data API provides a list of all guild
+        perks.</para>
+      </section>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Policies and Best Practices</title>
+
+    <para>This chapter will outline API policies and best practices when
+    interacting with the API.</para>
+
+    <section>
+      <title>Caching</title>
+
+      <para>Caching policies should be used by client developers and API
+      consumers.</para>
+
+      <para>Provide some example caching timelines for the documented
+      resources.</para>
+    </section>
+
+    <section>
+      <title>Throttling</title>
+
+      <para>Explain that throttling should be implemented by API consumers and
+      why.</para>
+
+      <para>Document the limitations we set on requests.</para>
+
+      <para>Describe what happens when an application crosses the line.</para>
+
+      <para>Example error response</para>
+    </section>
+
+    <section>
+      <title>Support</title>
+
+      <para>Use the forums for your questions and feedback.</para>
+
+      <para>You can also email api-support@blizzard.com for matters that you
+      may not want public discussion of</para>
+    </section>
+  </chapter>
+</book>
+
+
