@@ -10,12 +10,9 @@
     <title>Blizzard Community Platform API Documentation</title>
 
     <author>
-      <personname><firstname>Nick</firstname><surname>Gerakines</surname></personname>
+      <orgname>Blizzard Entertainment</orgname>
 
-      <affiliation>
-        <orgname>Blizzard Entertainment</orgname>
-        <address><email>ngerakines@blizzard.com</email></address>
-      </affiliation>
+      <email>api-support@blizzard.com</email>
     </author>
 
     <pubdate>6/10/2011</pubdate>
@@ -115,8 +112,14 @@ Host: us.battle.net
       <section>
         <title>Authentication</title>
 
-        <para>API authentication describes how applications will be asked to
-        use an identification and signing process to access the API.</para>
+        <para>Although most of the application can be accessed without any
+        form of authentication, we do support a form application registration
+        and authentication. Application authentication involves creating and
+        including an application identifier and a request signature and
+        including those values with the request headers.</para>
+
+        <para>To send authenticated request you first need to register an
+        application.</para>
 
         <para>Explain the backstory of application identification and
         authentication.</para>
@@ -125,35 +128,137 @@ Host: us.battle.net
 
         <para>Describe the signing process and the changes in how API requests
         are crafted and made.</para>
+
+        <section>
+          <title>Application Registration</title>
+
+          <para>To send authenticated request you first need to register an
+          application. Because registration isn't automated, we would like to
+          limit application registration to those who meet the following
+          criteria:</para>
+
+          <itemizedlist>
+            <listitem>
+              <para>You plan on making requests from one or more IP addresses,
+              such as a production environment and development
+              environment.</para>
+            </listitem>
+
+            <listitem>
+              <para>You can justify making more than 2,000 requests per day
+              from one or more IP addresses.</para>
+            </listitem>
+
+            <listitem>
+              <para>You operate a fansite and want to ensure that requests to
+              the API come from a specified set of IP addresses for security
+              purposes.</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>Registering an application is a matter of sending information
+          about your application, how you plan on using the API and your
+          contact information to api-support@blizzard.com with the subject
+          "Application Registration Request".</para>
+        </section>
+
+        <section>
+          <title>Authentication Process</title>
+
+          <para>To authentice a request, simple include the "Authorization"
+          header with your application identifier and the request
+          signature.</para>
+
+          <example>
+            <title>An example authenticated request</title>
+
+            <programlisting>GET /api/wow/character/Medivh/Thrall HTTP/1.1
+Host: us.battle.net
+Date: Fri, 10 Jun 2011 20:59:24 GMT
+Authorization: <computeroutput>BNET</computeroutput> <computeroutput>c1fbf21b79c03191d</computeroutput>:<computeroutput>+3fE0RaKc+PqxN0gi8va5GQC35A=</computeroutput></programlisting>
+          </example>
+
+          <para>In the above exmple, the value of the Authorization header has
+          three parts "BNET", "c1fbf21b79c03191d" and
+          "+3fE0RaKc+PqxN0gi8va5GQC35A=". The first part is a processing
+          directive for the Authorization header. The second and third values
+          are the application public key and the request signature. The
+          application public key is assigned by Blizzard during the
+          application registration process. The signature is generated with
+          each request and is discribed as such:</para>
+
+          <programlisting>Authorization = "BNET" + " " + PublicKey + ":" + Signature;
+
+Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
+
+StringToSign = HTTP-Verb + "\n" +
+Date + "\n" +
+UrlPath + "\n";
+
+UrlPath = &lt;HTTP-Request-URI, from the port to the query string&gt;</programlisting>
+
+          <para>The above process can be seen in action by filling in the
+          blanks:</para>
+
+          <programlistingco>
+            <areaspec>
+              <area coords="1" xml:id="public-key"></area>
+
+              <area coords="1" xml:id="signature"></area>
+
+              <area coords="3" xml:id="private-key"></area>
+
+              <area coords="5" xml:id="http-method"></area>
+
+              <area coords="6" xml:id="date"></area>
+            </areaspec>
+
+            <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
+
+Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret", StringToSign ) ) );
+
+StringToSign = "GET" + "\n" +
+"Fri, 10 Jun 2011 21:37:34 GMT" + "\n" +
+UrlPath + "\n";
+
+UrlPath = "/api/wow/realm/status"</programlisting>
+
+            <calloutlist>
+              <callout arearefs="public-key">
+                <para>The public key</para>
+              </callout>
+
+              <callout arearefs="signature">
+                <para>The signature hash</para>
+              </callout>
+
+              <callout arearefs="private-key">
+                <para>The private key</para>
+              </callout>
+
+              <callout arearefs="http-method">
+                <para>The method of the request</para>
+              </callout>
+
+              <callout arearefs="date">
+                <para>The date as per the "Date" header</para>
+              </callout>
+            </calloutlist>
+          </programlistingco>
+        </section>
       </section>
 
       <section>
         <title>Formats and Protocols</title>
 
-        <para>While giving a history of what formats and protocols were
-        supported, list those that are supported now.</para>
-
-        <para>Explain what JSON is and how JSONP can be used.</para>
-      </section>
-
-      <section>
-        <title>Cached Data and Availability</title>
-
-        <para>Explain that not all data is immediately available. Explain that
-        we don’t serve requests asking for data that isn’t immediately
-        available.</para>
-
-        <para>Provide an example of the request-reject process and what
-        try-again means.</para>
+        <para>At this point, the only format that data is provided is
+        JSON.</para>
       </section>
     </section>
   </chapter>
 
   <chapter>
     <title>APIs</title>
-
-    <para>The following sections document the actual API resources and how
-    they are used.</para>
 
     <section>
       <title>Characters</title>
@@ -165,27 +270,216 @@ Host: us.battle.net
         <title>Profile API</title>
 
         <para>The character profile API is the primary way to access character
-        information.</para>
+        information. This character profile API can be used to fetch a single
+        character at a time through an HTTP GET request to a url describing
+        the character profile resource. By default, a basic dataset will be
+        returned and with each request, zero or more additional fields can be
+        retrieved. To access this API, craft a resource URL pointing to the
+        character whos information is to be retrieved.</para>
 
-        <para>Introduction to the resource.</para>
+        <programlisting>URL = "/api/wow/character/" + Realm + "/" + CharacterName
 
-        <para>URL structure and components</para>
+Realm = &lt;proper realm name&gt; | &lt;normalized realm name&gt;</programlisting>
 
-        <para>Required fields</para>
+        <para>There are no required query string parameters when accessing
+        this resource, although the fields query string parameter can
+        optionally be passed to indicate that one or more of the optional
+        datasets is to be retrieved. Those datasets include:</para>
 
-        <para>Optional Fields</para>
+        <variablelist>
+          <varlistentry>
+            <term>guild</term>
 
-        <para>Field definitions</para>
+            <listitem>
+              <para>A summary of the guild that the character belongs to. If
+              the character does not belong to a guild and this field is
+              requested, this field will not be exposed.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Example request</para>
+          <varlistentry>
+            <term>stats</term>
+
+            <listitem>
+              <para>A map of character attributes and stats.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>talents</term>
+
+            <listitem>
+              <para>A list of talent structures.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>items</term>
+
+            <listitem>
+              <para>A list of items equipted by the character. Use of this
+              field will also include the <emphasis>average item
+              level</emphasis> and <emphasis>average item level
+              equipped</emphasis> for the character.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>reputation</term>
+
+            <listitem>
+              <para>A list of the factions that the character has an
+              associated reputation with.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>titles</term>
+
+            <listitem>
+              <para>A list of the titles obtained by the character.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>professions</term>
+
+            <listitem>
+              <para>A list of the character's professions. It is important to
+              note that when this information is retrieved, it will also
+              include the known recipes of each of the listed
+              professions.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>appearance</term>
+
+            <listitem>
+              <para>A map of values that describes the face, features and
+              helm/cloak display preferences and attributes.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>companions</term>
+
+            <listitem>
+              <para>A list of all of the non-combat pets obtained by the
+              character.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>mounts</term>
+
+            <listitem>
+              <para>A list of all of the mounts obtained by the
+              character.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>quests</term>
+
+            <listitem>
+              <para>A list of all of the quests completed by the
+              character.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>pets</term>
+
+            <listitem>
+              <para>A list of all of the combat pets obtained by the
+              character. At this point, we are not exposing pet talent
+              information.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
 
         <para>Example response</para>
 
-        <para>Response description</para>
+        <example>
+          <title>Example request</title>
 
-        <para>Response fields</para>
+          <programlisting>GET /api/wow/character/Medivh/Uther
+Host: us.battle.net</programlisting>
+        </example>
 
-        <para>Error handling</para>
+        <example>
+          <title>Example response</title>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{'realm': 'Medivh', 'name': 'Uther', 'level': 85, 'lastModified': 1307596000000, 'thumbnail': 'medivh/1/1-avatar.jpg',
+'race': 1, 'achievementPoints': 9745, 'gender': 0, 'class': 2}</programlisting>
+        </example>
+
+        <para>The core dataset returned includes the character's realm, name,
+        level, last modified timestamp, thumbnail, race id, achievement points
+        value, gender id and class id.</para>
+
+        <section>
+          <title>Field Descriptions</title>
+
+          <para>This section contains a list of the optional fields that can
+          be requested.</para>
+
+          <section>
+            <title>guild</title>
+
+            <para>When a guild is requested, a map is returned with key/value
+            pairs that describe a basic set of guild information.</para>
+
+            <example>
+              <title>An example guild on Medivh</title>
+
+              <screen>'guild': {
+'emblem': {'borderColor': 'ffffffff', 'border': -1, 'iconColor': 'ffffffb1', 'backgroundColor': 'ffffff91', 'icon': 119},
+'name': 'Roll the Dice',
+'level': 25,
+'achievementPoints': 790,
+'members': 177,
+'realm': 'Medivh'
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>items</title>
+
+            <para>When the items field is used, a map structure is returned
+            that contains information on the equipped items of that character
+            as well as the average item level of the character.</para>
+
+            <example>
+              <title>An example items field</title>
+
+              <screen>'items': {
+'shoulder': {
+'icon': 'inv_shoulder_92',
+'quality': 4,
+'id': 59901,
+'tooltipParams': {
+'gem0': 1785,
+'enchant': 4198,
+'reforge': 128
+},
+'name':
+'Heaving Plates of Protection'},
+'averageItemLevelEquipped': 359,
+'averageItemLevel': 361
+}</screen>
+            </example>
+
+            <para>It is important to note the use of ids when identifying the
+            item and the item attributes and subcomponents, like gems and
+            enchantments.</para>
+          </section>
+        </section>
       </section>
     </section>
 
@@ -277,5 +571,3 @@ Host: us.battle.net
     </section>
   </chapter>
 </book>
-
-
