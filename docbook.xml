@@ -284,122 +284,8 @@ Realm = &lt;proper realm name&gt; | &lt;normalized realm name&gt;</programlistin
         <para>There are no required query string parameters when accessing
         this resource, although the fields query string parameter can
         optionally be passed to indicate that one or more of the optional
-        datasets is to be retrieved. Those datasets include:</para>
-
-        <variablelist>
-          <varlistentry>
-            <term>guild</term>
-
-            <listitem>
-              <para>A summary of the guild that the character belongs to. If
-              the character does not belong to a guild and this field is
-              requested, this field will not be exposed.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>stats</term>
-
-            <listitem>
-              <para>A map of character attributes and stats.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>talents</term>
-
-            <listitem>
-              <para>A list of talent structures.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>items</term>
-
-            <listitem>
-              <para>A list of items equipted by the character. Use of this
-              field will also include the <emphasis>average item
-              level</emphasis> and <emphasis>average item level
-              equipped</emphasis> for the character.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>reputation</term>
-
-            <listitem>
-              <para>A list of the factions that the character has an
-              associated reputation with.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>titles</term>
-
-            <listitem>
-              <para>A list of the titles obtained by the character.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>professions</term>
-
-            <listitem>
-              <para>A list of the character's professions. It is important to
-              note that when this information is retrieved, it will also
-              include the known recipes of each of the listed
-              professions.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>appearance</term>
-
-            <listitem>
-              <para>A map of values that describes the face, features and
-              helm/cloak display preferences and attributes.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>companions</term>
-
-            <listitem>
-              <para>A list of all of the non-combat pets obtained by the
-              character.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>mounts</term>
-
-            <listitem>
-              <para>A list of all of the mounts obtained by the
-              character.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>quests</term>
-
-            <listitem>
-              <para>A list of all of the quests completed by the
-              character.</para>
-            </listitem>
-          </varlistentry>
-
-          <varlistentry>
-            <term>pets</term>
-
-            <listitem>
-              <para>A list of all of the combat pets obtained by the
-              character. At this point, we are not exposing pet talent
-              information.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-
-        <para>Example response</para>
+        datasets is to be retrieved. Those additional fields are listed in the
+        subsection titled "Optional Fields".</para>
 
         <example>
           <title>Example request</title>
@@ -423,10 +309,123 @@ Host: us.battle.net</programlisting>
         value, gender id and class id.</para>
 
         <section>
-          <title>Field Descriptions</title>
+          <title>Optional Fields</title>
 
           <para>This section contains a list of the optional fields that can
           be requested.</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>guild</term>
+
+              <listitem>
+                <para>A summary of the guild that the character belongs to. If
+                the character does not belong to a guild and this field is
+                requested, this field will not be exposed.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>stats</term>
+
+              <listitem>
+                <para>A map of character attributes and stats.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>talents</term>
+
+              <listitem>
+                <para>A list of talent structures.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>items</term>
+
+              <listitem>
+                <para>A list of items equipted by the character. Use of this
+                field will also include the <emphasis>average item
+                level</emphasis> and <emphasis>average item level
+                equipped</emphasis> for the character.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>reputation</term>
+
+              <listitem>
+                <para>A list of the factions that the character has an
+                associated reputation with.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>titles</term>
+
+              <listitem>
+                <para>A list of the titles obtained by the character.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>professions</term>
+
+              <listitem>
+                <para>A list of the character's professions. It is important
+                to note that when this information is retrieved, it will also
+                include the known recipes of each of the listed
+                professions.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>appearance</term>
+
+              <listitem>
+                <para>A map of values that describes the face, features and
+                helm/cloak display preferences and attributes.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>companions</term>
+
+              <listitem>
+                <para>A list of all of the non-combat pets obtained by the
+                character.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>mounts</term>
+
+              <listitem>
+                <para>A list of all of the mounts obtained by the
+                character.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>quests</term>
+
+              <listitem>
+                <para>A list of all of the quests completed by the
+                character.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>pets</term>
+
+              <listitem>
+                <para>A list of all of the combat pets obtained by the
+                character. At this point, we are not exposing pet talent
+                information.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
 
           <section>
             <title>guild</title>
@@ -437,13 +436,21 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example guild on Medivh</title>
 
-              <screen>'guild': {
-'emblem': {'borderColor': 'ffffffff', 'border': -1, 'iconColor': 'ffffffb1', 'backgroundColor': 'ffffff91', 'icon': 119},
-'name': 'Roll the Dice',
-'level': 25,
-'achievementPoints': 790,
-'members': 177,
-'realm': 'Medivh'
+              <screen>{
+  "guild":{
+    "name":"Roll the Dice",
+    "realm":"Medivh",
+    "level":25,
+    "members":177,
+    "achievementPoints":790,
+    "emblem":{
+      "icon":119,
+      "iconColor":"ffffffb1",
+      "border":-1,
+      "borderColor":"ffffffff",
+      "backgroundColor":"ffffff91"
+    }
+  }
 }</screen>
             </example>
           </section>
@@ -458,26 +465,757 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example items field</title>
 
-              <screen>'items': {
-'shoulder': {
-'icon': 'inv_shoulder_92',
-'quality': 4,
-'id': 59901,
-'tooltipParams': {
-'gem0': 1785,
-'enchant': 4198,
-'reforge': 128
-},
-'name':
-'Heaving Plates of Protection'},
-'averageItemLevelEquipped': 359,
-'averageItemLevel': 361
+              <screen>{
+  "items":{
+    "averageItemLevel":361,
+    "averageItemLevelEquipped":359,
+    "head":{
+      "id":63531,
+      "name":"Daybreaker Helm",
+      "icon":"inv_helmet_plate_raiddeathknight_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1813,
+        "gem1":1762,
+        "enchant":4206,
+        "reforge":128
+      }
+    },
+    "neck":{
+      "id":59319,
+      "name":"Ironstar Amulet",
+      "icon":"inv_misc_necklacea3",
+      "quality":4,
+      "tooltipParams":{
+        "reforge":140
+      }
+    },
+    "shoulder":{
+      "id":59901,
+      "name":"Heaving Plates of Protection",
+      "icon":"inv_shoulder_92",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1785,
+        "enchant":4198,
+        "reforge":128
+      }
+    },
+    "back":{
+      "id":62383,
+      "name":"Wrap of the Great Turtle",
+      "icon":"inv_misc_cape_cataclysm_tank_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4090
+      }
+    },
+    "chest":{
+      "id":60354,
+      "name":"Reinforced Sapphirium Chestguard",
+      "icon":"inv_chest_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1785,
+        "enchant":4070,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "reforge":128
+      }
+    },
+    "tabard":{
+      "id":5976,
+      "name":"Guild Tabard",
+      "icon":"inv_shirt_guildtabard_01",
+      "quality":1,
+      "tooltipParams":{
+
+      }
+    },
+    "wrist":{
+      "id":62449,
+      "name":"Sandguard Bracers",
+      "icon":"inv_bracer_plate_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1774,
+        "enchant":4086,
+        "extraSocket":true,
+        "reforge":161
+      }
+    },
+    "hands":{
+      "id":60355,
+      "name":"Reinforced Sapphirium Handguards",
+      "icon":"inv_gauntlets_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1800,
+        "gem1":1774,
+        "enchant":4061,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "extraSocket":true,
+        "reforge":128
+      }
+    },
+    "waist":{
+      "id":63491,
+      "name":"Thunder Wall Belt of the Rockslab",
+      "icon":"inv_belt_plate_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1808,
+        "suffix":-209,
+        "extraSocket":true
+      }
+    },
+    "legs":{
+      "id":60357,
+      "name":"Reinforced Sapphirium Legguards",
+      "icon":"inv_pants_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1774,
+        "enchant":4124,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "reforge":133
+      }
+    },
+    "feet":{
+      "id":65075,
+      "name":"Massacre Treads",
+      "icon":"inv_boots_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1774,
+        "enchant":4094
+      }
+    },
+    "finger1":{
+      "id":63489,
+      "name":"Permafrost Signet of the Bedrock",
+      "icon":"inv_jewelry_ring_86",
+      "quality":4,
+      "tooltipParams":{
+        "suffix":-125,
+        "seed":1977024874,
+        "reforge":128
+      }
+    },
+    "finger2":{
+      "id":58187,
+      "name":"Ring of the Battle Anthem",
+      "icon":"inv_jewelry_ring_82",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "trinket1":{
+      "id":62471,
+      "name":"Mirror of Broken Images",
+      "icon":"inv_misc_platnumdisks",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "trinket2":{
+      "id":59515,
+      "name":"Vial of Stolen Memories",
+      "icon":"inv_misc_cat_trinket02",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "mainHand":{
+      "id":59347,
+      "name":"Mace of Acrid Death",
+      "icon":"inv_mace_1h_bwdraid_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4098,
+        "reforge":128
+      }
+    },
+    "offHand":{
+      "id":67145,
+      "name":"Blockade's Lost Shield",
+      "icon":"inv_shield_grimbatolraid_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4085,
+        "reforge":128
+      }
+    },
+    "ranged":{
+      "id":64676,
+      "name":"Relic of Khaz'goroth",
+      "icon":"inv_misc_stonetablet_03",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1808
+      }
+    }
+  }
 }</screen>
             </example>
 
             <para>It is important to note the use of ids when identifying the
             item and the item attributes and subcomponents, like gems and
             enchantments.</para>
+          </section>
+
+          <section>
+            <title>stats</title>
+
+            <para><remark>NKG: Fill in an caveats or quirks in accessing
+            stats. Mention lack of base stat.</remark></para>
+
+            <example>
+              <title>An example stats field</title>
+
+              <screen>{
+  "stats":{
+    "health":155263,
+    "powerType":"mana",
+    "power":24732,
+    "str":3395,
+    "agi":142,
+    "sta":8017,
+    "int":106,
+    "spr":117,
+    "attackPower":7025,
+    "rangedAttackPower":0,
+    "mastery":23.26104,
+    "masteryRating":2736,
+    "crit":1.351225,
+    "critRating":0,
+    "hitRating":58,
+    "hasteRating":0,
+    "expertiseRating":238,
+    "spellPower":2133,
+    "spellPen":0,
+    "spellCrit":3.498852,
+    "spellCritRating":0,
+    "mana5":1191.0,
+    "mana5Combat":1170.0,
+    "armor":36505,
+    "dodge":12.206712,
+    "dodgeRating":1565,
+    "parry":13.33957,
+    "parryRating":1614,
+    "block":57.335938,
+    "blockRating":0,
+    "resil":0,
+    "mainHandDmgMin":2146.0,
+    "mainHandDmgMax":2868.0,
+    "mainHandSpeed":2.6,
+    "mainHandDps":964.1704,
+    "mainHandExpertise":10,
+    "offHandDmgMin":0.0,
+    "offHandDmgMax":0.0,
+    "offHandSpeed":2.0,
+    "offHandDps":0.0,
+    "offHandExpertise":7,
+    "rangedDmgMin":-1.0,
+    "rangedDmgMax":-1.0,
+    "rangedSpeed":-1.0,
+    "rangedDps":-1.0,
+    "rangedCrit":1.351225,
+    "rangedCritRating":0,
+    "rangedHitRating":58
+  }
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>talents</title>
+
+            <para><remark>NKG: Make note of known glyphs not being
+            listed.</remark></para>
+
+            <example>
+              <title>An example talents field</title>
+
+              <screen>{
+  "talents":[
+    {
+      "selected":true,
+      "name":"Protection",
+      "icon":"ability_paladin_shieldofthetemplar",
+      "build":"000000000000000000003222300312110112123103203200000000000000",
+      "trees":[
+        {
+          "points":"00000000000000000000",
+          "total":0
+        },
+        {
+          "points":"32223003121101121231",
+          "total":31
+        },
+        {
+          "points":"03203200000000000000",
+          "total":10
+        }
+      ],
+      "glyphs":{
+        "prime":[
+          {
+            "glyph":195,
+            "item":41105,
+            "name":"Glyph of Word of Glory",
+            "icon":"inv_helmet_96"
+          },
+          {
+            "glyph":704,
+            "item":45744,
+            "name":"Glyph of Shield of the Righteous",
+            "icon":"ability_paladin_shieldofvengeance"
+          },
+          {
+            "glyph":561,
+            "item":43869,
+            "name":"Glyph of Seal of Truth",
+            "icon":"spell_holy_sealofvengeance"
+          }
+        ],
+        "major":[
+          {
+            "glyph":197,
+            "item":41107,
+            "name":"Glyph of the Ascetic Crusader",
+            "icon":"spell_holy_crusaderstrike"
+          },
+          {
+            "glyph":559,
+            "item":43867,
+            "name":"Glyph of Holy Wrath",
+            "icon":"spell_holy_purifyingpower"
+          },
+          {
+            "glyph":189,
+            "item":41099,
+            "name":"Glyph of Consecration",
+            "icon":"spell_holy_innerfire"
+          }
+        ],
+        "minor":[
+          {
+            "glyph":456,
+            "item":43368,
+            "name":"Glyph of Truth",
+            "icon":"spell_holy_sealofvengeance"
+          },
+          {
+            "glyph":453,
+            "item":43340,
+            "name":"Glyph of Blessing of Might",
+            "icon":"spell_holy_greaterblessingofkings"
+          },
+          {
+            "glyph":454,
+            "item":43366,
+            "name":"Glyph of Insight",
+            "icon":"spell_holy_healingaura"
+          }
+        ]
+      }
+    },
+    {
+      "name":"Protection",
+      "icon":"ability_paladin_shieldofthetemplar",
+      "build":"002000000000000000003202302312212110123103202000000000000000",
+      "trees":[
+        {
+          "points":"00200000000000000000",
+          "total":2
+        },
+        {
+          "points":"32023023122121101231",
+          "total":32
+        },
+        {
+          "points":"03202000000000000000",
+          "total":7
+        }
+      ],
+      "glyphs":{
+        "prime":[
+          {
+            "glyph":704,
+            "item":45744,
+            "name":"Glyph of Shield of the Righteous",
+            "icon":"ability_paladin_shieldofvengeance"
+          },
+          {
+            "glyph":183,
+            "item":41092,
+            "name":"Glyph of Judgement",
+            "icon":"spell_holy_righteousfury"
+          },
+          {
+            "glyph":702,
+            "item":45742,
+            "name":"Glyph of Hammer of the Righteous",
+            "icon":"ability_paladin_hammeroftherighteous"
+          }
+        ],
+        "major":[
+          {
+            "glyph":559,
+            "item":43867,
+            "name":"Glyph of Holy Wrath",
+            "icon":"spell_holy_purifyingpower"
+          },
+          {
+            "glyph":189,
+            "item":41099,
+            "name":"Glyph of Consecration",
+            "icon":"spell_holy_innerfire"
+          },
+          {
+            "glyph":560,
+            "item":43868,
+            "name":"Glyph of Dazing Shield",
+            "icon":"spell_holy_avengersshield"
+          }
+        ],
+        "minor":[
+          {
+            "glyph":454,
+            "item":43366,
+            "name":"Glyph of Insight",
+            "icon":"spell_holy_healingaura"
+          },
+          {
+            "glyph":456,
+            "item":43368,
+            "name":"Glyph of Truth",
+            "icon":"spell_holy_sealofvengeance"
+          },
+          {
+            "glyph":190,
+            "item":41100,
+            "name":"Glyph of Righteousness",
+            "icon":"spell_holy_righteousnessaura"
+          }
+        ]
+      }
+    }
+  ]
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>reputation</title>
+
+            <para><remark>NKG: Note that the following example was shortened
+            because this list can be quite long.</remark></para>
+
+            <example>
+              <title>An example reputation field</title>
+
+              <screen>{
+  "reputation":[
+    {
+      "id":369,
+      "name":"Gadgetzan",
+      "standing":5,
+      "value":10740,
+      "max":12000
+    },
+    {
+      "id":576,
+      "name":"Timbermaw Hold",
+      "standing":7,
+      "value":572,
+      "max":999
+    },
+    {
+      "id":470,
+      "name":"Ratchet",
+      "standing":5,
+      "value":10501,
+      "max":12000
+    },
+    {
+      "id":59,
+      "name":"Thorium Brotherhood",
+      "standing":7,
+      "value":240,
+      "max":999
+    },
+    {
+      "id":1050,
+      "name":"Valiance Expedition",
+      "standing":7,
+      "value":999,
+      "max":999
+    }
+  ]
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>titles</title>
+
+            <para></para>
+
+            <example>
+              <title>An example titles field</title>
+
+              <screen>{
+  "titles":[
+    {
+      "id":62,
+      "name":"Merciless Gladiator %s"
+    },
+    {
+      "id":79,
+      "name":"%s the Diplomat"
+    },
+    {
+      "id":72,
+      "name":"Battlemaster %s"
+    },
+    {
+      "id":48,
+      "name":"Justicar %s",
+      "selected":true
+    },
+    {
+      "id":80,
+      "name":"Brutal Gladiator %s"
+    },
+    {
+      "id":53,
+      "name":"%s, Champion of the Naaru"
+    },
+    {
+      "id":78,
+      "name":"%s the Explorer"
+    },
+    {
+      "id":42,
+      "name":"Gladiator %s"
+    },
+    {
+      "id":83,
+      "name":"Salty %s"
+    },
+    {
+      "id":90,
+      "name":"%s the Malefic"
+    }
+  ]
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>professions</title>
+
+            <para><remark>NKG: Note that archaeology is still being worked on
+            and some data for it will be missing.</remark></para>
+
+            <example>
+              <title>An example professions field</title>
+
+              <screen>{
+  "professions":{
+    "primary":[
+      {
+        "id":755,
+        "name":"Jewelcrafting",
+        "icon":"inv_misc_gem_01",
+        "rank":525,
+        "max":525,
+        "recipes":[
+          25255,
+          25278,
+          25280,
+          25283,
+          25284,
+          25287
+        ]
+      },
+      {
+        "id":164,
+        "name":"Blacksmithing",
+        "icon":"trade_blacksmithing",
+        "rank":525,
+        "max":525,
+        "recipes":[
+          2660,
+          2661,
+          2662,
+          2663,
+          2664
+        ]
+      }
+    ],
+    "secondary":[
+      {
+        "id":129,
+        "name":"First Aid",
+        "icon":"spell_holy_sealofsacrifice",
+        "rank":525,
+        "max":525,
+        "recipes":[
+          3275,
+          3276,
+          3277,
+          3278,
+          7928
+        ]
+      },
+      {
+        "id":794,
+        "name":"Archaeology",
+        "icon":"trade_archaeology",
+        "rank":406,
+        "max":450,
+        "recipes":[ ]
+      },
+      {
+        "id":356,
+        "name":"Fishing",
+        "icon":"trade_fishing",
+        "rank":492,
+        "max":525,
+        "recipes":[ ]
+      },
+      {
+        "id":185,
+        "name":"Cooking",
+        "icon":"inv_misc_food_15",
+        "rank":525,
+        "max":525,
+        "recipes":[
+          2538,
+          2539,
+          2540,
+          2541,
+          2542
+        ]
+      }
+    ]
+  }
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>appearance</title>
+
+            <para></para>
+
+            <example>
+              <title>An example appearance field</title>
+
+              <screen>{
+  "appearance":{
+    "faceVariation":2,
+    "skinColor":0,
+    "hairVariation":1,
+    "hairColor":8,
+    "featureVariation":2,
+    "showHelm":true,
+    "showCloak":true
+  }
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>companions</title>
+
+            <para></para>
+
+            <example>
+              <title>An example companions field</title>
+
+              <screen>{
+  "companions":[
+    4055,
+    10673,
+    10674,
+    10676,
+    10677
+  ]
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>mounts</title>
+
+            <para></para>
+
+            <example>
+              <title>An example mounts field</title>
+
+              <screen>{
+  "mounts":[
+    30174
+  ]
+}</screen>
+            </example>
+          </section>
+
+          <section>
+            <title>pets</title>
+
+            <para></para>
+
+            <example>
+              <title>An example pets field</title>
+
+              <screen>{
+  "pets":[
+    {
+      "name":"Wolf",
+      "creature":17280,
+      "selected":true,
+      "slot":0
+    },
+    {
+      "name":"Bear",
+      "creature":29319,
+      "slot":8
+    },
+    {
+      "name":"Kat",
+      "creature":28404,
+      "slot":7
+    },
+    {
+      "name":"Cat",
+      "creature":2071,
+      "slot":6
+    }
+  ]
+}</screen>
+            </example>
           </section>
         </section>
       </section>
@@ -570,4 +1308,19 @@ Host: us.battle.net</programlisting>
       may not want public discussion of</para>
     </section>
   </chapter>
+
+  <article>
+    <title>API Changes</title>
+
+    <revhistory>
+      <revision>
+        <date>2011-06-2011</date>
+
+        <revdescription>
+          <para>Initial draft</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </article>
 </book>
+
