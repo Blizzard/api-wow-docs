@@ -200,20 +200,7 @@ UrlPath = &lt;HTTP-Request-URI, from the port to the query string&gt;</programli
           <para>The above process can be seen in action by filling in the
           blanks:</para>
 
-          <programlistingco>
-            <areaspec>
-              <area coords="1" xml:id="public-key"></area>
-
-              <area coords="1" xml:id="signature"></area>
-
-              <area coords="3" xml:id="private-key"></area>
-
-              <area coords="5" xml:id="http-method"></area>
-
-              <area coords="6" xml:id="date"></area>
-            </areaspec>
-
-            <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
+          <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
 
 Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret", StringToSign ) ) );
 
@@ -222,29 +209,6 @@ StringToSign = "GET" + "\n" +
 UrlPath + "\n";
 
 UrlPath = "/api/wow/realm/status"</programlisting>
-
-            <calloutlist>
-              <callout arearefs="public-key">
-                <para>The public key</para>
-              </callout>
-
-              <callout arearefs="signature">
-                <para>The signature hash</para>
-              </callout>
-
-              <callout arearefs="private-key">
-                <para>The private key</para>
-              </callout>
-
-              <callout arearefs="http-method">
-                <para>The method of the request</para>
-              </callout>
-
-              <callout arearefs="date">
-                <para>The date as per the "Date" header</para>
-              </callout>
-            </calloutlist>
-          </programlistingco>
         </section>
       </section>
 
@@ -1284,19 +1248,34 @@ Host: us.battle.net</programlisting>
 
       <para>Provide some example caching timelines for the documented
       resources.</para>
+
+      <remark>NKG: Developers are encouraged to use a 2 week cache window
+      unless user activity indicates that data needs to be refreshed.</remark>
     </section>
 
     <section>
       <title>Throttling</title>
 
-      <para>Explain that throttling should be implemented by API consumers and
-      why.</para>
+      <para>Throttling is something that is important to healthy communities.
+      In a perfect world, there would be no throttles or limitations of how
+      much data could be fetched and how often, but unfortunately we don't
+      live in such a world. Programs have bugs, hackers launch denial of
+      service attacks and servers can generally become overwhelmed with
+      requests. We've put a lot of thought into request and access patterns
+      and have a throttling model that helps support the bursty traffic
+      patterns that developers often have to deal with.</para>
 
-      <para>Document the limitations we set on requests.</para>
+      <para>The throttling limits are pretty straightforward and easy to
+      handle. As an anonymous application you can make up to 3,000 requests
+      per day without being throttled. This basically means that if you've got
+      a website on a single machine, you can make up to 3,000 requests from
+      midnight to midnight without your requests being denied. Once you hit
+      that ceiling, any further requests will be denied and you should
+      failoever to stale data or queuing requests for the next day. Registered
+      applications, as described in the first chapter of this documentation,
+      are afforded a larger number of requests.</para>
 
-      <para>Describe what happens when an application crosses the line.</para>
-
-      <para>Example error response</para>
+      <remark>NKG: Fill in example error response</remark>
     </section>
 
     <section>
