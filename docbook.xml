@@ -391,7 +391,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example guild on Medivh</title>
 
-              <screen>{
+              <programlisting>{
   "guild":{
     "name":"Roll the Dice",
     "realm":"Medivh",
@@ -406,7 +406,7 @@ Host: us.battle.net</programlisting>
       "backgroundColor":"ffffff91"
     }
   }
-}</screen>
+}</programlisting>
             </example>
           </section>
 
@@ -420,7 +420,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example items field</title>
 
-              <screen><xi:include href="items.json" parse="text" /></screen>
+              <programlisting><xi:include href="items.json" parse="text" /></programlisting>
             </example>
 
             <para>It is important to note the use of ids when identifying the
@@ -437,7 +437,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example stats field</title>
 
-              <screen><xi:include href="stats.json" parse="text" /></screen>
+              <programlisting><xi:include href="stats.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -450,7 +450,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example talents field</title>
 
-              <screen><xi:include href="talents.json" parse="text" /></screen>
+              <programlisting><xi:include href="talents.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -463,7 +463,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example reputation field</title>
 
-              <screen><xi:include href="reputation.json" parse="text" /></screen>
+              <programlisting><xi:include href="reputation.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -475,7 +475,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example titles field</title>
 
-              <screen><xi:include href="titles.json" parse="text" /></screen>
+              <programlisting><xi:include href="titles.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -488,7 +488,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example professions field</title>
 
-              <screen><xi:include href="professions.json" parse="text" /></screen>
+              <programlisting><xi:include href="professions.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -500,7 +500,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example appearance field</title>
 
-              <screen>{
+              <programlisting>{
   "appearance":{
     "faceVariation":2,
     "skinColor":0,
@@ -510,7 +510,7 @@ Host: us.battle.net</programlisting>
     "showHelm":true,
     "showCloak":true
   }
-}</screen>
+}</programlisting>
             </example>
           </section>
 
@@ -522,7 +522,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example companions field</title>
 
-              <screen>{
+              <programlisting>{
   "companions":[
     4055,
     10673,
@@ -530,7 +530,7 @@ Host: us.battle.net</programlisting>
     10676,
     10677
   ]
-}</screen>
+}</programlisting>
             </example>
           </section>
 
@@ -542,11 +542,11 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example mounts field</title>
 
-              <screen>{
+              <programlisting>{
   "mounts":[
     30174
   ]
-}</screen>
+}</programlisting>
             </example>
           </section>
 
@@ -558,7 +558,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example pets field</title>
 
-              <screen>{
+              <programlisting>{
   "pets":[
     {
       "name":"Wolf",
@@ -582,7 +582,7 @@ Host: us.battle.net</programlisting>
       "slot":6
     }
   ]
-}</screen>
+}</programlisting>
             </example>
           </section>
         </section>
@@ -670,7 +670,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example members block</title>
 
-              <screen><xi:include href="guild-members.json" parse="text" /></screen>
+              <programlisting><xi:include href="guild-members.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
@@ -776,11 +777,11 @@ Host: us.battle.net</programlisting>
         <example>
           <title>An example request and response</title>
 
-          <screen>GET /api/wow/realm/status?realms=Medivh,Lightbringer HTTP/1.1
+          <programlisting>GET /api/wow/realm/status?realms=Medivh,Lightbringer HTTP/1.1
 Host: us.battle.net
-&lt;http headers&gt;</screen>
+&lt;http headers&gt;</programlisting>
 
-          <screen>HTTP/1.1 200 OK
+          <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
 {
@@ -802,7 +803,7 @@ Host: us.battle.net
       "slug":"medivh"
     }
   ]
-}</screen>
+}</programlisting>
         </example>
       </section>
     </section>
@@ -819,6 +820,8 @@ Host: us.battle.net
 
         <para>The character races data API provides a list of character
         races.</para>
+
+        <programlisting>URL = "/api/wow/data/character/races"</programlisting>
       </section>
 
       <section>
@@ -826,6 +829,8 @@ Host: us.battle.net
 
         <para>The character classes data API provides a list of character
         classes.</para>
+
+        <programlisting>URL = "/api/wow/data/character/classes"</programlisting>
       </section>
 
       <section>
@@ -833,6 +838,8 @@ Host: us.battle.net
 
         <para>The guild rewards data API provides a list of all guild
         rewards.</para>
+
+        <programlisting>URL = "/api/wow/data/guild/rewards"</programlisting>
       </section>
 
       <section>
@@ -840,6 +847,79 @@ Host: us.battle.net
 
         <para>The guild perks data API provides a list of all guild
         perks.</para>
+
+        <programlisting>URL = "/api/wow/data/guild/perks"</programlisting>
+      </section>
+
+      <section>
+        <title>Items</title>
+
+        <para>The items data API provides detailed item information.</para>
+
+        <programlisting>URL = "/api/wow/data/item/" + ItemId</programlisting>
+
+        <example>
+          <title>An example item data API request and response</title>
+
+          <programlisting>GET /api/wow/data/item/38268 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "id":38268,
+  "disenchantingSkillRank":-1,
+  "description":"Give to a Friend",
+  "name":"Spare Hand",
+  "stackable":1,
+  "itemBind":{
+    "id":0
+  },
+  "bonusStats":[],
+  "itemSpells":[],
+  "buyPrice":12,
+  "itemClass":{
+    "class":2,
+    "name":"Weapon"
+  },
+  "itemSubClass":{
+    "subclassId":14,
+    "name":"Miscellaneous"
+  },
+  "containerSlots":0,
+  "weaponInfo":{
+    "damage":[
+      {
+        "minDamage":1,
+        "maxDamage":2
+      }
+    ],
+    "weaponSpeed":2.5,
+    "dps":0.6
+  },
+  "inventoryType":13,
+  "equippable":true,
+  "itemLevel":1,
+  "maxCount":0,
+  "maxDurability":16,
+  "minFactionId":0,
+  "minReputation":0,
+  "quality":0,
+  "sellPrice":2,
+  "requiredLevel":70,
+  "requiredSkill":0,
+  "requiredSkillRank":0,
+  "itemSource":{
+    "sourceId":0,
+    "sourceType":"NONE"
+  },
+  "baseArmor":0,
+  "hasSockets":false,
+  "isAuctionable":true
+}</programlisting>
+        </example>
       </section>
     </section>
   </chapter>
@@ -891,10 +971,14 @@ Host: us.battle.net
     <section>
       <title>Support</title>
 
-      <para>Use the forums for your questions and feedback.</para>
+      <para>Use the forums for your questions and feedback. We currently
+      maintain a developer community forum as part of the US World of Warcraft
+      community site.</para>
+
+      <address><link xlink:href="http://us.battle.net/wow/en/forum/2626217/">http://us.battle.net/wow/en/forum/2626217/</link></address>
 
       <para>You can also email api-support@blizzard.com for matters that you
-      may not want public discussion of</para>
+      may not want public discussion of.</para>
     </section>
   </chapter>
 
