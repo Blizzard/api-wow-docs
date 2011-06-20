@@ -6,6 +6,7 @@ as part of the World of Warcraft community site.
 
 # Building documentation
 
-    $ xsltproc /path/to/docbook.xsl docbook.xml  > output/index.html
+    $ xmllint --xinclude docbook.xml > docbook-a.xml
+    $ xsltproc /path/to/docbook.xsl docbook-a.xml  > output/index.html
 
 

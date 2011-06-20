@@ -1,0 +1,39 @@
+{
+  "reputation":[
+    {
+      "id":369,
+      "name":"Gadgetzan",
+      "standing":5,
+      "value":10740,
+      "max":12000
+    },
+    {
+      "id":576,
+      "name":"Timbermaw Hold",
+      "standing":7,
+      "value":572,
+      "max":999
+    },
+    {
+      "id":470,
+      "name":"Ratchet",
+      "standing":5,
+      "value":10501,
+      "max":12000
+    },
+    {
+      "id":59,
+      "name":"Thorium Brotherhood",
+      "standing":7,
+      "value":240,
+      "max":999
+    },
+    {
+      "id":1050,
+      "name":"Valiance Expedition",
+      "standing":7,
+      "value":999,
+      "max":999
+    }
+  ]
+}

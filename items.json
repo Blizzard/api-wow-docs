@@ -1,0 +1,209 @@
+{
+  "items":{
+    "averageItemLevel":361,
+    "averageItemLevelEquipped":359,
+    "head":{
+      "id":63531,
+      "name":"Daybreaker Helm",
+      "icon":"inv_helmet_plate_raiddeathknight_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1813,
+        "gem1":1762,
+        "enchant":4206,
+        "reforge":128
+      }
+    },
+    "neck":{
+      "id":59319,
+      "name":"Ironstar Amulet",
+      "icon":"inv_misc_necklacea3",
+      "quality":4,
+      "tooltipParams":{
+        "reforge":140
+      }
+    },
+    "shoulder":{
+      "id":59901,
+      "name":"Heaving Plates of Protection",
+      "icon":"inv_shoulder_92",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1785,
+        "enchant":4198,
+        "reforge":128
+      }
+    },
+    "back":{
+      "id":62383,
+      "name":"Wrap of the Great Turtle",
+      "icon":"inv_misc_cape_cataclysm_tank_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4090
+      }
+    },
+    "chest":{
+      "id":60354,
+      "name":"Reinforced Sapphirium Chestguard",
+      "icon":"inv_chest_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1785,
+        "enchant":4070,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "reforge":128
+      }
+    },
+    "tabard":{
+      "id":5976,
+      "name":"Guild Tabard",
+      "icon":"inv_shirt_guildtabard_01",
+      "quality":1,
+      "tooltipParams":{
+
+      }
+    },
+    "wrist":{
+      "id":62449,
+      "name":"Sandguard Bracers",
+      "icon":"inv_bracer_plate_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1774,
+        "enchant":4086,
+        "extraSocket":true,
+        "reforge":161
+      }
+    },
+    "hands":{
+      "id":60355,
+      "name":"Reinforced Sapphirium Handguards",
+      "icon":"inv_gauntlets_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1800,
+        "gem1":1774,
+        "enchant":4061,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "extraSocket":true,
+        "reforge":128
+      }
+    },
+    "waist":{
+      "id":63491,
+      "name":"Thunder Wall Belt of the Rockslab",
+      "icon":"inv_belt_plate_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1808,
+        "suffix":-209,
+        "extraSocket":true
+      }
+    },
+    "legs":{
+      "id":60357,
+      "name":"Reinforced Sapphirium Legguards",
+      "icon":"inv_pants_plate_raidpaladin_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1758,
+        "gem1":1774,
+        "enchant":4124,
+        "set":[
+          60355,
+          60357,
+          60354
+        ],
+        "reforge":133
+      }
+    },
+    "feet":{
+      "id":65075,
+      "name":"Massacre Treads",
+      "icon":"inv_boots_raidwarrior_i_01",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1774,
+        "enchant":4094
+      }
+    },
+    "finger1":{
+      "id":63489,
+      "name":"Permafrost Signet of the Bedrock",
+      "icon":"inv_jewelry_ring_86",
+      "quality":4,
+      "tooltipParams":{
+        "suffix":-125,
+        "seed":1977024874,
+        "reforge":128
+      }
+    },
+    "finger2":{
+      "id":58187,
+      "name":"Ring of the Battle Anthem",
+      "icon":"inv_jewelry_ring_82",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "trinket1":{
+      "id":62471,
+      "name":"Mirror of Broken Images",
+      "icon":"inv_misc_platnumdisks",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "trinket2":{
+      "id":59515,
+      "name":"Vial of Stolen Memories",
+      "icon":"inv_misc_cat_trinket02",
+      "quality":4,
+      "tooltipParams":{
+
+      }
+    },
+    "mainHand":{
+      "id":59347,
+      "name":"Mace of Acrid Death",
+      "icon":"inv_mace_1h_bwdraid_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4098,
+        "reforge":128
+      }
+    },
+    "offHand":{
+      "id":67145,
+      "name":"Blockade's Lost Shield",
+      "icon":"inv_shield_grimbatolraid_d_01",
+      "quality":4,
+      "tooltipParams":{
+        "enchant":4085,
+        "reforge":128
+      }
+    },
+    "ranged":{
+      "id":64676,
+      "name":"Relic of Khaz'goroth",
+      "icon":"inv_misc_stonetablet_03",
+      "quality":4,
+      "tooltipParams":{
+        "gem0":1808
+      }
+    }
+  }
+}
