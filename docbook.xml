@@ -419,8 +419,7 @@ Host: us.battle.net</programlisting>
 
             <example>
               <title>An example items field</title>
-
-              <programlisting><xi:include href="items.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="character-items.json" parse="text" /></programlisting>
             </example>
 
             <para>It is important to note the use of ids when identifying the
@@ -437,7 +436,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example stats field</title>
 
-              <programlisting><xi:include href="stats.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="character-stats.json" parse="text" /></programlisting>
+
             </example>
           </section>
 
@@ -449,8 +449,8 @@ Host: us.battle.net</programlisting>
 
             <example>
               <title>An example talents field</title>
+              <programlisting><xi:include href="character-talents.json" parse="text" /></programlisting>
 
-              <programlisting><xi:include href="talents.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -463,7 +463,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example reputation field</title>
 
-              <programlisting><xi:include href="reputation.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="character-reputation.json" parse="text" /></programlisting>
+
             </example>
           </section>
 
@@ -475,7 +476,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example titles field</title>
 
-              <programlisting><xi:include href="titles.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="character-titles.json" parse="text" /></programlisting>
+
             </example>
           </section>
 
@@ -488,7 +490,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example professions field</title>
 
-              <programlisting><xi:include href="professions.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="character-professions.json" parse="text" /></programlisting>
+
             </example>
           </section>
 
@@ -746,8 +749,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example achievements block</title>
 
-              <programlisting><xi:include href="guild-achievements.json"
-                  parse="text" /></programlisting>
+              <programlisting><xi:include href="guild-achievements.json" parse="text" /></programlisting>
             </example>
           </section>
         </section>
@@ -987,7 +989,7 @@ Host: us.battle.net
 
     <revhistory>
       <revision>
-        <date>2011-06-2011</date>
+        <date>10-06-2011</date>
 
         <revdescription>
           <para>Initial draft</para>
