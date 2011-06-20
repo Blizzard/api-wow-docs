@@ -372,15 +372,6 @@ Host: us.battle.net</programlisting>
             </varlistentry>
 
             <varlistentry>
-              <term>quests</term>
-
-              <listitem>
-                <para>A list of all of the quests completed by the
-                character.</para>
-              </listitem>
-            </varlistentry>
-
-            <varlistentry>
               <term>pets</term>
 
               <listitem>
@@ -429,7 +420,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example items field</title>
 
-              <screen><xi:include href="items.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="items.json" parse="text" /></screen>
             </example>
 
             <para>It is important to note the use of ids when identifying the
@@ -446,7 +437,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example stats field</title>
 
-              <screen><xi:include href="stats.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="stats.json" parse="text" /></screen>
             </example>
           </section>
 
@@ -459,7 +450,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example talents field</title>
 
-              <screen><xi:include href="talents.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="talents.json" parse="text" /></screen>
             </example>
           </section>
 
@@ -472,7 +463,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example reputation field</title>
 
-              <screen><xi:include href="reputation.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="reputation.json" parse="text" /></screen>
             </example>
           </section>
 
@@ -484,7 +475,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example titles field</title>
 
-              <screen><xi:include href="titles.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="titles.json" parse="text" /></screen>
             </example>
           </section>
 
@@ -497,7 +488,7 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example professions field</title>
 
-              <screen><xi:include href="professions.json" parse="text" xmlns:xi="http://www.w3.org/2001/XInclude" /></screen>
+              <screen><xi:include href="professions.json" parse="text" /></screen>
             </example>
           </section>
 
@@ -602,12 +593,218 @@ Host: us.battle.net</programlisting>
       <title>Guilds</title>
 
       <para>Guild APIs currently provide guild profile information.</para>
+
+      <section>
+        <title>Profile API</title>
+
+        <para>The guild profile API is the primary way to access guild
+        information. This guild profile API can be used to fetch a single
+        guild at a time through an HTTP GET request to a url describing the
+        guild profile resource. By default, a basic dataset will be returned
+        and with each request, zero or more additional fields can be
+        retrieved. To access this API, craft a resource URL pointing to the
+        character whos information is to be retrieved.</para>
+
+        <programlisting>URL = "/api/wow/guild/" + Realm + "/" + GuildName
+
+Realm = &lt;proper realm name&gt; | &lt;normalized realm name&gt;</programlisting>
+
+        <para>There are no required query string parameters when accessing
+        this resource, although the fields query string parameter can
+        optionally be passed to indicate that one or more of the optional
+        datasets is to be retrieved. Those additional fields are listed in the
+        subsection titled "Optional Fields".</para>
+
+        <example>
+          <title>Example request</title>
+
+          <programlisting>GET /api/wow/guild/Medivh/Roll the Dice
+Host: us.battle.net</programlisting>
+        </example>
+
+        <example>
+          <title>Example response</title>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{ "name":"Roll the Dice", "level":25, "side":"alliance", "achievementPoints":800 }</programlisting>
+        </example>
+
+        <para>The core dataset returned includes the guild's name, level,
+        faction and achievement points.</para>
+
+        <section>
+          <title>Optional Fields</title>
+
+          <para>This section contains a list of the optional fields that can
+          be requested.</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>members</term>
+
+              <listitem>
+                <para>A list of characters that are a member of the
+                guild</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>achievements</term>
+
+              <listitem>
+                <para>A set of data structures that describe the achievements
+                earned by the guild.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+
+          <section>
+            <title>members</title>
+
+            <para>When the members list is requrested, a list of character
+            objects is returned. Each object in the returned members list
+            contains a character block as well as a rank field.</para>
+
+            <example>
+              <title>An example members block</title>
+
+              <screen><xi:include href="guild-members.json" parse="text" /></screen>
+            </example>
+          </section>
+
+          <section>
+            <title>achievements</title>
+
+            <para>When requesting achievement data, several sets of data will
+            be returned.</para>
+
+            <variablelist>
+              <varlistentry>
+                <term>achievementsCompleted</term>
+
+                <listitem>
+                  <para>A list of achievement ids.</para>
+                </listitem>
+              </varlistentry>
+
+              <varlistentry>
+                <term>achievementsCompletedTimestamp</term>
+
+                <listitem>
+                  <para>A list of timestamps whose places corrospond to the
+                  achievement ids in the "achievementsCompleted" list. The
+                  value of each timestamp indicates when the related
+                  achievement was earned by the guild.</para>
+                </listitem>
+              </varlistentry>
+
+              <varlistentry>
+                <term>criteria</term>
+
+                <listitem>
+                  <para>A list of criteria ids that can be used to determine
+                  the partial completedness of guild achievements.</para>
+                </listitem>
+              </varlistentry>
+
+              <varlistentry>
+                <term>criteriaQuantity</term>
+
+                <listitem>
+                  <para>A list of values associated with a given achievement
+                  criteria. The position of a value corrosponds to the
+                  position of a given achivement criteria.</para>
+                </listitem>
+              </varlistentry>
+
+              <varlistentry>
+                <term>criteriaTimestamp</term>
+
+                <listitem>
+                  <para>A list of timestamps where the value represents when
+                  the criteria was considered complete. The position of a
+                  value corrosponds to the position of a given achivement
+                  criteria.</para>
+                </listitem>
+              </varlistentry>
+
+              <varlistentry>
+                <term>criteriaCreated</term>
+
+                <listitem>
+                  <para>A list of timestamps where the value represents when
+                  the criteria was considered started. The position of a value
+                  corrosponds to the position of a given achivement
+                  criteria.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+
+            <example>
+              <title>An example achievements block</title>
+
+              <programlisting><xi:include href="guild-achievements.json"
+                  parse="text" /></programlisting>
+            </example>
+          </section>
+        </section>
+      </section>
     </section>
 
     <section>
       <title>Realms</title>
 
       <para>Realm APIs currently provide realm status information.</para>
+
+      <section>
+        <title>Realm Status</title>
+
+        <para>The realm status API allows developers to retrieve realm status
+        information. This information is limited to whether or not the realm
+        is up, the type and state of the realm and the current
+        population.</para>
+
+        <programlisting>URL = "/api/wow/realm/status"</programlisting>
+
+        <para>There are no required query string parameters when accessing
+        this resource, although the realms query string parameter can
+        optionally be passed to limit the realms returned to one or
+        more.</para>
+
+        <example>
+          <title>An example request and response</title>
+
+          <screen>GET /api/wow/realm/status?realms=Medivh,Lightbringer HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</screen>
+
+          <screen>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "realms":[
+    {
+      "type":"pve",
+      "queue":false,
+      "status":true,
+      "population":"high",
+      "name":"Lightbringer",
+      "slug":"lightbringer"
+    },
+    {
+      "type":"pve",
+      "queue":false,
+      "status":true,
+      "population":"medium",
+      "name":"Medivh",
+      "slug":"medivh"
+    }
+  ]
+}</screen>
+        </example>
+      </section>
     </section>
 
     <section>
@@ -715,4 +912,3 @@ Host: us.battle.net</programlisting>
     </revhistory>
   </article>
 </book>
-
