@@ -104,9 +104,7 @@ Host: us.battle.net
         <para>The API is <emphasis>mostly</emphasis> restful. Data is exposed
         in the form of URIs that represent resources and can be fetched with
         HTTP clients (like web browsers). At this time, the entirety of the
-        API is limited to read-only operations.<remark>I'm not terribly
-        pleased with this section. Things we should probably also reference
-        include any quirks or behaviors that are un-rest-like.</remark></para>
+        API is limited to read-only operations.</para>
       </section>
 
       <section>
@@ -264,8 +262,8 @@ Host: us.battle.net</programlisting>
           <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
-{'realm': 'Medivh', 'name': 'Uther', 'level': 85, 'lastModified': 1307596000000, 'thumbnail': 'medivh/1/1-avatar.jpg',
-'race': 1, 'achievementPoints': 9745, 'gender': 0, 'class': 2}</programlisting>
+{"realm": "Medivh", "name": "Uther", "level": 85, "lastModified": 1307596000000, "thumbnail": "medivh/1/1-avatar.jpg",
+"race": 1, "achievementPoints": 9745, "gender": 0, "class": 2}</programlisting>
         </example>
 
         <para>The core dataset returned includes the character's realm, name,
@@ -376,8 +374,7 @@ Host: us.battle.net</programlisting>
 
               <listitem>
                 <para>A list of all of the combat pets obtained by the
-                character. At this point, we are not exposing pet talent
-                information.</para>
+                character.</para>
               </listitem>
             </varlistentry>
           </variablelist>
@@ -388,10 +385,15 @@ Host: us.battle.net</programlisting>
             <para>When a guild is requested, a map is returned with key/value
             pairs that describe a basic set of guild information.</para>
 
+            <para>Make note that we don't include the rank of the character in
+            the guild in this data strucutre. To retrieve membership and rank
+            information, a seperate request to the guild profile API should be
+            made.</para>
+
             <example>
               <title>An example guild on Medivh</title>
 
-              <programlisting>{
+              <programlisting language="json">{
   "guild":{
     "name":"Roll the Dice",
     "realm":"Medivh",
@@ -415,29 +417,26 @@ Host: us.battle.net</programlisting>
 
             <para>When the items field is used, a map structure is returned
             that contains information on the equipped items of that character
-            as well as the average item level of the character.</para>
+            as well as the average item level of the character. </para>
+
+            <remark>NKG: Note the gem id vs gem item id distinction.</remark>
 
             <example>
               <title>An example items field</title>
-              <programlisting><xi:include href="character-items.json" parse="text" /></programlisting>
-            </example>
 
-            <para>It is important to note the use of ids when identifying the
-            item and the item attributes and subcomponents, like gems and
-            enchantments.</para>
+              <programlisting language="json"><xi:include href="character-items.json"
+                  parse="text" /></programlisting>
+            </example>
           </section>
 
           <section>
             <title>stats</title>
 
-            <para><remark>NKG: Fill in an caveats or quirks in accessing
-            stats. Mention lack of base stat.</remark></para>
-
             <example>
               <title>An example stats field</title>
 
-              <programlisting><xi:include href="character-stats.json" parse="text" /></programlisting>
-
+              <programlisting language="json"><xi:include href="character-stats.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
@@ -449,61 +448,52 @@ Host: us.battle.net</programlisting>
 
             <example>
               <title>An example talents field</title>
-              <programlisting><xi:include href="character-talents.json" parse="text" /></programlisting>
 
+              <programlisting language="json"><xi:include href="character-talents.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
           <section>
             <title>reputation</title>
 
-            <para><remark>NKG: Note that the following example was shortened
-            because this list can be quite long.</remark></para>
-
             <example>
               <title>An example reputation field</title>
 
-              <programlisting><xi:include href="character-reputation.json" parse="text" /></programlisting>
-
+              <programlisting language="json"><xi:include href="character-reputation.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
           <section>
             <title>titles</title>
 
-            <para></para>
-
             <example>
               <title>An example titles field</title>
 
-              <programlisting><xi:include href="character-titles.json" parse="text" /></programlisting>
-
+              <programlisting language="json"><xi:include href="character-titles.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
           <section>
             <title>professions</title>
 
-            <para><remark>NKG: Note that archaeology is still being worked on
-            and some data for it will be missing.</remark></para>
-
             <example>
               <title>An example professions field</title>
 
-              <programlisting><xi:include href="character-professions.json" parse="text" /></programlisting>
-
+              <programlisting language="json"><xi:include href="character-professions.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
 
           <section>
             <title>appearance</title>
 
-            <para></para>
-
             <example>
               <title>An example appearance field</title>
 
-              <programlisting>{
+              <programlisting language="json">{
   "appearance":{
     "faceVariation":2,
     "skinColor":0,
@@ -520,12 +510,10 @@ Host: us.battle.net</programlisting>
           <section>
             <title>companions</title>
 
-            <para></para>
-
             <example>
               <title>An example companions field</title>
 
-              <programlisting>{
+              <programlisting language="json">{
   "companions":[
     4055,
     10673,
@@ -540,12 +528,10 @@ Host: us.battle.net</programlisting>
           <section>
             <title>mounts</title>
 
-            <para></para>
-
             <example>
               <title>An example mounts field</title>
 
-              <programlisting>{
+              <programlisting language="json">{
   "mounts":[
     30174
   ]
@@ -556,12 +542,10 @@ Host: us.battle.net</programlisting>
           <section>
             <title>pets</title>
 
-            <para></para>
-
             <example>
               <title>An example pets field</title>
 
-              <programlisting>{
+              <programlisting language="json">{
   "pets":[
     {
       "name":"Wolf",
@@ -673,8 +657,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example members block</title>
 
-              <programlisting><xi:include href="guild-members.json"
-                  parse="text" /></programlisting>
+              <programlisting language="json"><xi:include
+                  href="guild-members.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -749,7 +733,8 @@ Host: us.battle.net</programlisting>
             <example>
               <title>An example achievements block</title>
 
-              <programlisting><xi:include href="guild-achievements.json" parse="text" /></programlisting>
+              <programlisting><xi:include href="guild-achievements.json"
+                  parse="text" /></programlisting>
             </example>
           </section>
         </section>
