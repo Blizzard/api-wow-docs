@@ -11,6 +11,6 @@ After cloning the repository, open up index.html within the /docs/ folder, or ge
 
 Open your command line within the cloned repositories folder, and execute the follow commands. The libxml2 and libxslt libraries are required.
 
-    $ xmllint --xinclude docbook.xml > docs/docbook.xml
-    $ xsltproc docbook-xsl/html/docbook.xsl --stringparam html.stylesheet docs/style.css docs/docbook.xml > docs/index.html
+    $ xmllint --xinclude docbook.xml > docbook-new.xml
+    $ xsltproc api-wow.xsl --stringparam html.stylesheet docs/style.css docs/docbook.xml > index-new.html
 
