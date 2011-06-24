@@ -117,7 +117,8 @@ Host: us.battle.net
         day, as stated in the API Policy and Terms of Use. For anonymous
         consumers of the API, the number of requests that can be made per day
         is set to 3,000. Once that threshold is reached, depending on site
-        activity and performance, subsequent requests may be denied.</para>
+        activity and performance, subsequent requests may be denied. High
+        limits are available to registered applications.</para>
       </section>
 
       <section>
@@ -131,10 +132,6 @@ Host: us.battle.net
 
         <para>The primary benifit to making requests as an authenticated
         application is that you can make more requests per day.</para>
-
-        <remark>NKG: I don't really feel like I'm "selling" the idea of
-        application registration well enough. Need to spend more time saying
-        describing why this is a good thing.</remark>
 
         <section>
           <title>Application Registration</title>
@@ -221,11 +218,23 @@ UrlPath = "/api/wow/realm/status"</programlisting>
         format. Please refer to the examples provided with each API section
         for additional information.</para>
       </section>
+
+      <section>
+        <title>Support</title>
+
+        <para>For questions about the API, please use the Community Platform
+        API forums as a platform to ask questions and get help.</para>
+
+        <address><link xlink:href="http://us.battle.net/wow/en/forum/2626217/">http://us.battle.net/wow/en/forum/2626217/</link></address>
+
+        <para>You can also email <email>api-support@blizzard.com</email> for
+        matters that you may not want public discussion for.</para>
+      </section>
     </section>
   </chapter>
 
   <chapter>
-    <title>APIs</title>
+    <title>API Reference</title>
 
     <section>
       <title>Character Resources</title>
@@ -394,12 +403,11 @@ Host: us.battle.net</programlisting>
             <title>guild</title>
 
             <para>When a guild is requested, a map is returned with key/value
-            pairs that describe a basic set of guild information.</para>
-
-            <remark>NKG: Make note that we don't include the rank of the
-            character in the guild in this data strucutre. To retrieve
-            membership and rank information, a seperate request to the guild
-            profile API should be made.</remark>
+            pairs that describe a basic set of guild information. Note that
+            the rank of the character is not included in this block as it
+            describes a guild and not a membership of the guild. To retreive
+            the character's rank within the guild, you must specific a
+            seperate request to the guild profile resource.</para>
 
             <example>
               <title>An example guild on Medivh</title>
@@ -430,8 +438,6 @@ Host: us.battle.net</programlisting>
             that contains information on the equipped items of that character
             as well as the average item level of the character.</para>
 
-            <remark>NKG: Note the gem id vs gem item id distinction.</remark>
-
             <example>
               <title>An example items field</title>
 
@@ -443,9 +449,6 @@ Host: us.battle.net</programlisting>
           <section>
             <title>stats</title>
 
-            <remark>NKG: Make note that base (white) stats are not
-            returned.</remark>
-
             <example>
               <title>An example stats field</title>
 
@@ -456,9 +459,6 @@ Host: us.battle.net</programlisting>
 
           <section>
             <title>talents</title>
-
-            <para><remark>NKG: Make note of known glyphs not being
-            listed.</remark></para>
 
             <example>
               <title>An example talents field</title>
@@ -929,73 +929,9 @@ Host: us.battle.net
   </chapter>
 
   <chapter>
-    <title>Policies and Best Practices</title>
+    <title>API Policy</title>
 
-    <para>This chapter will outline API policies and best practices when
-    interacting with the API.</para>
-
-    <section>
-      <title>Caching</title>
-
-      <para>Caching policies should be used by client developers and API
-      consumers.</para>
-
-      <para>Provide some example caching timelines for the documented
-      resources.</para>
-
-      <remark>NKG: Developers are encouraged to use a 2 week cache window
-      unless user activity indicates that data needs to be refreshed.</remark>
-    </section>
-
-    <section>
-      <title>Throttling</title>
-
-      <para>Throttling is something that is important to healthy communities.
-      In a perfect world, there would be no throttles or limitations of how
-      much data could be fetched and how often, but unfortunately we don't
-      live in such a world. Programs have bugs, hackers launch denial of
-      service attacks and servers can generally become overwhelmed with
-      requests. We've put a lot of thought into request and access patterns
-      and have a throttling model that helps support the bursty traffic
-      patterns that developers often have to deal with.</para>
-
-      <para>The throttling limits are pretty straightforward and easy to
-      handle. As an anonymous application you can make up to 3,000 requests
-      per day without being throttled. This basically means that if you've got
-      a website on a single machine, you can make up to 3,000 requests from
-      midnight to midnight without your requests being denied. Once you hit
-      that ceiling, any further requests will be denied and you should
-      failoever to stale data or queuing requests for the next day. Registered
-      applications, as described in the first chapter of this documentation,
-      are afforded a larger number of requests.</para>
-
-      <remark>NKG: Fill in example error response</remark>
-    </section>
-
-    <section>
-      <title>Support</title>
-
-      <para>For questions about the API, please use the Community Platform API
-      forums as a platform to ask questions and get help. </para>
-
-      <address><link xlink:href="http://us.battle.net/wow/en/forum/2626217/">http://us.battle.net/wow/en/forum/2626217/</link></address>
-
-      <para>You can also email api-support@blizzard.com for matters that you
-      may not want public discussion for.</para>
-    </section>
+    <para>The final policy document is being reviewed and will be published
+    soon.</para>
   </chapter>
-
-  <article>
-    <title>API Changes</title>
-
-    <revhistory>
-      <revision>
-        <date>10-06-2011</date>
-
-        <revdescription>
-          <para>Initial draft</para>
-        </revdescription>
-      </revision>
-    </revhistory>
-  </article>
 </book>
