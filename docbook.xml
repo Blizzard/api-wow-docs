@@ -216,12 +216,13 @@ UrlPath = "/api/wow/realm/status"</programlisting>
 
       <para>Although several of the API resources have specific error
       responses that corrospond to specific situations, there are several
-      generic error responses that you should be aware of. </para>
+      generic error responses that you should be aware of.</para>
 
-      <para>Errors are returned as JSON objects that contain "status" and
-      "reason" attributes. The value of the "status" attribute will always be
-      "nok". The reason will be an english string that may be, but is not
-      limited to, one of the following strings.</para>
+      <para>Errors are returned as JSON objects that contain
+      "<code>status</code>" and "<code>reason</code>" attributes. The value of
+      the "<code>status</code>" attribute will always be "nok". The reason
+      will be an english string that may be, but is not limited to, one of the
+      following strings.</para>
 
       <variablelist>
         <varlistentry>
@@ -298,6 +299,19 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           </listitem>
         </varlistentry>
       </variablelist>
+
+      <example>
+        <title>An example API request and and error response</title>
+
+        <programlisting>GET /api/wow/data/boss/45 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+        <programlisting>HTTP/1.1 404 Not Found
+&lt;http headers&gt;
+
+{"status":"nok", "reason": "When in doubt, blow it up. (page not found)"}</programlisting>
+      </example>
     </section>
 
     <section>
