@@ -48,145 +48,137 @@
     as well as a general understanding of web technologies.</para>
 
     <section>
-      <title>API Features</title>
+      <title>REST</title>
 
-      <para>The API has a number of features that you, as a developer, should
-      be aware of.</para>
+      <para>The API is <emphasis>mostly</emphasis> RESTful. Data is exposed in
+      the form of URIs that represent resources and can be fetched with HTTP
+      clients (like web browsers). At this time, the the API is limited to
+      read-only operations.</para>
+    </section>
 
-      <section>
-        <title>REST</title>
+    <section>
+      <title>Access and Regions</title>
 
-        <para>The API is <emphasis>mostly</emphasis> RESTful. Data is exposed
-        in the form of URIs that represent resources and can be fetched with
-        HTTP clients (like web browsers). At this time, the the API is limited
-        to read-only operations.</para>
-      </section>
+      <para>To access the API, HTTP requests can be made to specific URLs and
+      resources exposed on the regional Battle.net domains.</para>
 
-      <section>
-        <title>Access and Regions</title>
+      <example>
+        <title>An example API request and response.</title>
 
-        <para>To access the API, HTTP requests can be made to specific URLs
-        and resources exposed on the regional Battle.net domains.</para>
-
-        <example>
-          <title>An example API request and response.</title>
-
-          <programlisting>GET /api/wow/realm/status HTTP/1.1
+        <programlisting>GET /api/wow/realm/status HTTP/1.1
 Host: us.battle.net
 &lt;http headers&gt;</programlisting>
 
-          <programlisting>HTTP/1.1 200 OK
+        <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
 {"realms":[ ... ]}</programlisting>
-        </example>
+      </example>
 
-        <para>The regions where this API is available are:<itemizedlist>
-            <listitem>
-              <para>us.battle.net</para>
-            </listitem>
+      <para>The regions where this API is available are:<itemizedlist>
+          <listitem>
+            <para>us.battle.net</para>
+          </listitem>
 
-            <listitem>
-              <para>eu.battle.net</para>
-            </listitem>
+          <listitem>
+            <para>eu.battle.net</para>
+          </listitem>
 
-            <listitem>
-              <para>kr.battle.net</para>
-            </listitem>
+          <listitem>
+            <para>kr.battle.net</para>
+          </listitem>
 
-            <listitem>
-              <para>tw.battle.net</para>
-            </listitem>
+          <listitem>
+            <para>tw.battle.net</para>
+          </listitem>
 
-            <listitem>
-              <para>battlenet.com.cn</para>
-            </listitem>
-          </itemizedlist></para>
+          <listitem>
+            <para>battlenet.com.cn</para>
+          </listitem>
+        </itemizedlist></para>
 
-        <para>The data available through the API is limited to the region that
-        it is in. Hence, US APIs accessed through us.battle.net will only
-        contain data within US battlegroups and realms. Support for locales is
-        limited to those supported on the World of Warcraft community
-        sites.</para>
+      <para>The data available through the API is limited to the region that
+      it is in. Hence, US APIs accessed through us.battle.net will only
+      contain data within US battlegroups and realms. Support for locales is
+      limited to those supported on the World of Warcraft community
+      sites.</para>
+    </section>
+
+    <section>
+      <title>Throttling</title>
+
+      <para>Consumers of the API can make a limited number of requests per
+      day, as stated in the API Policy and Terms of Use. For anonymous
+      consumers of the API, the number of requests that can be made per day is
+      set to 3,000. Once that threshold is reached, depending on site activity
+      and performance, subsequent requests may be denied. High limits are
+      available to registered applications.</para>
+    </section>
+
+    <section>
+      <title>Authentication</title>
+
+      <para>Although most of the application can be accessed without any form
+      of authentication, we do support a form application registration and
+      authentication. Application authentication involves creating and
+      including an application identifier and a request signature and
+      including those values with the request headers.</para>
+
+      <para>The primary benifit to making requests as an authenticated
+      application is that you can make more requests per day.</para>
+
+      <section>
+        <title>Application Registration</title>
+
+        <para>To send authenticated request you first need to register an
+        application. Because registration isn't automated, application
+        registration is limited to those who meet the following
+        criteria:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>You plan on making requests from one or more IP addresses.
+            (e.g. a production environment and development environment)</para>
+          </listitem>
+
+          <listitem>
+            <para>You can justify making more than 2,000 requests per day from
+            one or more IP addresses.</para>
+          </listitem>
+        </itemizedlist>
+
+        <para>Registering an application is a matter of providing a
+        description of the application, how you plan on using the API and your
+        contact information to <email>api-support@blizzard.com</email> with
+        the subject "Application Registration Request".</para>
       </section>
 
       <section>
-        <title>Throttling</title>
+        <title>Authentication Process</title>
 
-        <para>Consumers of the API can make a limited number of requests per
-        day, as stated in the API Policy and Terms of Use. For anonymous
-        consumers of the API, the number of requests that can be made per day
-        is set to 3,000. Once that threshold is reached, depending on site
-        activity and performance, subsequent requests may be denied. High
-        limits are available to registered applications.</para>
-      </section>
+        <para>To authentice a request, simple include the "Authorization"
+        header with your application identifier and the request
+        signature.</para>
 
-      <section>
-        <title>Authentication</title>
+        <example>
+          <title>An example authenticated request</title>
 
-        <para>Although most of the application can be accessed without any
-        form of authentication, we do support a form application registration
-        and authentication. Application authentication involves creating and
-        including an application identifier and a request signature and
-        including those values with the request headers.</para>
-
-        <para>The primary benifit to making requests as an authenticated
-        application is that you can make more requests per day.</para>
-
-        <section>
-          <title>Application Registration</title>
-
-          <para>To send authenticated request you first need to register an
-          application. Because registration isn't automated, application
-          registration is limited to those who meet the following
-          criteria:</para>
-
-          <itemizedlist>
-            <listitem>
-              <para>You plan on making requests from one or more IP addresses.
-              (e.g. a production environment and development
-              environment)</para>
-            </listitem>
-
-            <listitem>
-              <para>You can justify making more than 2,000 requests per day
-              from one or more IP addresses.</para>
-            </listitem>
-          </itemizedlist>
-
-          <para>Registering an application is a matter of providing a
-          description of the application, how you plan on using the API and
-          your contact information to <email>api-support@blizzard.com</email>
-          with the subject "Application Registration Request".</para>
-        </section>
-
-        <section>
-          <title>Authentication Process</title>
-
-          <para>To authentice a request, simple include the "Authorization"
-          header with your application identifier and the request
-          signature.</para>
-
-          <example>
-            <title>An example authenticated request</title>
-
-            <programlisting>GET /api/wow/character/Medivh/Thrall HTTP/1.1
+          <programlisting>GET /api/wow/character/Medivh/Thrall HTTP/1.1
 Host: us.battle.net
 Date: Fri, 10 Jun 2011 20:59:24 GMT
 Authorization: <computeroutput>BNET</computeroutput> <computeroutput>c1fbf21b79c03191d</computeroutput>:<computeroutput>+3fE0RaKc+PqxN0gi8va5GQC35A=</computeroutput></programlisting>
-          </example>
+        </example>
 
-          <para>In the above exmple, the value of the Authorization header has
-          three parts "<code>BNET</code>", "<code>c1fbf21b79c03191d</code>"
-          and "<code>+3fE0RaKc+PqxN0gi8va5GQC35A=</code>". The first part is a
-          processing directive for the Authorization header. The second and
-          third values are the application public key and the request
-          signature. The application public key is assigned by Blizzard during
-          the application registration process. The signature is generated
-          with each request and is discribed by the following
-          algorithm.</para>
+        <para>In the above exmple, the value of the Authorization header has
+        three parts "<code>BNET</code>", "<code>c1fbf21b79c03191d</code>" and
+        "<code>+3fE0RaKc+PqxN0gi8va5GQC35A=</code>". The first part is a
+        processing directive for the Authorization header. The second and
+        third values are the application public key and the request signature.
+        The application public key is assigned by Blizzard during the
+        application registration process. The signature is generated with each
+        request and is discribed by the following algorithm.</para>
 
-          <programlisting>Authorization = "BNET" + " " + PublicKey + ":" + Signature;
+        <programlisting>Authorization = "BNET" + " " + PublicKey + ":" + Signature;
 
 Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
 
@@ -196,10 +188,10 @@ StringToSign = HTTP-Verb + "\n" +
 
 UrlPath = &lt;HTTP-Request-URI, from the port to the query string&gt;</programlisting>
 
-          <para>The above process can be seen in action by filling in the
-          blanks:</para>
+        <para>The above process can be seen in action by filling in the
+        blanks:</para>
 
-          <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
+        <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
 
 Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret", StringToSign ) ) );
 
@@ -208,28 +200,116 @@ StringToSign = "GET" + "\n" +
     UrlPath + "\n";
 
 UrlPath = "/api/wow/realm/status"</programlisting>
-        </section>
       </section>
+    </section>
 
-      <section>
-        <title>Formats and Protocols</title>
+    <section>
+      <title>Formats and Protocols</title>
 
-        <para>Data returned in the response message is provided in JSON
-        format. Please refer to the examples provided with each API section
-        for additional information.</para>
-      </section>
+      <para>Data returned in the response message is provided in JSON format.
+      Please refer to the examples provided with each API section for
+      additional information.</para>
+    </section>
 
-      <section>
-        <title>Support</title>
+    <section>
+      <title>Error Handling</title>
 
-        <para>For questions about the API, please use the Community Platform
-        API forums as a platform to ask questions and get help.</para>
+      <para>Although several of the API resources have specific error
+      responses that corrospond to specific situations, there are several
+      generic error responses that you should be aware of. </para>
 
-        <address><link xlink:href="http://us.battle.net/wow/en/forum/2626217/">http://us.battle.net/wow/en/forum/2626217/</link></address>
+      <para>Errors are returned as JSON objects that contain "status" and
+      "reason" attributes. The value of the "status" attribute will always be
+      "nok". The reason will be an english string that may be, but is not
+      limited to, one of the following strings.</para>
 
-        <para>You can also email <email>api-support@blizzard.com</email> for
-        matters that you may not want public discussion for.</para>
-      </section>
+      <variablelist>
+        <varlistentry>
+          <term>Invalid Application</term>
+
+          <listitem>
+            <para>A request was made including application identification
+            information, but either the application key is invalid or
+            missing.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Invalid application permissions.</term>
+
+          <listitem>
+            <para>A request was made to an API resource that requires a higher
+            application permission level.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Access denied, please contact api-support@blizzard.com</term>
+
+          <listitem>
+            <para>The application or IP address has been blocked from making
+            further requests. This ban may not be permanent.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>When in doubt, blow it up. (page not found)</term>
+
+          <listitem>
+            <para>A request was made to a resource that doesn't exist.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>If at first you don't succeed, blow it up again. (too many
+          requests)</term>
+
+          <listitem>
+            <para>The application or IP has been throttled.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Have you not been through enough? Will you continue to fight
+          what you cannot defeat? (something unexpected happened)</term>
+
+          <listitem>
+            <para>There was a server error or equally catastrophic exception
+            preventing the request from being fulfilled.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Invalid authentication header.</term>
+
+          <listitem>
+            <para>The application authorization information was mallformed or
+            missing when expected.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Invalid application signature.</term>
+
+          <listitem>
+            <para>The application request signature was missing or invalid.
+            This will also be thrown if the request date outside of a 15
+            second window from the current GMT time.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section>
+      <title>Support</title>
+
+      <para>For questions about the API, please use the Community Platform API
+      forums as a platform to ask questions and get help.</para>
+
+      <address><link xlink:href="http://us.battle.net/wow/en/forum/2626217/">http://us.battle.net/wow/en/forum/2626217/</link></address>
+
+      <para>You can also email <email>api-support@blizzard.com</email> for
+      matters that you may not want public discussion for.</para>
     </section>
   </chapter>
 
@@ -931,7 +1011,7 @@ Host: us.battle.net
   <chapter>
     <title>API Policy</title>
 
-    <para>The final policy document is being reviewed and will be published
-    soon.</para>
+    <para>The final policy document is being reviewed and will be published at
+    a later date.</para>
   </chapter>
 </book>
