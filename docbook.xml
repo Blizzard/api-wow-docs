@@ -52,8 +52,15 @@
 
       <para>The API is <emphasis>mostly</emphasis> RESTful. Data is exposed in
       the form of URIs that represent resources and can be fetched with HTTP
-      clients (like web browsers). At this time, the the API is limited to
+      clients (like web browsers). At this time, the API is limited to
       read-only operations.</para>
+
+      <remark>NKG: Document support for ETAG headers.</remark>
+
+      <remark>NKG: Document support for last-modified headers.</remark>
+
+      <remark>NKG: Make note that all requests should be UTF-8
+      encoded.</remark>
     </section>
 
     <section>
@@ -124,7 +131,7 @@ Host: us.battle.net
       including an application identifier and a request signature and
       including those values with the request headers.</para>
 
-      <para>The primary benifit to making requests as an authenticated
+      <para>The primary benefit to making requests as an authenticated
       application is that you can make more requests per day.</para>
 
       <section>
@@ -150,15 +157,20 @@ Host: us.battle.net
         <para>Registering an application is a matter of providing a
         description of the application, how you plan on using the API and your
         contact information to <email>api-support@blizzard.com</email> with
-        the subject "Application Registration Request".</para>
+        the subject "Application Registration Request". Once we receive your
+        request, we will contact you to either provide additional information
+        or with application keys to use.</para>
       </section>
 
       <section>
         <title>Authentication Process</title>
 
-        <para>To authentice a request, simple include the "Authorization"
+        <para>To authenticate a request, simple include the "Authorization"
         header with your application identifier and the request
         signature.</para>
+
+        <remark>NKG: Update the below example to use "exampleprivate" and
+        "examplepublic".</remark>
 
         <example>
           <title>An example authenticated request</title>
@@ -178,28 +190,34 @@ Authorization: <computeroutput>BNET</computeroutput> <computeroutput>c1fbf21b79c
         application registration process. The signature is generated with each
         request and is discribed by the following algorithm.</para>
 
-        <programlisting>Authorization = "BNET" + " " + PublicKey + ":" + Signature;
-
-Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
+        <programlisting>UrlPath = &lt;HTTP-Request-URI, from the port to the query string&gt;
 
 StringToSign = HTTP-Verb + "\n" +
     Date + "\n" +
     UrlPath + "\n";
 
-UrlPath = &lt;HTTP-Request-URI, from the port to the query string&gt;</programlisting>
+Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
+
+Authorization = "BNET" + " " + PublicKey + ":" + Signature;</programlisting>
 
         <para>The above process can be seen in action by filling in the
         blanks:</para>
 
-        <programlisting>Authorization = "BNET" + " " + "examplekey" + ":" + Signature;
-
-Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret", StringToSign ) ) );
+        <programlisting>UrlPath = "/api/wow/realm/status"
 
 StringToSign = "GET" + "\n" +
     "Fri, 10 Jun 2011 21:37:34 GMT" + "\n" +
     UrlPath + "\n";
 
-UrlPath = "/api/wow/realm/status"</programlisting>
+Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret" ), StringToSign ) );
+
+Authorization = "BNET" + " " + "examplekey" + ":" + Signature;</programlisting>
+
+        <para>The date timestamp used in the above algorithm and example is
+        the value of the Date HTTP header. The two date values, the first
+        being used to sign the request and the second as sent with the request
+        headers, must be the same and within 15 seconds of the current GMT
+        time.</para>
       </section>
     </section>
 
@@ -229,6 +247,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>Invalid Application</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>A request was made including application identification
             information, but either the application key is invalid or
             missing.</para>
@@ -239,6 +259,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>Invalid application permissions.</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>A request was made to an API resource that requires a higher
             application permission level.</para>
           </listitem>
@@ -248,6 +270,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>Access denied, please contact api-support@blizzard.com</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>The application or IP address has been blocked from making
             further requests. This ban may not be permanent.</para>
           </listitem>
@@ -257,6 +281,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>When in doubt, blow it up. (page not found)</term>
 
           <listitem>
+            <para>HTTP Response Code: 404</para>
+
             <para>A request was made to a resource that doesn't exist.</para>
           </listitem>
         </varlistentry>
@@ -266,6 +292,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           requests)</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>The application or IP has been throttled.</para>
           </listitem>
         </varlistentry>
@@ -275,6 +303,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           what you cannot defeat? (something unexpected happened)</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>There was a server error or equally catastrophic exception
             preventing the request from being fulfilled.</para>
           </listitem>
@@ -284,6 +314,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>Invalid authentication header.</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>The application authorization information was mallformed or
             missing when expected.</para>
           </listitem>
@@ -293,6 +325,8 @@ UrlPath = "/api/wow/realm/status"</programlisting>
           <term>Invalid application signature.</term>
 
           <listitem>
+            <para>HTTP Response Code: 500</para>
+
             <para>The application request signature was missing or invalid.
             This will also be thrown if the request date outside of a 15
             second window from the current GMT time.</para>
@@ -1027,5 +1061,61 @@ Host: us.battle.net
 
     <para>The final policy document is being reviewed and will be published at
     a later date.</para>
+  </chapter>
+
+  <chapter>
+    <title>Frequently Asked Questions</title>
+
+    <qandaset>
+      <qandadiv>
+        <qandaentry>
+          <question>
+            <para>Is there an official library or reference implementation
+            provided with these web APIs?</para>
+          </question>
+
+          <answer>
+            <para>No, Blizzard Entertainment has not released an officially
+            support client library to consume the web APIs. There are a number
+            of unofficial libraries that follow the spec provided by this
+            documentation. You are not limited to or forced to use one of the
+            libraries below and can create your own.</para>
+
+            <variablelist>
+              <varlistentry>
+                <term>Python</term>
+
+                <listitem>
+                  <para>https://github.com/vishnevskiy/battlenet</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </answer>
+        </qandaentry>
+
+        <qandaentry>
+          <question>
+            <para>What about XML/Atom/JSONP/Other data forms?</para>
+          </question>
+
+          <answer>
+            <para>We decided to roll out JSON for numerous reasons. One of the
+            main reasons is that it allows developers and website operators to
+            easily embed requests that consume this date into their
+            websites.</para>
+          </answer>
+        </qandaentry>
+
+        <qandaentry>
+          <question>
+            <para>How are realm names normalized?</para>
+          </question>
+
+          <answer>
+            <remark>Cord's answer goes here.</remark>
+          </answer>
+        </qandaentry>
+      </qandadiv>
+    </qandaset>
   </chapter>
 </book>
