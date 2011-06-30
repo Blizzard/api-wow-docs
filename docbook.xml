@@ -517,6 +517,24 @@ Host: us.battle.net</programlisting>
                 character.</para>
               </listitem>
             </varlistentry>
+
+            <varlistentry>
+              <term>achievements</term>
+
+              <listitem>
+                <para>A map of achievement data including completion
+                timestamps and criteria information.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>progression</term>
+
+              <listitem>
+                <para>A list of raids and bosses indicating raid progression
+                and completedness.</para>
+              </listitem>
+            </varlistentry>
           </variablelist>
 
           <example>
@@ -713,6 +731,18 @@ Host: us.battle.net</programlisting>
   ]
 }</programlisting>
             </example>
+          </section>
+
+          <section>
+            <title>achievements</title>
+
+            <remark>NKG: To document</remark>
+          </section>
+
+          <section>
+            <title>progression</title>
+
+            <remark>NKG: To document</remark>
           </section>
         </section>
       </section>
