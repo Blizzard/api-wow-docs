@@ -15,7 +15,7 @@
       <email>api-support@blizzard.com</email>
     </author>
 
-    <pubdate>6/10/2011</pubdate>
+    <pubdate>7/5/2011</pubdate>
 
     <abstract>
       <para>This is the documentation for the RESTful APIs exposed through the
@@ -55,12 +55,8 @@
       clients (like web browsers). At this time, the API is limited to
       read-only operations.</para>
 
-      <remark>NKG: Document support for ETAG headers.</remark>
-
-      <remark>NKG: Document support for last-modified headers.</remark>
-
-      <remark>NKG: Make note that all requests should be UTF-8
-      encoded.</remark>
+      <para>The character and guild API resources do honor HTTP requests that
+      contain the "Last-Modified" header.</para>
     </section>
 
     <section>
@@ -97,10 +93,6 @@ Host: us.battle.net
 
           <listitem>
             <para>tw.battle.net</para>
-          </listitem>
-
-          <listitem>
-            <para>battlenet.com.cn</para>
           </listitem>
         </itemizedlist></para>
 
@@ -168,9 +160,6 @@ Host: us.battle.net
         <para>To authenticate a request, simple include the "Authorization"
         header with your application identifier and the request
         signature.</para>
-
-        <remark>NKG: Update the below example to use "exampleprivate" and
-        "examplepublic".</remark>
 
         <example>
           <title>An example authenticated request</title>
@@ -736,13 +725,23 @@ Host: us.battle.net</programlisting>
           <section>
             <title>achievements</title>
 
-            <remark>NKG: To document</remark>
+            <example>
+              <title>An example achievements field</title>
+
+              <programlisting><xi:include href="character-achievements.json"
+                  parse="text" /></programlisting>
+            </example>
           </section>
 
           <section>
             <title>progression</title>
 
-            <remark>NKG: To document</remark>
+            <example>
+              <title>An example progression field</title>
+
+              <programlisting><xi:include href="character-progression.json"
+                  parse="text" /></programlisting>
+            </example>
           </section>
         </section>
       </section>
@@ -1133,16 +1132,6 @@ Host: us.battle.net
             main reasons is that it allows developers and website operators to
             easily embed requests that consume this date into their
             websites.</para>
-          </answer>
-        </qandaentry>
-
-        <qandaentry>
-          <question>
-            <para>How are realm names normalized?</para>
-          </question>
-
-          <answer>
-            <remark>Cord's answer goes here.</remark>
           </answer>
         </qandaentry>
       </qandadiv>
