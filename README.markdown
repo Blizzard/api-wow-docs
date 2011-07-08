@@ -5,7 +5,7 @@ This is the public documentation for the api-wow RESTful web service provided as
 
 # Documentation
 
-After cloning the repository, open up index.html within the /docs/ folder, or generate new documentation with the commands below.
+Latest documentation can be found here: http://blizzard.github.com/api-wow-docs/
 
 # Generating 
 
