@@ -94,6 +94,10 @@ Host: us.battle.net
           <listitem>
             <para>tw.battle.net</para>
           </listitem>
+
+          <listitem>
+            <para>battlenet.com.cn</para>
+          </listitem>
         </itemizedlist></para>
 
       <para>The data available through the API is limited to the region that
@@ -187,7 +191,7 @@ StringToSign = HTTP-Verb + "\n" +
 
 Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
 
-Authorization = "BNET" + " " + PublicKey + ":" + Signature;</programlisting>
+Header = "Authorization: BNET" + " " + PublicKey + ":" + Signature;</programlisting>
 
         <para>The above process can be seen in action by filling in the
         blanks:</para>
@@ -200,13 +204,19 @@ StringToSign = "GET" + "\n" +
 
 Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret" ), StringToSign ) );
 
-Authorization = "BNET" + " " + "examplekey" + ":" + Signature;</programlisting>
+Header = "Authorization: BNET" + " " + "examplekey" + ":" + Signature;</programlisting>
 
         <para>The date timestamp used in the above algorithm and example is
         the value of the Date HTTP header. The two date values, the first
         being used to sign the request and the second as sent with the request
-        headers, must be the same and within 15 seconds of the current GMT
+        headers, must be the same and within 180 seconds of the current GMT
         time.</para>
+
+        <important>
+          <para>We strongly advise that client library developers make secure
+          requests using SSL whenever application authentication is
+          used.</para>
+        </important>
       </section>
     </section>
 
@@ -222,7 +232,7 @@ Authorization = "BNET" + " " + "examplekey" + ":" + Signature;</programlisting>
       <title>Error Handling</title>
 
       <para>Although several of the API resources have specific error
-      responses that corrospond to specific situations, there are several
+      responses that correspond to specific situations, there are several
       generic error responses that you should be aware of.</para>
 
       <para>Errors are returned as JSON objects that contain
@@ -456,7 +466,8 @@ Host: us.battle.net</programlisting>
               <term>titles</term>
 
               <listitem>
-                <para>A list of the titles obtained by the character.</para>
+                <para>A list of the titles obtained by the character including
+                the currently selected title.</para>
               </listitem>
             </varlistentry>
 
@@ -856,7 +867,7 @@ Host: us.battle.net</programlisting>
                 <term>achievementsCompletedTimestamp</term>
 
                 <listitem>
-                  <para>A list of timestamps whose places corrospond to the
+                  <para>A list of timestamps whose places correspond to the
                   achievement ids in the "achievementsCompleted" list. The
                   value of each timestamp indicates when the related
                   achievement was earned by the guild.</para>
@@ -877,7 +888,7 @@ Host: us.battle.net</programlisting>
 
                 <listitem>
                   <para>A list of values associated with a given achievement
-                  criteria. The position of a value corrosponds to the
+                  criteria. The position of a value corresponds to the
                   position of a given achivement criteria.</para>
                 </listitem>
               </varlistentry>
@@ -888,7 +899,7 @@ Host: us.battle.net</programlisting>
                 <listitem>
                   <para>A list of timestamps where the value represents when
                   the criteria was considered complete. The position of a
-                  value corrosponds to the position of a given achivement
+                  value corresponds to the position of a given achivement
                   criteria.</para>
                 </listitem>
               </varlistentry>
@@ -899,7 +910,7 @@ Host: us.battle.net</programlisting>
                 <listitem>
                   <para>A list of timestamps where the value represents when
                   the criteria was considered started. The position of a value
-                  corrosponds to the position of a given achivement
+                  corresponds to the position of a given achivement
                   criteria.</para>
                 </listitem>
               </varlistentry>
@@ -967,6 +978,99 @@ Host: us.battle.net
   ]
 }</programlisting>
         </example>
+      </section>
+    </section>
+
+    <section>
+      <title>Auction Resources</title>
+
+      <para>Auction APIs currently provide rolling batches of data about
+      current auctions. Fetching auction dumps is a two step process that
+      involves checking a per-realm index file to determine if a recent dump
+      has been generated and then fetching the most recently generated dump
+      file if necessary.</para>
+
+      <section>
+        <title>Current Auctions APIs</title>
+
+        <para>This API resource provides a per-realm list of recently
+        generated auction house data dumps.</para>
+
+        <programlisting>URL = Host + "/api/wow/auction/data/" + realm</programlisting>
+
+        <para>There are no required query string parameters when accessing
+        this resource.</para>
+
+        <example>
+          <title>An example Current Auctions request and response</title>
+
+          <programlisting>GET /api/wow/auction/data/medivh HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "files":[
+    {
+      "url":"http://us.battle.net/auction-data/medivh/auctions-1311362443895.json.gz",
+      "lastModified":1311362443895
+    }
+  ]
+}</programlisting>
+        </example>
+      </section>
+
+      <section>
+        <title>Current Auctions Data</title>
+
+        <para>The current auctions data is represented as JSON structures
+        containing auction data for the tree auctions houses available on each
+        realm.</para>
+
+        <programlisting>{
+    "realm": {
+        "name": "Medivh",
+        "slug": "medivh"
+    },
+    "alliance": {
+        "auctions": [
+            {
+                "auc": 500,
+                "item": 49284,
+                "owner": "Uther",
+                "bid": 150000,
+                "buyout": 450000,
+                "quantity": 11
+            }
+        ]
+    },
+    "horde": {
+        "auctions": [
+            {
+                "auc": 501,
+                "item": 44575,
+                "owner": "Thrall",
+                "bid": 26751,
+                "buyout": 57665,
+                "quantity": 1
+            }
+        ]
+    },
+    "neutral": {
+        "auctions": [
+            {
+                "auc": 502,
+                "item": 63271,
+                "owner": "Arthas",
+                "bid": 20000,
+                "buyout": 50000,
+                "quantity": 1
+            }
+        ]
+    }
+}</programlisting>
       </section>
     </section>
 
