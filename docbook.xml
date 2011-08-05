@@ -105,6 +105,97 @@ Host: us.battle.net
       contain data within US battlegroups and realms. Support for locales is
       limited to those supported on the World of Warcraft community
       sites.</para>
+
+      <section>
+        <title>Localization</title>
+
+        <para>All of the API resources provided adhere to the practice of
+        providing localized strings using the <code>locale</code> query string
+        parameter. The locales supported vary from region to region and align
+        with those supported on the community sites.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>us.battle.net</term>
+
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para>en_US</para>
+                </listitem>
+
+                <listitem>
+                  <para>es_MX</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>eu.battle.net</term>
+
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para>en_GB</para>
+                </listitem>
+
+                <listitem>
+                  <para>es_ES</para>
+                </listitem>
+
+                <listitem>
+                  <para>fr_FR</para>
+                </listitem>
+
+                <listitem>
+                  <para>ru_RU</para>
+                </listitem>
+
+                <listitem>
+                  <para>de_DE</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>kr.battle.net</term>
+
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para>ko_KR</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>tw.battle.net</term>
+
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para>zh_TW</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>battlenet.com.cn</term>
+
+            <listitem>
+              <itemizedlist>
+                <listitem>
+                  <para>zh_CN</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
     </section>
 
     <section>
@@ -1075,6 +1166,75 @@ Host: us.battle.net
     </section>
 
     <section>
+      <title>Item Resources</title>
+
+      <para>Item APIs currently provide item information. </para>
+
+      <section>
+        <title>Item API</title>
+
+        <para>The item API provides detailed item information.</para>
+
+        <programlisting>URL = Host + "/api/wow/item/" + ItemId</programlisting>
+
+        <example>
+          <title>An example Item Data API request and response</title>
+
+          <programlisting>GET /api/wow//item/38268 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "id":38268,
+  "disenchantingSkillRank":-1,
+  "description":"Give to a Friend",
+  "name":"Spare Hand",
+  "stackable":1,
+  "itemBind": 0,
+  "bonusStats":[],
+  "itemSpells":[],
+  "buyPrice":12,
+  "itemClass": 2,
+  "itemSubClass": 14,
+  "containerSlots":0,
+  "weaponInfo":{
+    "damage":[
+      {
+        "minDamage":1,
+        "maxDamage":2
+      }
+    ],
+    "weaponSpeed":2.5,
+    "dps":0.6
+  },
+  "inventoryType":13,
+  "equippable":true,
+  "itemLevel":1,
+  "maxCount":0,
+  "maxDurability":16,
+  "minFactionId":0,
+  "minReputation":0,
+  "quality":0,
+  "sellPrice":2,
+  "requiredLevel":70,
+  "requiredSkill":0,
+  "requiredSkillRank":0,
+  "itemSource":{
+    "sourceId":0,
+    "sourceType":"NONE"
+  },
+  "baseArmor":0,
+  "hasSockets":false,
+  "isAuctionable":true
+}</programlisting>
+        </example>
+      </section>
+    </section>
+
+    <section>
       <title>Data Resources</title>
 
       <para>The data APIs provide information that can compliment profile
@@ -1117,74 +1277,12 @@ Host: us.battle.net
       </section>
 
       <section>
-        <title>Items</title>
+        <title>Item Classes</title>
 
-        <para>The items data API provides detailed item information.</para>
+        <para>The item classes data API provides a list of item
+        classes.</para>
 
-        <programlisting>URL = Host + "/api/wow/data/item/" + ItemId</programlisting>
-
-        <example>
-          <title>An example Item Data API request and response</title>
-
-          <programlisting>GET /api/wow/data/item/38268 HTTP/1.1
-Host: us.battle.net
-&lt;http headers&gt;</programlisting>
-
-          <programlisting>HTTP/1.1 200 OK
-&lt;http headers&gt;
-
-{
-  "id":38268,
-  "disenchantingSkillRank":-1,
-  "description":"Give to a Friend",
-  "name":"Spare Hand",
-  "stackable":1,
-  "itemBind":{
-    "id":0
-  },
-  "bonusStats":[],
-  "itemSpells":[],
-  "buyPrice":12,
-  "itemClass":{
-    "class":2,
-    "name":"Weapon"
-  },
-  "itemSubClass":{
-    "subclassId":14,
-    "name":"Miscellaneous"
-  },
-  "containerSlots":0,
-  "weaponInfo":{
-    "damage":[
-      {
-        "minDamage":1,
-        "maxDamage":2
-      }
-    ],
-    "weaponSpeed":2.5,
-    "dps":0.6
-  },
-  "inventoryType":13,
-  "equippable":true,
-  "itemLevel":1,
-  "maxCount":0,
-  "maxDurability":16,
-  "minFactionId":0,
-  "minReputation":0,
-  "quality":0,
-  "sellPrice":2,
-  "requiredLevel":70,
-  "requiredSkill":0,
-  "requiredSkillRank":0,
-  "itemSource":{
-    "sourceId":0,
-    "sourceType":"NONE"
-  },
-  "baseArmor":0,
-  "hasSockets":false,
-  "isAuctionable":true
-}</programlisting>
-        </example>
+        <programlisting>URL = Host + "/api/wow/data/item/classes"</programlisting>
       </section>
     </section>
   </chapter>
