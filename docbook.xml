@@ -56,7 +56,7 @@
       read-only operations.</para>
 
       <para>The character and guild API resources do honor HTTP requests that
-      contain the "Last-Modified" header.</para>
+      send the "If-Modified-Since" header.</para>
     </section>
 
     <section>
