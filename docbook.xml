@@ -1168,7 +1168,7 @@ Host: us.battle.net
     <section>
       <title>Item Resources</title>
 
-      <para>Item APIs currently provide item information. </para>
+      <para>Item APIs currently provide item information.</para>
 
       <section>
         <title>Item API</title>
@@ -1178,7 +1178,7 @@ Host: us.battle.net
         <programlisting>URL = Host + "/api/wow/item/" + ItemId</programlisting>
 
         <example>
-          <title>An example Item Data API request and response</title>
+          <title>An example Item API request and response</title>
 
           <programlisting>GET /api/wow//item/38268 HTTP/1.1
 Host: us.battle.net
@@ -1229,6 +1229,94 @@ Host: us.battle.net
   "baseArmor":0,
   "hasSockets":false,
   "isAuctionable":true
+}</programlisting>
+        </example>
+      </section>
+    </section>
+
+    <section>
+      <title>PVP Resources</title>
+
+      <para>PVP APIs currently provide arena team and ladder
+      information.</para>
+
+      <section>
+        <title>Arena Team API</title>
+
+        <para>The Arena Team API provides detailed arena team
+        information.</para>
+
+        <programlisting>TeamSize = "2v2" | "3v3" | "5v5"
+URL = Host + "/api/wow/arena/" + Realm + "/" + TeamSize + "/" + TeamName</programlisting>
+
+        <example>
+          <title>An example Arena Team API request and response</title>
+
+          <programlisting>GET /api/wow/arena/bonechewer/2v2/Samurai%20Jack HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "realm": "Bonechewer",
+  "ranking":3,
+  "rating":2407,
+  "teamsize":2,
+  "created":"2010-12-14",
+  "name":"Samurai Jack",
+  "gamesPlayed":0,
+  "gamesWon":0,
+  "gamesLost":0,
+  "sessionGamesPlayed":84,
+  "sessionGamesWon":65,
+  "sessionGamesLost":19,
+  "lastSessionRanking":49,
+  "side":"horde",
+  "currentWeekRanking":3,
+  "members":[
+    {
+      "character":{
+        "name":"Enzi",
+        "realm":"Bonechewer",
+        "class":5,
+        "race":5,
+        "gender":0,
+        "level":85,
+        "achievementPoints":7825,
+        "thumbnail":"bonechewer/63/50019391-avatar.jpg"
+      },
+      "rank":1,
+      "gamesPlayed":0,
+      "gamesWon":0,
+      "gamesLost":0,
+      "sessionGamesPlayed":79,
+      "sessionGamesWon":61,
+      "sessionGamesLost":18,
+      "personalRating":2407
+    },
+    {
+      "character":{
+        "name":"Treeofapples",
+        "realm":"Bonechewer",
+        "class":11,
+        "race":6,
+        "gender":0,
+        "level":85,
+        "achievementPoints":4755,
+        "thumbnail":"bonechewer/31/56730399-avatar.jpg"
+      },
+      "rank":0,
+      "gamesPlayed":0,
+      "gamesWon":0,
+      "gamesLost":0,
+      "sessionGamesPlayed":84,
+      "sessionGamesWon":65,
+      "sessionGamesLost":19,
+      "personalRating":2407
+    }
+  ]
 }</programlisting>
         </example>
       </section>
