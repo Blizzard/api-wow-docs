@@ -15,7 +15,7 @@
       <email>api-support@blizzard.com</email>
     </author>
 
-    <pubdate>7/5/2011</pubdate>
+    <pubdate>8/15/2011</pubdate>
 
     <abstract>
       <para>This is the documentation for the RESTful APIs exposed through the
@@ -56,7 +56,7 @@
       read-only operations.</para>
 
       <para>The character and guild API resources do honor HTTP requests that
-      contain the "Last-Modified" header.</para>
+      contain the "If-Modified-Since" header.</para>
     </section>
 
     <section>
@@ -626,6 +626,15 @@ Host: us.battle.net</programlisting>
                 and completedness.</para>
               </listitem>
             </varlistentry>
+
+            <varlistentry>
+              <term>pvp</term>
+
+              <listitem>
+                <para>A map of pvp information including arena team membership
+                and rated battlegrounds information.</para>
+              </listitem>
+            </varlistentry>
           </variablelist>
 
           <example>
@@ -647,21 +656,21 @@ Host: us.battle.net</programlisting>
             seperate request to the guild profile resource.</para>
 
             <example>
-              <title>An example guild on Medivh</title>
+              <title>An example guild field</title>
 
               <programlisting language="json">{
   "guild":{
-    "name":"Roll the Dice",
+    "name":"Knights of the Silver Hand",
     "realm":"Medivh",
     "level":25,
-    "members":177,
-    "achievementPoints":790,
+    "members":50,
+    "achievementPoints":7500,
     "emblem":{
       "icon":119,
-      "iconColor":"ffffffb1",
-      "border":-1,
+      "iconColor":"ffb1b8b1",
+      "border":0,
       "borderColor":"ffffffff",
-      "backgroundColor":"ffffff91"
+      "backgroundColor":"ff006391"
     }
   }
 }</programlisting>
@@ -845,6 +854,61 @@ Host: us.battle.net</programlisting>
                   parse="text" /></programlisting>
             </example>
           </section>
+
+          <section>
+            <title>pvp</title>
+
+            <example>
+              <title>An example pvp field</title>
+
+              <programlisting language="json">"pvp":{
+    "ratedBattlegrounds":{
+      "personalRating": 3100,
+      "battlegrounds":[
+        {
+          "name":"Arathi Basin",
+          "played":98745,
+          "won":98744
+        },
+        {
+          "name":"The Battle for Gilneas",
+          "played":0,
+          "won":0
+        },
+        {
+          "name":"Eye of the Storm",
+          "played":0,
+          "won":0
+        },
+        {
+          "name":"Strand of the Ancients",
+          "played":0,
+          "won":0
+        },
+        {
+          "name":"Twin Peaks",
+          "played":0,
+          "won":0
+        },
+        {
+          "name":"Warsong Gulch",
+          "played":0,
+          "won":0
+        }
+      ]
+    },
+    "arenaTeams":[
+      {
+        "name":"Lordaeron's Defense",
+        "personalRating":2700,
+        "teamRating":2700,
+        "size":"5v5"
+      }
+    ],
+    "totalHonorableKills":98475
+  }</programlisting>
+            </example>
+          </section>
         </section>
       </section>
     </section>
@@ -878,13 +942,13 @@ Realm = &lt;proper realm name&gt; | &lt;normalized realm name&gt;</programlistin
         <example>
           <title>An example Guild Profile request and response.</title>
 
-          <programlisting>GET /api/wow/guild/Medivh/Roll%20the%20Dice
+          <programlisting>GET /api/wow/guild/Medivh/Knights%20of%20the%20Silver%20Hand
 Host: us.battle.net</programlisting>
 
           <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
-{ "name":"Roll the Dice", "level":25, "side":"alliance", "achievementPoints":800 }</programlisting>
+{ "name":"Knights of the Silver Hand", "level":25, "side":"alliance", "achievementPoints":800 }</programlisting>
         </example>
 
         <para>The core dataset returned includes the guild's name, level,
@@ -920,7 +984,7 @@ Host: us.battle.net</programlisting>
             <title>An example Guild Profile request with several addtional
             fields.</title>
 
-            <programlisting>GET /api/wow/guild/Medivh/Roll%20the%20Dice?fields=achievements,members
+            <programlisting>GET /api/wow/guild/Medivh/Knights%20of%20the%20Silver%20Hand?fields=achievements,members
 Host: us.battle.net</programlisting>
           </example>
 
