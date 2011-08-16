@@ -635,6 +635,14 @@ Host: us.battle.net</programlisting>
                 and rated battlegrounds information.</para>
               </listitem>
             </varlistentry>
+
+            <varlistentry>
+              <term>quests</term>
+
+              <listitem>
+                <para>A list of quests completed by the character.</para>
+              </listitem>
+            </varlistentry>
           </variablelist>
 
           <example>
@@ -907,6 +915,31 @@ Host: us.battle.net</programlisting>
     ],
     "totalHonorableKills":98475
   }</programlisting>
+            </example>
+          </section>
+
+          <section>
+            <title>quests</title>
+
+            <example>
+              <title>An example quests field</title>
+
+              <programlisting language="json">{
+  "quests":[
+    26977,
+    26997,
+    27044,
+    27060,
+    27064,
+    27072,
+    27092,
+    27106,
+    28238,
+    28596,
+    28807,
+    28832
+  ]
+}</programlisting>
             </example>
           </section>
         </section>
