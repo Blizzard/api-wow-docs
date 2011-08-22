@@ -300,7 +300,7 @@ Header = "Authorization: BNET" + " " + "examplekey" + ":" + Signature;</programl
         <para>The date timestamp used in the above algorithm and example is
         the value of the Date HTTP header. The two date values, the first
         being used to sign the request and the second as sent with the request
-        headers, must be the same and within 180 seconds of the current GMT
+        headers, must be the same and within 5 minutes of the current GMT
         time.</para>
 
         <important>
@@ -1417,6 +1417,61 @@ Host: us.battle.net
 }</programlisting>
         </example>
       </section>
+
+      <section>
+        <title>Arena Ladder API</title>
+
+        <para>The Arena Team Ladder API provides arena ladder information for
+        a battlegroup.</para>
+
+        <programlisting>TeamSize = "2v2" | "3v3" | "5v5"
+URL = Host + "/api/wow/pvp/arena/" + Battlegroup + "/" + TeamSize</programlisting>
+
+        <example>
+          <title>An example Arena Team Ladder API request and response</title>
+
+          <programlisting>GET /api/wow/pvp/arena/ruin/2v2 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting><xi:include href="pvp-arena-ladder.json"
+              parse="text" /></programlisting>
+        </example>
+      </section>
+    </section>
+
+    <section>
+      <title>Quest Resources</title>
+
+      <para>Quest APIs currently provide quest information.</para>
+
+      <section>
+        <title>Quest API</title>
+
+        <para>The quest API provides detailed quest information.</para>
+
+        <programlisting>URL = Host + "/api/wow/quest/" + QuestId</programlisting>
+
+        <example>
+          <title>An example quest API request and response</title>
+
+          <programlisting>GET /api/wow/quest/13146 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "id":13157,
+  "title":"The Crusaders' Pinnacle",
+  "reqLevel":77,
+  "suggestedPartyMembers":0,
+  "category":"Icecrown",
+  "level":79
+}</programlisting>
+        </example>
+      </section>
     </section>
 
     <section>
@@ -1424,6 +1479,15 @@ Host: us.battle.net
 
       <para>The data APIs provide information that can compliment profile
       information to provide structure, definition and context.</para>
+
+      <section>
+        <title>Battlegroups</title>
+
+        <para>The battlegroups data API provides the list of battlegroups for
+        this region.</para>
+
+        <programlisting>URL = Host + "/api/wow/data/battlegroups"</programlisting>
+      </section>
 
       <section>
         <title>Character Races</title>
@@ -1441,6 +1505,16 @@ Host: us.battle.net
         classes.</para>
 
         <programlisting>URL = Host + "/api/wow/data/character/classes"</programlisting>
+      </section>
+
+      <section>
+        <title>Character Achievements</title>
+
+        <para>The character achievements data API provides a list of all of
+        the achievements that characters can earn as well as the category
+        structure and hierarchy.</para>
+
+        <programlisting>URL = Host + "/api/wow/data/character/achievements"</programlisting>
       </section>
 
       <section>
@@ -1462,6 +1536,16 @@ Host: us.battle.net
       </section>
 
       <section>
+        <title>Guild Achievements</title>
+
+        <para>The guild achievements data API provides a list of all of the
+        achievements that guilds can earn as well as the category structure
+        and hierarchy.</para>
+
+        <programlisting>URL = Host + "/api/wow/data/guild/achievements"</programlisting>
+      </section>
+
+      <section>
         <title>Item Classes</title>
 
         <para>The item classes data API provides a list of item
@@ -1477,51 +1561,5 @@ Host: us.battle.net
 
     <para>The final policy document is being reviewed and will be published at
     a later date.</para>
-  </chapter>
-
-  <chapter>
-    <title>Frequently Asked Questions</title>
-
-    <qandaset>
-      <qandadiv>
-        <qandaentry>
-          <question>
-            <para>Is there an official library or reference implementation
-            provided with these web APIs?</para>
-          </question>
-
-          <answer>
-            <para>No, Blizzard Entertainment has not released an officially
-            support client library to consume the web APIs. There are a number
-            of unofficial libraries that follow the spec provided by this
-            documentation. You are not limited to or forced to use one of the
-            libraries below and can create your own.</para>
-
-            <variablelist>
-              <varlistentry>
-                <term>Python</term>
-
-                <listitem>
-                  <para>https://github.com/vishnevskiy/battlenet</para>
-                </listitem>
-              </varlistentry>
-            </variablelist>
-          </answer>
-        </qandaentry>
-
-        <qandaentry>
-          <question>
-            <para>What about XML/Atom/JSONP/Other data forms?</para>
-          </question>
-
-          <answer>
-            <para>We decided to roll out JSON for numerous reasons. One of the
-            main reasons is that it allows developers and website operators to
-            easily embed requests that consume this date into their
-            websites.</para>
-          </answer>
-        </qandaentry>
-      </qandadiv>
-    </qandaset>
   </chapter>
 </book>
