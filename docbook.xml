@@ -280,7 +280,7 @@ StringToSign = HTTP-Verb + "\n" +
     Date + "\n" +
     UrlPath + "\n";
 
-Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey, StringToSign ) ) );
+Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey ), StringToSign ) );
 
 Header = "Authorization: BNET" + " " + PublicKey + ":" + Signature;</programlisting>
 
