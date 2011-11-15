@@ -1214,7 +1214,7 @@ Host: us.battle.net
         <title>Current Auctions Data</title>
 
         <para>The current auctions data is represented as JSON structures
-        containing auction data for the tree auctions houses available on each
+        containing auction data for the three auctions houses available on each
         realm.</para>
 
         <programlisting>{
@@ -1277,7 +1277,7 @@ Host: us.battle.net
         <example>
           <title>An example Item API request and response</title>
 
-          <programlisting>GET /api/wow//item/38268 HTTP/1.1
+          <programlisting>GET /api/wow/item/38268 HTTP/1.1
 Host: us.battle.net
 &lt;http headers&gt;</programlisting>
 
