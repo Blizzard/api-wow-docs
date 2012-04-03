@@ -1553,6 +1553,14 @@ Host: us.battle.net
 
         <programlisting>URL = Host + "/api/wow/data/item/classes"</programlisting>
       </section>
+
+      <section>
+        <title>Battlegroups</title>
+
+	<para>The battlegroups data API provides a list of all the battlegroups.</para>
+
+        <programlisting>URL = Host + "/api/wow/data/battlegroups/"</programlisting>
+      </section>
     </section>
   </chapter>
 
