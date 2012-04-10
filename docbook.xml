@@ -1024,7 +1024,7 @@ Host: us.battle.net</programlisting>
           <section>
             <title>members</title>
 
-            <para>When the members list is requrested, a list of character
+            <para>When the members list is requested, a list of character
             objects is returned. Each object in the returned members list
             contains a character block as well as a rank field.</para>
 
