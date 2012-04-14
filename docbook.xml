@@ -671,7 +671,6 @@ Host: us.battle.net</programlisting>
   "guild":{
     "name":"Knights of the Silver Hand",
     "realm":"Medivh",
-    "battlegroup": "Ruin",
     "level":25,
     "members":50,
     "achievementPoints":7500,
@@ -983,7 +982,7 @@ Host: us.battle.net</programlisting>
           <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
-{ "name":"Knights of the Silver Hand", "level":25, "side":"alliance", "achievementPoints":800 }</programlisting>
+{ "name":"Knights of the Silver Hand", "level":25, "realm":"Bronzebeard", "battleground":"Ruin", "side":0, "achievementPoints":800 }</programlisting>
         </example>
 
         <para>The core dataset returned includes the guild's name, level,
