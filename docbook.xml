@@ -1168,9 +1168,10 @@ Host: us.battle.net</programlisting>
           <section>
             <title>news</title>
 
-            <para>When the members list is requested, a list of character
-            objects is returned. Each object in the returned members list
-            contains a character block as well as a rank field.</para>
+            <para>When the news feed is requested, you receive a list
+            of news objects. Each one has a type, a timestamp, and
+            then some other data depending on the type: itemId,
+            achievement object, etc.</para>
 
             <example>
               <title>An example news block</title>
