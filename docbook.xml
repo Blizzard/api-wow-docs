@@ -1136,6 +1136,41 @@ Host: us.battle.net</programlisting>
         parameter can optionally be passed to limit the realms returned to one
         or more.</para>
 
+	<variablelist>
+	  <title>Pvp Area Status Fields</title>
+	  <varlistentry>
+	    <term>area</term>
+	    <listitem>
+	      <para>An internal id of this zone.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>controlling-faction</term>
+	    <listitem>
+	      <para>Which faction is controlling the zone at the moment.</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>status</term>
+	    <listitem>
+	      <para>The current status of the zone. The possible values are</para>
+	      <itemizedlist>
+		<listitem>-1: Unknown</listitem>
+		<listitem>0: Idle</listitem>
+		<listitem>1: Populating</listitem>
+		<listitem>2: Active</listitem>
+		<listitem>3: Concluded</listitem>
+	      </itemizedlist>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>next</term>
+	    <listitem>
+	      <para>A timestamp of when the next battle starts.</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+
         <example>
           <title>An example Realm Status request and response</title>
 
@@ -1452,6 +1487,28 @@ Host: us.battle.net
         <programlisting>TeamSize = "2v2" | "3v3" | "5v5"
 URL = Host + "/api/wow/pvp/arena/" + Battlegroup + "/" + TeamSize</programlisting>
 
+        <variablelist>
+	  <title>Optional Query String Parameters</title>
+	  <varlistentry>
+	    <term>page</term>
+	    <listitem>
+	      <para>Which page of results to return (defaults to 1)</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>size</term>
+	    <listitem>
+	      <para>How many results to return per page (defaults to 50)</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>asc</term>
+	    <listitem>
+	      <para>Whether to return the results in ascending order. Defaults to "true", accepts "true" or "false"</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+
         <example>
           <title>An example Arena Team Ladder API request and response</title>
 
@@ -1471,6 +1528,28 @@ Host: us.battle.net
         a region.</para>
 
         <programlisting>URL = Host + "/api/wow/pvp/ratedbg/ladder</programlisting>
+
+        <variablelist>
+	  <title>Optional Query String Parameters</title>
+	  <varlistentry>
+	    <term>page</term>
+	    <listitem>
+	      <para>Which page of results to return (defaults to 1)</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>size</term>
+	    <listitem>
+	      <para>How many results to return per page (defaults to 50)</para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>asc</term>
+	    <listitem>
+	      <para>Whether to return the results in ascending order. Defaults to "true", accepts "true" or "false"</para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
 
         <example>
           <title>An example Rated Battleground Ladder API request and response</title>
