@@ -1123,10 +1123,11 @@ Host: us.battle.net</programlisting>
       <section>
         <title>Realm Status</title>
 
-        <para>The realm status API allows developers to retrieve realm status
-        information. This information is limited to whether or not the realm
-        is up, the type and state of the realm and the current
-        population.</para>
+        <para>The realm status API allows developers to retrieve realm
+        status information. This information is limited to whether or
+        not the realm is up, the type and state of the realm, the
+        current population, and the status of the two world pvp
+        zones.</para>
 
         <programlisting>URL = Host + "/api/wow/realm/status"</programlisting>
 
@@ -1150,6 +1151,18 @@ Host: us.battle.net
     {
       "type":"pve",
       "queue":false,
+      "wintergrasp":{
+        "area":1,
+	"controlling-faction":1,
+	"status":0,
+	"next":1334885402591
+      },
+      "tol-barad":{
+        "area":21,
+	"controlling-faction":1,
+	"status":0,
+	"next":1334884311692
+      },
       "status":true,
       "population":"high",
       "name":"Lightbringer",
@@ -1158,6 +1171,18 @@ Host: us.battle.net
     {
       "type":"pve",
       "queue":false,
+      "wintergrasp":{
+        "area":1,
+	"controlling-faction":0,
+	"status":0,
+	"next":1334885402591
+      },
+      "tol-barad":{
+        "area":21,
+	"controlling-faction":0,
+	"status":0,
+	"next":1334884311692
+      },
       "status":true,
       "population":"medium",
       "name":"Medivh",
@@ -1435,6 +1460,26 @@ Host: us.battle.net
 &lt;http headers&gt;</programlisting>
 
           <programlisting><xi:include href="pvp-arena-ladder.json"
+              parse="text" /></programlisting>
+        </example>
+      </section>
+
+      <section>
+        <title>Rated Battleground Ladder API</title>
+
+        <para>The Rated Battleground Ladder API provides ladder information for
+        a region.</para>
+
+        <programlisting>URL = Host + "/api/wow/pvp/ratedbg/ladder</programlisting>
+
+        <example>
+          <title>An example Rated Battleground Ladder API request and response</title>
+
+          <programlisting>GET /api/wow/pvp/ratedbg/ladder HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting><xi:include href="pvp-ratedbg-ladder.json"
               parse="text" /></programlisting>
         </example>
       </section>
