@@ -1,0 +1,28 @@
+{
+  "id":2144,
+  "title":"What A Long, Strange Trip It's Been",
+  "points":50,
+  "description":"Complete the world events achievements listed below.",
+  "reward":"Rewards: Violet Proto-Drake and Master Riding",
+  "rewardItems":[
+    {
+      "id":44177,
+      "name":"Reins of the Violet Proto-Drake",
+      "icon":"ability_mount_drake_proto",
+      "quality":4,
+      "tooltipParams":{}
+    }
+  ],
+  "icon":"achievement_bg_masterofallbgs",
+  "criteria":[
+    {
+      "id":7553,
+      "description":"To Honor One's Elders"
+    },
+    {
+      "id":7554,
+      "description":"Fool For Love"
+    },
+    ...
+  ]
+}

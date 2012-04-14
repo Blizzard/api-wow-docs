@@ -455,6 +455,32 @@ Host: us.battle.net
     <title>API Reference</title>
 
     <section>
+      <title>Achievement Resources</title>
+
+      <para>Achievement APIs provide some simple data about achievements.</para>
+
+      <section>
+        <title>Achievement</title>
+
+        <programlisting>URL = Host + "/api/wow/achievement/" + AchievementID</programlisting>
+
+        <para>There are no required query string parameters when accessing
+        this resource.</para>
+
+	<example>
+	  <title>An example achievement call</title>
+
+          <programlisting>GET /api/wow/achievement/2144 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+	  <programlisting language="json"><xi:include
+	    href="achievement.json" parse="text" /></programlisting>
+	</example>
+      </section>
+    </section>
+
+    <section>
       <title>Character Resources</title>
 
       <para>Character APIs currently provide character profile
@@ -525,6 +551,13 @@ Host: us.battle.net</programlisting>
                 <para>A map of character attributes and stats.</para>
               </listitem>
             </varlistentry>
+
+	    <varlistentry>
+	      <term>feed</term>
+	      <listitem>
+		<para>The activity feed of the character.</para>
+	      </listitem>
+	    </varlistentry>	    
 
             <varlistentry>
               <term>talents</term>
@@ -709,6 +742,17 @@ Host: us.battle.net</programlisting>
 
               <programlisting language="json"><xi:include
                   href="character-stats.json" parse="text" /></programlisting>
+            </example>
+          </section>
+
+          <section>
+            <title>feed</title>
+
+            <example>
+              <title>An example feed field</title>
+
+              <programlisting language="json"><xi:include
+                  href="character-feed.json" parse="text" /></programlisting>
             </example>
           </section>
 
@@ -1012,6 +1056,14 @@ Host: us.battle.net</programlisting>
                 earned by the guild.</para>
               </listitem>
             </varlistentry>
+
+            <varlistentry>
+              <term>news</term>
+
+              <listitem>
+                <para>A set of data structures that describe the news feed of the guild.</para>
+              </listitem>
+            </varlistentry>
           </variablelist>
 
           <example>
@@ -1110,6 +1162,21 @@ Host: us.battle.net</programlisting>
 
               <programlisting><xi:include href="guild-achievements.json"
                   parse="text" /></programlisting>
+            </example>
+          </section>
+
+          <section>
+            <title>news</title>
+
+            <para>When the members list is requested, a list of character
+            objects is returned. Each object in the returned members list
+            contains a character block as well as a rank field.</para>
+
+            <example>
+              <title>An example news block</title>
+
+              <programlisting language="json"><xi:include
+                  href="guild-news.json" parse="text" /></programlisting>
             </example>
           </section>
         </section>
@@ -1331,7 +1398,7 @@ Host: us.battle.net
       <section>
         <title>Item API</title>
 
-        <para>The item API provides detailed item information.</para>
+        <para>The item API provides detailed item information. This includes item set information if this item is part of a set.</para>
 
         <programlisting>URL = Host + "/api/wow/item/" + ItemId</programlisting>
 
@@ -1387,6 +1454,40 @@ Host: us.battle.net
   "baseArmor":0,
   "hasSockets":false,
   "isAuctionable":true
+}</programlisting>
+        </example>
+      </section>
+
+      <section>
+        <title>Item Set API</title>
+
+        <para>The item set API provides detailed item set information.</para>
+
+        <programlisting>URL = Host + "/api/wow/item/set/" + SetId</programlisting>
+
+        <example>
+          <title>An example Item Set API request and response</title>
+
+          <programlisting>GET /api/wow/item/set/1060 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+  "id":1060,
+  "name":"Deep Earth Vestments",
+  "setBonuses":[
+    {
+      "description":"After using Innervate, the mana cost of your healing spells is reduced by 25% for 15 sec.",
+      "threshold":2
+    },
+    {
+      "description":"Your Rejuvenation and Regrowth spells have a 10% chance to Timeslip and have double the normal duration.",
+      "threshold":4
+    }
+  ]
 }</programlisting>
         </example>
       </section>
