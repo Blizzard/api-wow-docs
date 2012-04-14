@@ -96,7 +96,7 @@ Host: us.battle.net
           </listitem>
 
           <listitem>
-            <para>battlenet.com.cn</para>
+            <para>www.battlenet.com.cn</para>
           </listitem>
         </itemizedlist></para>
 
@@ -184,7 +184,7 @@ Host: us.battle.net
           </varlistentry>
 
           <varlistentry>
-            <term>battlenet.com.cn</term>
+            <term>www.battlenet.com.cn</term>
 
             <listitem>
               <itemizedlist>
