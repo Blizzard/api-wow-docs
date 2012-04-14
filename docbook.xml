@@ -491,8 +491,9 @@ Host: us.battle.net</programlisting>
           <programlisting>HTTP/1.1 200 OK
 &lt;http headers&gt;
 
-{"realm": "Medivh", "name": "Uther", "level": 85, "lastModified": 1307596000000, "thumbnail": "medivh/1/1-avatar.jpg",
-"race": 1, "achievementPoints": 9745, "gender": 0, "class": 2, "guild": { ... } }</programlisting>
+{"realm": "Medivh", "battlegroup": "Ruin", "name": "Uther", "level": 85, "lastModified": 1307596000000,
+"thumbnail": "medivh/1/1-avatar.jpg", "race": 1, "achievementPoints": 9745, "gender": 0, "class": 2,
+"guild": { ... } }</programlisting>
         </example>
 
         <para>The core dataset returned includes the character's realm, name,
@@ -670,6 +671,7 @@ Host: us.battle.net</programlisting>
   "guild":{
     "name":"Knights of the Silver Hand",
     "realm":"Medivh",
+    "battlegroup": "Ruin",
     "level":25,
     "members":50,
     "achievementPoints":7500,
