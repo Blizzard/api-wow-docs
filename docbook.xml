@@ -557,7 +557,7 @@ Host: us.battle.net</programlisting>
 	      <listitem>
 		<para>The activity feed of the character.</para>
 	      </listitem>
-	    </varlistentry>	    
+	    </varlistentry>
 
             <varlistentry>
               <term>talents</term>
@@ -1298,6 +1298,40 @@ Host: us.battle.net
       </section>
     </section>
 
+
+    <section>
+      <title>Recipe Resources</title>
+
+      <para>Recipe APIs currently provide recipe information.</para>
+
+      <section>
+        <title>Recipe API</title>
+
+        <para>The recipe API provides basic recipe information.</para>
+
+        <programlisting>URL = Host + "/api/wow/recipe/" + RecipeId</programlisting>
+
+        <example>
+          <title>An example recipe API request and response</title>
+
+          <programlisting>GET /api/wow/recipe/33994 HTTP/1.1
+Host: us.battle.net
+&lt;http headers&gt;</programlisting>
+
+          <programlisting>HTTP/1.1 200 OK
+&lt;http headers&gt;
+
+{
+    "id": 33994,
+    "name": "Enchant Gloves - Precise Strikes",
+    "profession": "Enchanting",
+    "icon": "spell_holy_greaterheal"
+}</programlisting>
+        </example>
+      </section>
+    </section>
+
+
     <section>
       <title>Auction Resources</title>
 
@@ -1713,7 +1747,7 @@ Host: us.battle.net
         <para>The battlegroups data API provides the list of battlegroups for
         this region.</para>
 
-        <programlisting>URL = Host + "/api/wow/data/battlegroups"</programlisting>
+        <programlisting>URL = Host + "/api/wow/data/battlegroups/"</programlisting>
       </section>
 
       <section>
@@ -1779,14 +1813,6 @@ Host: us.battle.net
         classes.</para>
 
         <programlisting>URL = Host + "/api/wow/data/item/classes"</programlisting>
-      </section>
-
-      <section>
-        <title>Battlegroups</title>
-
-	<para>The battlegroups data API provides a list of all the battlegroups.</para>
-
-        <programlisting>URL = Host + "/api/wow/data/battlegroups/"</programlisting>
       </section>
     </section>
   </chapter>
@@ -1889,7 +1915,7 @@ Host: us.battle.net
       obfuscated, and must be freely accessible to and viewable by the general
       public.</para>
     </section>
-    
+
     <section>
       <title>Applications may not imply any association with Blizzard Entertainment.</title>
 
