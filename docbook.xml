@@ -1393,7 +1393,17 @@ Host: us.battle.net
                 "owner": "Uther",
                 "bid": 150000,
                 "buyout": 450000,
-                "quantity": 11
+                "quantity": 11,
+                "timeLeft": "VERY_LONG"
+            },
+            {
+                "auc": 504,
+                "item": 2160,
+                "owner": "Ronakada",
+                "bid": 140000,
+                "buyout": 150000,
+                "quantity": 1,
+                "timeLeft": "LONG"
             }
         ]
     },
@@ -1406,6 +1416,7 @@ Host: us.battle.net
                 "bid": 26751,
                 "buyout": 57665,
                 "quantity": 1
+                "timeLeft": "MEDIUM"
             }
         ]
     },
@@ -1418,6 +1429,7 @@ Host: us.battle.net
                 "bid": 20000,
                 "buyout": 50000,
                 "quantity": 1
+                "timeLeft": "SHORT"
             }
         ]
     }
@@ -1664,7 +1676,7 @@ Host: us.battle.net
         <para>The Rated Battleground Ladder API provides ladder information for
         a region.</para>
 
-        <programlisting>URL = Host + "/api/wow/pvp/ratedbg/ladder</programlisting>
+        <programlisting>URL = Host + "/api/wow/pvp/ratedbg/ladder"</programlisting>
 
         <variablelist>
 	  <title>Optional Query String Parameters</title>
