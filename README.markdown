@@ -1,4 +1,3 @@
-
 # About
 
 This is the public documentation for the api-wow RESTful web service provided as part of the World of Warcraft community site.
@@ -18,4 +17,4 @@ This will create index-new.html that contains the built documentation.
 The two commands used in the makefile are:
 
     $ xmllint --xinclude docbook.xml > docbook-new.xml
-    $ xsltproc api-wow.xsl --stringparam html.stylesheet style.css docbook-new.xml > index-new.html
+    $ xsltproc --stringparam html.stylesheet style.css api-wow.xsl docbook-new.xml > index-new.html
