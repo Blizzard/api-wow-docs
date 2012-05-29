@@ -127,6 +127,10 @@ Host: us.battle.net
                 <listitem>
                   <para>es_MX</para>
                 </listitem>
+
+                <listitem>
+                  <para>pt_BR</para>
+                </listitem>
               </itemizedlist>
             </listitem>
           </varlistentry>
@@ -154,6 +158,10 @@ Host: us.battle.net
 
                 <listitem>
                   <para>de_DE</para>
+                </listitem>
+
+                <listitem>
+                  <para>pt_PT</para>
                 </listitem>
               </itemizedlist>
             </listitem>
