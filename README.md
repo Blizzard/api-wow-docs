@@ -3157,8 +3157,7 @@ discretion, to allow fewer or greater numbers of requests per
 day. Blizzard Entertainment also reserves the right to revoke access
 to the API completely and without warning.
 
-### Applications may not charge premiums for features that use the
-    API.
+### Applications may not charge premiums for features that use the API.
 
 "Premium" versions of applications offering additional for-pay
 features are not permitted, nor can players be charged money to
@@ -3169,8 +3168,7 @@ use the API. Applications may not include interstitials soliciting
 donations before features or functionality becomes available to the
 player.
 
-### Applications must not negatively impact Blizzard Entertainment
-    games, services, or other players.
+### Applications must not negatively impact Blizzard Entertainment games, services, or other players.
 
 Applications must perform no function which, in Blizzard
 Entertainment's sole discretion, negatively impacts the performance of
@@ -3183,8 +3181,7 @@ The programming code of an application must in no way be hidden or
 obfuscated, and must be freely accessible to and viewable by the
 general public.
 
-### Applications may not imply any association with Blizzard
-    Entertainment.
+### Applications may not imply any association with Blizzard Entertainment.
 
 Applications may not imply any association with, or endorsement by,
 Blizzard Entertainment.
@@ -3199,8 +3196,7 @@ example, World of Warcraft has been rated "T for Teen" by the ESRB,
 and has received similar ratings from other ratings boards around the
 world.
 
-### Blizzard trademarks, titles, or tradenames should not be used when
-    naming an application.
+### Blizzard trademarks, titles, or tradenames should not be used when naming an application.
 
 Applications may not use names based on Blizzard's trademarks or taken
 from Blizzard's products as the name, or part of the name, of the
