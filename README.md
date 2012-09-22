@@ -3086,6 +3086,15 @@ The item classes data API provides a list of item classes.
 URL = Host + "/api/wow/data/item/classes"
 ```
 
+#### Pet Types
+
+The different bat pet types (including what they are strong and weak
+against)
+
+```plain
+URL = Host + "/api/wow/data/pet/types"
+```
+
 ## API Policy
 
 With the continued popularity of third-party applications, which are
@@ -3212,4 +3221,3 @@ our games and services and to providing safe, fair, and fun gaming
 environment for all of our players. As such, failure to abide by the
 guidelines in this policy may result in measures up to and including
 legal action, when necessary.
-
