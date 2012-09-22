@@ -396,12 +396,13 @@ requested through the mentioned "fields" query string parameter.
 * *appearance* A map of values that describes the face, features and
    helm/cloak display preferences and attributes.
 
-* *companions* A list of all of the non-combat pets obtained by the
-   character.
-
 * *mounts* A list of all of the mounts obtained by the character.
 
-* *pets* A list of all of the combat pets obtained by the character.
+* *pets* A list of the battle pets obtained by the character.
+
+* *petSlots* Data about the current battle pet slots on this characters account.
+
+* *hunterPets* A list of all of the combat pets obtained by the character.
 
 * *achievements* A map of achievement data including completion
    timestamps and criteria information.
@@ -1032,21 +1033,6 @@ talents: {
 }
 ```
 
-###### companions
-
-*An example companions field*
-```json
-{
-  "companions":[
-    4055,
-    10673,
-    10674,
-    10676,
-    10677
-  ]
-}
-```
-
 ###### mounts
 
 *An example mounts field*
@@ -1054,6 +1040,37 @@ talents: {
 {
   "mounts":[
     30174
+  ]
+}
+```
+
+###### petSlots
+
+*An example petSlots fields*
+```json
+{
+  "petSlots":[
+    {
+      "slot":1,
+      "battlePetId":1,
+	  "isEmpty":false,
+	  "isLocked":false,
+	  "abilities":[110,310,376]
+    },
+    {
+      "slot":2,
+	  "battlePetId":7476,
+	  "isEmpty":false,
+	  "isLocked":false,
+	  "abilities":[765,766,767]
+    },
+    {
+      "slot":3,
+	  "battlePetId":0,
+	  "isEmpty":true,
+	  "isLocked":true,
+	  "abilities":[]
+    }
   ]
 }
 ```
