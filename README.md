@@ -1038,13 +1038,47 @@ talents: {
 *An example mounts field*
 ```json
 {
-  "mounts":[
-    30174
-  ]
+  "mounts": {
+    "numCollected":6,
+    "numNotCollected":264,
+    "collected":[
+      {
+        "name":"Magnificent Flying Carpet",
+	    "spellId":61309,
+		"creatureId":33030,
+		"itemId":44558,
+		"qualityId":4,
+		"icon":"ability_mount_magnificentflyingcarpet",
+		"isGround":true,
+		"isFlying":true,
+		"isAquatic":true,
+		"isJumping":true
+	  },
+	  {
+	    "name":"Obsidian Nightwing",
+		"spellId":121820,
+		"creatureId":62454,
+		"itemId":83086,
+		"qualityId":4,
+		"icon":"inv_misc_reforgedarchstone_01",
+		"isGround":true,
+		"isFlying":true,
+		"isAquatic":true,
+		"isJumping":true
+ 	  }
+    ]
+  }
 }
 ```
 
 ###### petSlots
+
+The pet slot contains which slot it is and whether the slot is empty
+or locked. We also include the battlePetId which is unique for this
+character and can be used to match a battlePetId in the pets field for
+this character. The ability list is the list of 3 active abilities on
+that pet. If the pet is not high enough level than it will always be
+the first three abilities that the pet has.
 
 *An example petSlots fields*
 ```json
