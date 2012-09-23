@@ -286,45 +286,8 @@ URL = Host + "/api/wow/achievement/" + AchievementID
 
 There are no required query string parameters when accessing this resource.
 
-*An example achievement call*
+[/api/wow/achievement/2144](https://gist.github.com/3772776#file_achievement.json)
 <script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
-
-```plain
-GET /api/wow/achievement/2144 HTTP/1.1
-Host: us.battle.net
-<http headers>
-```
-```json
-{
-  "id":2144,
-  "title":"What A Long, Strange Trip It's Been",
-  "points":50,
-  "description":"Complete the world events achievements listed below.",
-  "reward":"Rewards: Violet Proto-Drake and Master Riding",
-  "rewardItems":[
-    {
-      "id":44177,
-      "name":"Reins of the Violet Proto-Drake",
-      "icon":"ability_mount_drake_proto",
-      "quality":4,
-      "tooltipParams":{}
-    }
-  ],
-  "icon":"achievement_bg_masterofallbgs",
-  "criteria":[
-    {
-      "id":7553,
-      "description":"To Honor One's Elders"
-    },
-    {
-      "id":7554,
-      "description":"Fool For Love"
-    },
-    ...
-  ],
-  accountWide: true
-}
-```
 
 ### Character Resources
 
