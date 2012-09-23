@@ -287,6 +287,8 @@ URL = Host + "/api/wow/achievement/" + AchievementID
 There are no required query string parameters when accessing this resource.
 
 *An example achievement call*
+<script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
+
 ```plain
 GET /api/wow/achievement/2144 HTTP/1.1
 Host: us.battle.net
