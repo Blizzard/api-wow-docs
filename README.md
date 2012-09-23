@@ -272,21 +272,20 @@ You can also email
 [api-support@blizzard.com](mailto:api-support@blizzard.com) for
 matters that you may not want public discussion for.
 
-## API Reference
-
-### Achievement Resources
-
-Achievement APIs provide some simple data about achievements.
-
-#### Achievement
+## Achievement API
 
 ```plain
 URL = Host + "/api/wow/achievement/" + AchievementID
 ```
 
-There are no required query string parameters when accessing this resource.
+This provides data about an individual achievement.
 
-[/api/wow/achievement/2144](https://gist.github.com/3772776#file_achievement.json)
+<dl>
+  <dt>Example URL</dt>
+  <dd>[http://us.battle.net/api/wow/achievement/2144]</dd>
+  <dt>Example Data</dt>
+  <dd>[achievement.json](https://gist.github.com/3772776#file_achievement.json)</dd>
+</dl>
 <script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
 
 ### Character Resources
