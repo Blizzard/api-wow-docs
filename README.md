@@ -51,9 +51,9 @@ the community sites.
 To access a different region just provide the `locale=pt_BR` (for
 example) query parameter.
 
-*Example URL for the europe realm list localized in French*
+*Example URL for the europe character race list localized in French*
 ```plain
-http://eu.battle.net/api/wow/realm/status?locale=fr_FR
+http://eu.battle.net/api/wow/data/character/races?locale=fr_FR
 ```
 
 #### Region Host List
@@ -67,43 +67,43 @@ http://eu.battle.net/api/wow/realm/status?locale=fr_FR
     <td>US</td>
 	<td>us.battle.net</td>
 	<td>
-	  [en_US](http://us.battle.net/api/wow/realm/status?locale=en_US)<br/>
-	  [es_MX](http://us.battle.net/api/wow/realm/status?locale=es_MX)<br/>
-	  [pt_BR](http://us.battle.net/api/wow/realm/status?locale=pt_BR)
+	  [en_US](http://us.battle.net/api/wow/data/character/races?locale=en_US)<br/>
+	  [es_MX](http://us.battle.net/api/wow/data/character/races?locale=es_MX)<br/>
+	  [pt_BR](http://us.battle.net/api/wow/data/character/races?locale=pt_BR)
 	</td>
   </tr>
   <tr>
     <td>Europe</td>
 	<td>eu.battle.net</td>
 	<td>
-	  [en_GB](http://eu.battle.net/api/wow/realm/status?locale=en_GB)<br/>
-	  [es_ES](http://eu.battle.net/api/wow/realm/status?locale=es_ES)<br/>
-	  [fr_FR](http://eu.battle.net/api/wow/realm/status?locale=fr_FR)<br/>
-	  [ru_RU](http://eu.battle.net/api/wow/realm/status?locale=ru_RU)<br/>
-	  [de_DE](http://eu.battle.net/api/wow/realm/status?locale=de_DE)<br/>
-	  [pt_PT](http://eu.battle.net/api/wow/realm/status?locale=pt_PT)<br/>
-	  [it_IT](http://eu.battle.net/api/wow/realm/status?locale=it_IT)<br/>
+	  [en_GB](http://eu.battle.net/api/wow/data/character/races?locale=en_GB)<br/>
+	  [es_ES](http://eu.battle.net/api/wow/data/character/races?locale=es_ES)<br/>
+	  [fr_FR](http://eu.battle.net/api/wow/data/character/races?locale=fr_FR)<br/>
+	  [ru_RU](http://eu.battle.net/api/wow/data/character/races?locale=ru_RU)<br/>
+	  [de_DE](http://eu.battle.net/api/wow/data/character/races?locale=de_DE)<br/>
+	  [pt_PT](http://eu.battle.net/api/wow/data/character/races?locale=pt_PT)<br/>
+	  [it_IT](http://eu.battle.net/api/wow/data/character/races?locale=it_IT)<br/>
 	</td>
   </tr>
   <tr>
     <td>Korea</td>
 	<td>kr.battle.net</td>
 	<td>
-	  [ko_KR](http://kr.battle.net/api/wow/realm/status?locale=ko_KR)<br/>
+	  [ko_KR](http://kr.battle.net/api/wow/data/character/races?locale=ko_KR)<br/>
 	</td>
   </tr>
   <tr>
     <td>Taiwan</td>
 	<td>tw.battle.net</td>
 	<td>
-	  [zh_TW](http://tw.battle.net/api/wow/realm/status?locale=zh_TW)<br/>
+	  [zh_TW](http://tw.battle.net/api/wow/data/character/races?locale=zh_TW)<br/>
 	</td>
   </tr>
   <tr>
     <td>China</td>
 	<td>www.battlenet.com.cn</td>
 	<td>
-	  [zh_CN](http://www.battlenet.com.cn/api/wow/realm/status?locale=zh_CN)<br/>
+	  [zh_CN](http://www.battlenet.com.cn/api/wow/data/character/races?locale=zh_CN)<br/>
 	</td>
   </tr>
 </table>
