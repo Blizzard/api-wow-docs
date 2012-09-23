@@ -66,55 +66,27 @@ http://eu.battle.net/api/wow/realm/status?locale=fr_FR
   <tr>
     <td>US</td>
 	<td>us.battle.net</td>
-	<td>
-	  <ul>
-	    <li>en_US</li>
-	    <li>es_MX</li>
-	    <li>pt_BR</li>
-	  </ul>
-	</td>
+	<td>en_US<br/>es_MX<br/>pt_BR</td>
   </tr>
   <tr>
     <td>Europe</td>
 	<td>eu.battle.net</td>
-	<td>
-	  <ul>
-	    <li>en_GB</li>
-	    <li>es_ES</li>
-	    <li>fr_FR</li>
-	    <li>ru_RU</li>
-	    <li>de_DE</li>
-	    <li>pt_PT</li>
-	    <li>it_IT</li>
-	  </ul>
-	</td>
+	<td>en_GB<br/>es_ES<br/>fr_FR<br/>ru_RU<br/>de_DE<br/>pt_PT<br/>it_IT</td>
   </tr>
   <tr>
     <td>Korea</td>
 	<td>kr.battle.net</td>
-	<td>
-	  <ul>
-	    <li>ko_KR</li>
-	  </ul>
-	</td>
+	<td>ko_KR</td>
   </tr>
   <tr>
     <td>Taiwan</td>
 	<td>tw.battle.net</td>
-	<td>
-	  <ul>
-	    <li>zh_TW</li>
-	  </ul>
-	</td>
+	<td>zh_TW</td>
   </tr>
   <tr>
     <td>China</td>
 	<td>www.battlenet.com.cn</td>
-	<td>
-	  <ul>
-	    <li>zh_CN</li>
-	  </ul>
-	</td>
+	<td>zh_CN</td>
   </tr>
 </table>
 
