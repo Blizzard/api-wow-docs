@@ -2065,15 +2065,15 @@ requested.
 	<th>Description</th>
   </tr>
   <tr>
-    <td>members</td>
+    <td>[members](#guild-profile-api/members)</td>
 	<td>A list of characters that are a member of the guild</td>
   </tr>
   <tr>
-    <td>achievements</td>
+    <td>[achievements](#guild-profile-api/achievements)</td>
 	<td>A set of data structures that describe the achievements earned by the guild.</td>
   </tr>
   <tr>
-    <td>news</td>
+    <td>[news](#guild-profile-api/news)</td>
 	<td>A set of data structures that describe the news feed of the guild.</td>
   </tr>
 </table>
