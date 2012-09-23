@@ -36,27 +36,6 @@ contain the "If-Modified-Since" header.
 To access the API, HTTP requests can be made to specific URLs and
 resources exposed on the regional Battle.net domains.
 
-*An example API request and response.*
-```plain
-GET /api/wow/realm/status HTTP/1.1
-Host: us.battle.net
-<http headers>
-```
-```plain
-HTTP/1.1 200 OK
-<http headers>
-
-{"realms":[ ... ]}
-```
-
-The regions where this API is available are:
-
-* us.battle.net
-* eu.battle.net
-* kr.battle.net
-* tw.battle.net
-* www.battlenet.com.cn
-
 The data available through the API is limited to the region that it is
 in. Hence, US APIs accessed through us.battle.net will only contain
 data within US battlegroups and realms. Support for locales is limited
@@ -69,23 +48,75 @@ localized strings using the locale query string parameter. The locales
 supported vary from region to region and align with those supported on
 the community sites.
 
-* us.battle.net
-  * en_US
-  * es_MX
-  * pt_BR
-* eu.battle.net
-  * en_GB
-  * es_ES
-  * fr_FR
-  * ru_RU
-  * de_DE
-  * pt_PT
-* kr.battle.net
-  * ko_KR
-* tw.battle.net
-  * zh_TW
-* www.battlenet.com.cn
-  * zh_CN
+To access a different region just provide the `locale=pt_BR` (for
+example) query parameter.
+
+*Example URL for the europe realm list localized in French*
+```plain
+http://eu.battle.net/api/wow/realm/status?locale=fr_FR
+```
+
+#### Region Host List
+<table>
+  <tr>
+    <th>Region</th>
+	<th>Host</th>
+	<th>Available Locales</th>
+  </tr>
+  <tr>
+    <td>US</td>
+	<td>us.battle.net</td>
+	<td>
+	  <ul>
+	    <li>en_US</li>
+	    <li>es_MX</li>
+	    <li>pt_BR</li>
+	  </ul>
+	</td>
+  </tr>
+  <tr>
+    <td>Europe</td>
+	<td>eu.battle.net</td>
+	<td>
+	  <ul>
+	    <li>en_GB</li>
+	    <li>es_ES</li>
+	    <li>fr_FR</li>
+	    <li>ru_RU</li>
+	    <li>de_DE</li>
+	    <li>pt_PT</li>
+	    <li>it_IT</li>
+	  </ul>
+	</td>
+  </tr>
+  <tr>
+    <td>Korea</td>
+	<td>kr.battle.net</td>
+	<td>
+	  <ul>
+	    <li>ko_KR</li>
+	  </ul>
+	</td>
+  </tr>
+  <tr>
+    <td>Taiwan</td>
+	<td>tw.battle.net</td>
+	<td>
+	  <ul>
+	    <li>zh_TW</li>
+	  </ul>
+	</td>
+  </tr>
+  <tr>
+    <td>China</td>
+	<td>www.battlenet.com.cn</td>
+	<td>
+	  <ul>
+	    <li>zh_CN</li>
+	  </ul>
+	</td>
+  </tr>
+</table>
 
 ### Throttling
 
