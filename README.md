@@ -203,7 +203,7 @@ limited to, one of the following strings.
 
 <table>
   <tr>
-    <th>Response Code</th>
+    <th>Code</th>
     <th>Message</th>
     <th>Description</th>
   </tr>
@@ -262,7 +262,7 @@ HTTP/1.1 404 Not Found
 {"status":"nok", "reason": "When in doubt, blow it up. (page not found)"}
 ```
 
-### Support
+## Support
 
 For questions about the API, please use the Community Platform API
 forums as a platform to ask questions and get help.
@@ -334,56 +334,86 @@ HTTP/1.1 200 OK
 "guild": { ... } }
 ```
 
-##### Optional Fields
+#### Optional Fields
 
 This section contains a list of the optional fields that can be
 requested through the mentioned "fields" query string parameter.
 
-* *guild* A summary of the guild that the character belongs to. If the
-  character does not belong to a guild and this field is requested,
-  this field will not be exposed.
-
-* *stats* A map of character attributes and stats.
-
-* *feed* The activity feed of the character.
-
-* *talents* A list of talent structures.
-
-* *items* A list of items equipted by the character. Use of this field
-   will also include the average item level and average item level
-   equipped for the character.
-
-* *reputation* A list of the factions that the character has an
-   associated reputation with.
-
-* *titles* A list of the titles obtained by the character including
-   the currently selected title.
-
-* *professions* A list of the character's professions. It is important
-   to note that when this information is retrieved, it will also
-   include the known recipes of each of the listed professions.
-
-* *appearance* A map of values that describes the face, features and
-   helm/cloak display preferences and attributes.
-
-* *mounts* A list of all of the mounts obtained by the character.
-
-* *pets* A list of the battle pets obtained by the character.
-
-* *petSlots* Data about the current battle pet slots on this characters account.
-
-* *hunterPets* A list of all of the combat pets obtained by the character.
-
-* *achievements* A map of achievement data including completion
-   timestamps and criteria information.
-
-* *progression* A list of raids and bosses indicating raid progression
-   and completedness.
-
-* *pvp* A map of pvp information including arena team membership and
-   rated battlegrounds information.
-
-* *quests* A list of quests completed by the character.
+<table>
+  <tr>
+    <th>Field</th>
+    <td>Description</th>
+  </tr>
+  <tr>
+    <td>guild</td>
+	<td>A summary of the guild that the character belongs to. If the character does not belong to a guild and this field is requested, this field will not be exposed.</td>
+  </tr>
+  <tr>
+    <td>stats</td>
+	<td>A map of character attributes and stats.</td>
+  </tr>
+  <tr>
+    <td>feed</td>
+	<td>The activity feed of the character.</td>
+  </tr>
+  <tr>
+    <td>talents</td>
+	<td>A list of talent structures.</td>
+  </tr>
+  <tr>
+    <td>items</td>
+	<td>A list of items equipted by the character. Use of this field will also include the average item level and average item level equipped for the character.</td>
+  </tr>
+  <tr>
+    <td>reputation</td>
+    <td>A list of the factions that the character has an associated reputation with.</td>
+  </tr>
+  <tr>
+    <td>titles</td>
+    <td>A list of the titles obtained by the character including the currently selected title.</td>
+  </tr>
+  <tr>
+  <tr>
+    <td>professions</td>
+	<td>A list of the character's professions. It is important to note that when this information is retrieved, it will also include the known recipes of each of the listed professions.</td>
+  </tr>
+  <tr>
+    <td>appearance</td>
+	<td>A map of values that describes the face, features and helm/cloak display preferences and attributes.</td>
+  </tr>
+  <tr>
+    <td>mounts</td>
+	<td>A list of all of the mounts obtained by the character.</td>
+  </tr>
+  <tr>
+    <td>pets</td>
+	<td>A list of the battle pets obtained by the character.</td>
+  </tr>
+  <tr>
+    <td>petSlots</td>
+	<td>Data about the current battle pet slots on this characters account.</td>
+  </tr>
+  <tr>
+    <td>hunterPets</td>
+	<td>A list of all of the combat pets obtained by the character.</td>
+  </tr>
+  <tr>
+    <td>achievements</td>
+	<td>A map of achievement data including completion timestamps and criteria information.</td>
+  </tr>
+  <tr>
+    <td>progression</td>
+	<td>A list of raids and bosses indicating raid progression and completedness.</td>
+  </tr>
+  <tr>
+    <td>pvp</td>
+	<td>A map of pvp information including arena team membership and rated battlegrounds information.</td>
+  </tr>
+  <tr>
+    <td>quests</td>
+	<td>A list of quests completed by the character.</td>
+  </tr>
+</table>
 
 *An example Character Profile request with several addtional fields.*
 ```plain
