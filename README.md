@@ -1,3 +1,4 @@
+<style>.gist-data { max-height: 400px; overflow: auto; }</style>
 # WoW Community Web API
 
 This is the documentation for the RESTful APIs exposed through the World of Warcraft community site as a service to the World of Warcraft community.
