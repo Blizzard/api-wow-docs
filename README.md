@@ -201,52 +201,53 @@ attributes. The value of the "status" attribute will always be
 "nok". The reason will be an english string that may be, but is not
 limited to, one of the following strings.
 
-#### Invalid Application
-HTTP Response Code: 500
-
-A request was made including application identification information,
-but either the application key is invalid or missing.
-
-#### Invalid application permissions.
-HTTP Response Code: 500
-
-A request was made to an API resource that requires a higher
-application permission level.
-
-#### Access denied, please contact api-support@blizzard.com
-HTTP Response Code: 500
-
-The application or IP address has been blocked from making further
-requests. This ban may not be permanent.
-
-#### When in doubt, blow it up. (page not found)
-HTTP Response Code: 404
-
-A request was made to a resource that doesn't exist.
-
-#### If at first you don't succeed, blow it up again. (too many requests)
-HTTP Response Code: 500
-
-The application or IP has been throttled.
-
-#### Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
-HTTP Response Code: 500
-
-There was a server error or equally catastrophic exception
-preventing the request from being fulfilled.
-
-#### Invalid authentication header.
-HTTP Response Code: 500
-
-The application authorization information was mallformed or missing
-when expected.
-
-#### Invalid application signature.
-HTTP Response Code: 500
-
-The application request signature was missing or invalid. This will
-also be thrown if the request date outside of a 15 second window
-from the current GMT time.
+<table>
+  <tr>
+    <th>Response Code</th>
+    <th>Message</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Invalid Application</td>
+    <td>A request was made including application identification information, but either the application key is invalid or missing.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Invalid application permissions.</td>
+	<td>A request was made to an API resource that requires a higher application permission level.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Access denied, please contact api-support@blizzard.com</td>
+	<td>The application or IP address has been blocked from making further requests. This ban may not be permanent.</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>When in doubt, blow it up. (page not found)</td>
+	<td>A request was made to a resource that doesn't exist.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>If at first you don't succeed, blow it up again. (too many requests)</td>
+	<td>The application or IP has been throttled.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)</td>
+	<td>There was a server error or equally catastrophic exception preventing the request from being fulfilled.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Invalid authentication header.</td>
+	<td>The application authorization information was mallformed or missing when expected.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Invalid application signature.</td>
+	<td>The application request signature was missing or invalid. This will also be thrown if the request date outside of a 15 second window from the current GMT time.</td>
+  </tr>
+</table>
 
 *An example API request and and error response*
 ```plain
