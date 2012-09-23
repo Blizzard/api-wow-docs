@@ -1,6 +1,10 @@
 # WoW Community Web API
 
-This is the documentation for the RESTful APIs exposed through the World of Warcraft community site as a service to the World of Warcraft community.
+This is the documentation for the RESTful APIs exposed through the World of
+Warcraft community site as a service to the World of Warcraft community.
+
+To view the inlined gist json examples you should view this document at
+[http://blizzard.github.com/api-wow-docs/](http://blizzard.github.com/api-wow-docs/).
 
 ## Introduction
 
@@ -293,6 +297,32 @@ This provides data about an individual achievement.
   <dd>[achievement.json](https://gist.github.com/3772776#file_achievement.json)</dd>
 </dl>
 <script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
+
+## BattlePet API
+
+### Abilities
+
+```plain
+URL = Host + "/api/wow/battlePet/ability/" + AbilityID
+```
+
+This provides data about a individual battle pet ability ID. We do not provide
+the tooltip for the ability yet. We are working on a better way to provide this
+since it depends on your pet's species, level and quality rolls.
+
+<script src="https://gist.github.com/3772776.js?file=battlePet-ability.json"></script>
+
+### Species
+
+```plain
+URL = Host + "/api/wow/battlePet/species/" + SpeciesID
+```
+
+This provides the data about an individual pet species. The species ids can be
+found your character profile using the options `pets` field. Each species also
+has data about what it's 6 abilities are.
+
+<script src="https://gist.github.com/3772776.js?file=battlePet-species.json"></script>
 
 ## Character Profile API
 
