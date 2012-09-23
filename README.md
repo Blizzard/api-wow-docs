@@ -1,4 +1,3 @@
-<style>.gist-data { max-height: 400px; overflow: auto; }</style>
 # WoW Community Web API
 
 This is the documentation for the RESTful APIs exposed through the World of Warcraft community site as a service to the World of Warcraft community.
@@ -155,12 +154,11 @@ To authenticate a request, simple include the "Authorization" header
 with your application identifier and the request signature.
 
 *An example authenticated request*
-```plain
-GET /api/wow/character/Medivh/Thrall HTTP/1.1
-Host: us.battle.net
-Date: Fri, 10 Jun 2011 20:59:24 GMT
-Authorization: BNET c1fbf21b79c03191d:+3fE0RaKc+PqxN0gi8va5GQC35A=
-```
+
+    GET /api/wow/character/Medivh/Thrall HTTP/1.1
+    Host: us.battle.net
+    Date: Fri, 10 Jun 2011 20:59:24 GMT
+    Authorization: BNET c1fbf21b79c03191d:+3fE0RaKc+PqxN0gi8va5GQC35A=
 
 In the above exmple, the value of the Authorization header has three
 parts `"BNET"`, `"c1fbf21b79c03191d"` and
@@ -171,31 +169,27 @@ application public key is assigned by Blizzard during the application
 registration process. The signature is generated with each request and
 is discribed by the following algorithm.
 
-```plain
-UrlPath = <HTTP-Request-URI, from the port to the query string>
-
-StringToSign = HTTP-Verb + "\n" +
-    Date + "\n" +
-    UrlPath + "\n";
-
-Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey ), StringToSign ) );
-
-Header = "Authorization: BNET" + " " + PublicKey + ":" + Signature;
-```
+    UrlPath = <HTTP-Request-URI, from the port to the query string>
+    
+    StringToSign = HTTP-Verb + "\n" +
+        Date + "\n" +
+        UrlPath + "\n";
+    
+    Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( PrivateKey ), StringToSign ) );
+    
+    Header = "Authorization: BNET" + " " + PublicKey + ":" + Signature;
 
 The above process can be seen in action by filling in the blanks:
 
-```plain
-UrlPath = "/api/wow/realm/status"
-
-StringToSign = "GET" + "\n" +
-    "Fri, 10 Jun 2011 21:37:34 GMT" + "\n" +
-    UrlPath + "\n";
-
-Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret" ), StringToSign ) );
-
-Header = "Authorization: BNET" + " " + "examplekey" + ":" + Signature;
-```
+    UrlPath = "/api/wow/realm/status"
+    
+    StringToSign = "GET" + "\n" +
+        "Fri, 10 Jun 2011 21:37:34 GMT" + "\n" +
+        UrlPath + "\n";
+    
+    Signature = Base64( HMAC-SHA1( UTF-8-Encoding-Of( "examplesecret" ), StringToSign ) );
+    
+    Header = "Authorization: BNET" + " " + "examplekey" + ":" + Signature;
 
 The date timestamp used in the above algorithm and example is the
 value of the Date HTTP header. The two date values, the first being
@@ -3330,3 +3324,5 @@ our games and services and to providing safe, fair, and fun gaming
 environment for all of our players. As such, failure to abide by the
 guidelines in this policy may result in measures up to and including
 legal action, when necessary.
+
+<style>.gist-data { max-height: 400px; overflow: auto; }</style>
