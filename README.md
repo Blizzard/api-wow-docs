@@ -310,6 +310,12 @@ This provides data about a individual battle pet ability ID. We do not provide
 the tooltip for the ability yet. We are working on a better way to provide this
 since it depends on your pet's species, level and quality rolls.
 
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/battlePet/ability/640](http://us.battle.net/api/wow/battlePet/ability/640)</dd>
+  <dt>Example Data</dt>
+  <dd>[battlePet-ability.json](https://gist.github.com/3772776#file_battle_pet_ability.json)</dd>
+</dl>
 <script src="https://gist.github.com/3772776.js?file=battlePet-ability.json"></script>
 
 ### Species
@@ -322,6 +328,12 @@ This provides the data about an individual pet species. The species ids can be
 found your character profile using the options `pets` field. Each species also
 has data about what it's 6 abilities are.
 
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/battlePet/species/258](http://us.battle.net/api/wow/battlePet/species/258)</dd>
+  <dt>Example Data</dt>
+  <dd>[battlePet-species.json](https://gist.github.com/3772776#file_battle_pet_species.json)</dd>
+</dl>
 <script src="https://gist.github.com/3772776.js?file=battlePet-species.json"></script>
 
 ## Character Profile API
