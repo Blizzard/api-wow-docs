@@ -342,7 +342,7 @@ requested through the mentioned "fields" query string parameter.
 <table>
   <tr>
     <th>Field</th>
-    <td>Description</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>guild</td>
@@ -372,7 +372,6 @@ requested through the mentioned "fields" query string parameter.
     <td>titles</td>
     <td>A list of the titles obtained by the character including the currently selected title.</td>
   </tr>
-  <tr>
   <tr>
     <td>professions</td>
 	<td>A list of the character's professions. It is important to note that when this information is retrieved, it will also include the known recipes of each of the listed professions.</td>
@@ -417,11 +416,10 @@ requested through the mentioned "fields" query string parameter.
 
 *An example Character Profile request with several addtional fields.*
 ```plain
-GET /api/wow/character/Medivh/Uther?fields=guild,items,professions,reputation,stats
-Host: us.battle.net
+http://us.battle.net/api/wow/character/Medivh/Uther?fields=guild,items,professions,reputation,stats
 ```
 
-###### guild
+### guild
 
 When a guild is requested, a map is returned with key/value pairs that
 describe a basic set of guild information. Note that the rank of the
@@ -449,8 +447,7 @@ resource.
   }
 }
 ```
-
-###### items
+### items
 
 When the items field is used, a map structure is returned that
 contains information on the equipped items of that character as well
@@ -614,7 +611,7 @@ as the average item level of the character.
     } }
 ```
 
-###### stats
+### stats
 
 *An example stats field*
 ```json
@@ -675,7 +672,7 @@ as the average item level of the character.
 }
 ```
 
-###### feed
+### feed
 
 *An example feed field*
 ```json
@@ -769,7 +766,7 @@ as the average item level of the character.
 }
 ```
 
-###### talents
+### talents
 
 *An example talents field*
 ```json
@@ -833,7 +830,7 @@ talents: {
 }
 ```
 
-###### reputation
+### reputation
 
 *An example reputation field*
 ```json
@@ -878,7 +875,7 @@ talents: {
 }
 ```
 
-###### titles
+### titles
 
 *An example titles field*
 ```json
@@ -929,7 +926,7 @@ talents: {
 }
 ```
 
-###### professions
+### professions
 
 *An example professions field*
 ```json
@@ -1016,7 +1013,7 @@ talents: {
 }
 ```
 
-###### appearance
+### appearance
 
 *An example appearance field*
 ```json
@@ -1033,7 +1030,7 @@ talents: {
 }
 ```
 
-###### mounts
+### mounts
 
 *An example mounts field*
 ```json
@@ -1071,7 +1068,7 @@ talents: {
 }
 ```
 
-###### pets
+### pets
 
 *An example pets field*
 ```json
@@ -1115,7 +1112,7 @@ talents: {
 }
 ```
 
-###### petSlots
+### petSlots
 
 The pet slot contains which slot it is and whether the slot is empty
 or locked. We also include the battlePetId which is unique for this
@@ -1153,7 +1150,7 @@ the first three abilities that the pet has.
 }
 ```
 
-###### hunterPets
+### hunterPets
 
 *An example hunterPets fields*
 ```json
@@ -1177,7 +1174,7 @@ the first three abilities that the pet has.
 }
 ```
 
-###### achievements
+### achievements
 
 *An example achievements field*
 ```json
@@ -1193,7 +1190,7 @@ the first three abilities that the pet has.
 }
 ```
 
-###### progression
+### progression
 
 *An example progression field*
 ```json
@@ -1947,7 +1944,7 @@ the first three abilities that the pet has.
 }
 ```
 
-###### pvp
+### pvp
 
 *An example pvp field*
 ```json
@@ -1999,7 +1996,7 @@ the first three abilities that the pet has.
   }
 ```
 
-###### quests
+### quests
 
 *An example quests field*
 ```json
@@ -2021,11 +2018,7 @@ the first three abilities that the pet has.
 }
 ```
 
-### Guild Resources
-
-Guild APIs currently provide guild profile information.
-
-#### Profile API
+## Guild Profile API
 
 The guild profile API is the primary way to access guild
 information. This guild profile API can be used to fetch a single
@@ -2061,26 +2054,36 @@ HTTP/1.1 200 OK
 The core dataset returned includes the guild's name, level, faction
 and achievement points.
 
-##### Optional Fields
+#### Optional Fields
 
 This section contains a list of the optional fields that can be
 requested.
 
-* *members* A list of characters that are a member of the guild
-
-* *achievements* A set of data structures that describe the
-   achievements earned by the guild.
-
-* *news* A set of data structures that describe the news feed of the
-   guild.
-
+<table>
+  <tr>
+    <th>Field</th>
+	<th>Description</th>
+  </tr>
+  <tr>
+    <td>members</td>
+	<td>A list of characters that are a member of the guild</td>
+  </tr>
+  <tr>
+    <td>achievements</td>
+	<td>A set of data structures that describe the achievements earned by the guild.</td>
+  </tr>
+  <tr>
+    <td>news</td>
+	<td>A set of data structures that describe the news feed of the guild.</td>
+  </tr>
+</table>
+  
 *An example Guild Profile request with several addtional fields.*
 ```plain
-GET /api/wow/guild/Medivh/Knights%20of%20the%20Silver%20Hand?fields=achievements,members
-Host: us.battle.net
+http://us.battle.net/api/wow/guild/Medivh/Knights%20of%20the%20Silver%20Hand?fields=achievements,members
 ```
 
-###### members
+### members
 
 When the members list is requested, a list of character objects is
 returned. Each object in the returned members list contains a
@@ -2248,7 +2251,7 @@ character block as well as a rank field.
   ]
 ```
 
-###### achievements
+### achievements
 
 When requesting achievement data, several sets of data will be
 returned.
@@ -2287,7 +2290,7 @@ returned.
   }
 ```
 
-###### news
+### news
 
 When the news feed is requested, you receive a list of news
 objects. Each one has a type, a timestamp, and then some other data
@@ -2415,11 +2418,7 @@ depending on the type: itemId, achievement object, etc.
 }
 ```
 
-### Realm Resources
-
-Realm APIs currently provide realm status information.
-
-#### Realm Status
+## Realm Status API
 
 The realm status API allows developers to retrieve realm status
 information. This information is limited to whether or not the realm
@@ -2434,7 +2433,7 @@ There are no required query string parameters when accessing this
 resource, although the "realms" query string parameter can optionally
 be passed to limit the realms returned to one or more.
 
-##### Pvp Area Status Fields
+#### Pvp Area Status Fields
 
 * *area* An internal id of this zone.
 
@@ -2503,11 +2502,7 @@ Host: us.battle.net
 }
 ```
 
-### Recipe Resources
-
-Recipe APIs currently provide recipe information.
-
-#### Recipe API
+## Recipe API
 
 The recipe API provides basic recipe information.
 
@@ -2529,7 +2524,7 @@ Host: us.battle.net
 }
 ```
 
-### Auction Resources
+## Auction API
 
 Auction APIs currently provide rolling batches of data about current
 auctions. Fetching auction dumps is a two step process that involves
