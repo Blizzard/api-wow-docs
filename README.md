@@ -1071,6 +1071,50 @@ talents: {
 }
 ```
 
+###### pets
+
+*An example pets field*
+```json
+{
+  "pets": {
+    "numCollected":9,
+    "numNotCollected":450,
+    "collected":[
+	  {
+	    "name":"Mech",
+		"spellId":78381,
+		"creatureId":42078,
+		"itemId":56806,
+		"qualityId":3,
+		"icon":"t_roboticon",
+		"speciesId":258,
+		"battlePetId":3963,
+		"isFavorite":true,
+		"level":1,
+		"creatureName":"Mini Thor",
+		"breedId":6,
+		"petQualityId":3
+      },
+	  {
+	    "name":"Mini Diablo",
+		"spellId":17708,
+		"creatureId":11326,
+		"itemId":13584,
+		"qualityId":3,
+		"icon":"inv_diablostone",
+		"speciesId":93,
+		"battlePetId":4001,
+		"isFavorite":false,
+		"level":4,
+		"creatureName":"Mini Diablo",
+		"breedId":4,
+		"petQualityId":3
+	  }
+    ]
+  }
+}
+```
+
 ###### petSlots
 
 The pet slot contains which slot it is and whether the slot is empty
@@ -1113,24 +1157,24 @@ the first three abilities that the pet has.
 
 *An example hunterPets fields*
 ```json
-pets: [
-  {
-    name: "MyPet",
-    creature: 57239,
-    selected: true,
-    slot: 0,
-    spec: {
-      name: "Tenacity",
-      role: "TANK",
-      backgroundImage: "bg-deathknight-blood",
-      icon: "ability_druid_demoralizingroar",
-      description: "",
-      order: 1
-    },
-    calcSpec: "Z"
-  },
-  ...
-]
+{
+  "hunterPets":[
+    {
+	  "name":"MyPet",
+	  "creature":57239,
+	  "selected":true,
+	  "slot":0,
+	  "spec": {
+	    "name":"Tenacity",
+		"role":"TANK",
+		"backgroundImage":"bg-deathknight-blood",
+ 		"icon":"ability_druid_demoralizingroar",
+		"description":"",
+		"order":1 },
+	  "calcSpec":"Z"
+    }
+  ]
+}
 ```
 
 ###### achievements
