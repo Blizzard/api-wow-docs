@@ -262,17 +262,6 @@ HTTP/1.1 404 Not Found
 {"status":"nok", "reason": "When in doubt, blow it up. (page not found)"}
 ```
 
-## Support
-
-For questions about the API, please use the Community Platform API
-forums as a platform to ask questions and get help.
-
-http://us.battle.net/wow/en/forum/2626217/
-
-You can also email
-[api-support@blizzard.com](mailto:api-support@blizzard.com) for
-matters that you may not want public discussion for.
-
 ## Achievement API
 
 ```plain
@@ -3185,7 +3174,19 @@ against)
 URL = Host + "/api/wow/data/pet/types"
 ```
 
-## API Policy
+## Policies and Support
+### Support
+
+For questions about the API, please use the Community Platform API
+forums as a platform to ask questions and get help.
+
+http://us.battle.net/wow/en/forum/2626217/
+
+You can also email
+[api-support@blizzard.com](mailto:api-support@blizzard.com) for
+matters that you may not want public discussion for.
+
+### API Policy
 
 With the continued popularity of third-party applications, which are
 referred to hereafter as "applications" or "web applications", created
@@ -3198,7 +3199,7 @@ environment for all of our players.
 Thank you for reading these guidelines, and for helping Blizzard
 Entertainment continue to deliver high-quality gameplay experiences.
 
-### Intended Audience
+#### Intended Audience
 
 The Third-Party API Usage Policy is for developers developing
 applications, where applications include distributed and
@@ -3218,7 +3219,7 @@ Blizzard Entertainment reserves the right to change the location and
 definition of what constitutes an application and Blizzard
 Entertainment Web API resources at any time.
 
-### Service Availability Notice
+#### Service Availability Notice
 
 Blizzard Entertainment makes no guarantee of the availability of any
 data, functionality, or feature provided by or through the API. In
@@ -3247,7 +3248,7 @@ discretion, to allow fewer or greater numbers of requests per
 day. Blizzard Entertainment also reserves the right to revoke access
 to the API completely and without warning.
 
-### Applications may not charge premiums for features that use the API.
+#### Applications may not charge premiums for features that use the API.
 
 "Premium" versions of applications offering additional for-pay
 features are not permitted, nor can players be charged money to
@@ -3258,25 +3259,25 @@ use the API. Applications may not include interstitials soliciting
 donations before features or functionality becomes available to the
 player.
 
-### Applications must not negatively impact Blizzard Entertainment games, services, or other players.
+#### Applications must not negatively impact Blizzard Entertainment games, services, or other players.
 
 Applications must perform no function which, in Blizzard
 Entertainment's sole discretion, negatively impacts the performance of
 Blizzard Entertainment games or services, or otherwise negatively
 affects the game for other players.
 
-### Application code must be completely visible.
+#### Application code must be completely visible.
 
 The programming code of an application must in no way be hidden or
 obfuscated, and must be freely accessible to and viewable by the
 general public.
 
-### Applications may not imply any association with Blizzard Entertainment.
+#### Applications may not imply any association with Blizzard Entertainment.
 
 Applications may not imply any association with, or endorsement by,
 Blizzard Entertainment.
 
-### Applications must not contain offensive or objectionable material.
+#### Applications must not contain offensive or objectionable material.
 
 Blizzard Entertainment requires that applications contain no
 offensive, obscene, or otherwise objectionable material, as determined
@@ -3286,7 +3287,7 @@ example, World of Warcraft has been rated "T for Teen" by the ESRB,
 and has received similar ratings from other ratings boards around the
 world.
 
-### Blizzard trademarks, titles, or tradenames should not be used when naming an application.
+#### Blizzard trademarks, titles, or tradenames should not be used when naming an application.
 
 Applications may not use names based on Blizzard's trademarks or taken
 from Blizzard's products as the name, or part of the name, of the
