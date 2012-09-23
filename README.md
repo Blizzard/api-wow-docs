@@ -201,52 +201,52 @@ attributes. The value of the "status" attribute will always be
 "nok". The reason will be an english string that may be, but is not
 limited to, one of the following strings.
 
-* Invalid Application
-  HTTP Response Code: 500
+#### Invalid Application
+HTTP Response Code: 500
 
-  A request was made including application identification information,
-  but either the application key is invalid or missing.
+A request was made including application identification information,
+but either the application key is invalid or missing.
 
-* Invalid application permissions.
-  HTTP Response Code: 500
+#### Invalid application permissions.
+HTTP Response Code: 500
 
-  A request was made to an API resource that requires a higher
-  application permission level.
+A request was made to an API resource that requires a higher
+application permission level.
 
-* Access denied, please contact api-support@blizzard.com
-  HTTP Response Code: 500
+#### Access denied, please contact api-support@blizzard.com
+HTTP Response Code: 500
 
-  The application or IP address has been blocked from making further
-  requests. This ban may not be permanent.
+The application or IP address has been blocked from making further
+requests. This ban may not be permanent.
 
-* When in doubt, blow it up. (page not found)
-  HTTP Response Code: 404
+#### When in doubt, blow it up. (page not found)
+HTTP Response Code: 404
 
-  A request was made to a resource that doesn't exist.
+A request was made to a resource that doesn't exist.
 
-* If at first you don't succeed, blow it up again. (too many requests)
-  HTTP Response Code: 500
+#### If at first you don't succeed, blow it up again. (too many requests)
+HTTP Response Code: 500
 
-  The application or IP has been throttled.
+The application or IP has been throttled.
 
-* Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
-  HTTP Response Code: 500
+#### Have you not been through enough? Will you continue to fight what you cannot defeat? (something unexpected happened)
+HTTP Response Code: 500
 
-  There was a server error or equally catastrophic exception
-  preventing the request from being fulfilled.
+There was a server error or equally catastrophic exception
+preventing the request from being fulfilled.
 
-* Invalid authentication header.
-  HTTP Response Code: 500
+#### Invalid authentication header.
+HTTP Response Code: 500
 
-  The application authorization information was mallformed or missing
-  when expected.
+The application authorization information was mallformed or missing
+when expected.
 
-* Invalid application signature.
-  HTTP Response Code: 500
+#### Invalid application signature.
+HTTP Response Code: 500
 
-  The application request signature was missing or invalid. This will
-  also be thrown if the request date outside of a 15 second window
-  from the current GMT time.
+The application request signature was missing or invalid. This will
+also be thrown if the request date outside of a 15 second window
+from the current GMT time.
 
 *An example API request and and error response*
 ```plain
@@ -282,17 +282,13 @@ This provides data about an individual achievement.
 
 <dl>
   <dt>Example URL</dt>
-  <dd>[http://us.battle.net/api/wow/achievement/2144]</dd>
+  <dd>[/api/wow/achievement/2144](http://us.battle.net/api/wow/achievement/2144)</dd>
   <dt>Example Data</dt>
   <dd>[achievement.json](https://gist.github.com/3772776#file_achievement.json)</dd>
 </dl>
 <script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
 
-### Character Resources
-
-Character APIs currently provide character profile information.
-
-#### Profile
+## Character Profile API
 
 The Character Profile API is the primary way to access character
 information. This Character Profile API can be used to fetch a single
@@ -307,6 +303,15 @@ URL = Host + "/api/wow/character/" + Realm + "/" + CharacterName
 
 Realm = <proper realm name> | <normalized realm name>
 ```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/character/achievement/2144](http://us.battle.net/api/wow/achievement/2144)</dd>
+  <dt>Example Data</dt>
+  <dd>[achievement.json](https://gist.github.com/3772776#file_achievement.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
+
 
 There are no required query string parameters when accessing this
 resource, although the "fields" query string parameter can optionally
