@@ -336,6 +336,36 @@ has data about what it's 6 abilities are.
 </dl>
 <script src="https://gist.github.com/3772776.js?file=battlePet-species.json"></script>
 
+### Stats
+
+```plain
+URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
+```
+
+#### Optional Parameters
+<table>
+  <tr>	
+    <th>Parameter</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>level</td>
+    <td>1</td>
+    <td>The Pet's level</td>
+  </tr>
+  <tr>
+    <td>breedId</td>
+    <td>3</td>
+    <td>The Pet's breed (can be retrieved from the character profile api)</td>
+  </tr>
+  <tr>
+    <td>qualityId</td>
+    <td>1</td>
+    <td>The Pet's quality (can be retrieved from the character profile api)</td>
+  </tr>
+</table>
+
 ## Character Profile API
 
 The Character Profile API is the primary way to access character
@@ -2123,6 +2153,10 @@ requested.
     <td>[news](#guild-profile-api/news)</td>
 	<td>A set of data structures that describe the news feed of the guild.</td>
   </tr>
+  <tr>
+    <td>[challenge](#guild-profile-api/challenge)</td>
+	<td>The top 3 challenge mode guild run times for each challenge mode map.</td>
+  </tr>
 </table>
   
 *An example Guild Profile request with several addtional fields.*
@@ -2136,167 +2170,13 @@ When the members list is requested, a list of character objects is
 returned. Each object in the returned members list contains a
 character block as well as a rank field.
 
-*An example members block*
-```json
-"members":[
-    {
-      "character":{
-        "name":"Mequieres",
-        "realm":"Medivh",
-        "class":5,
-        "race":1,
-        "gender":"female",
-        "level":85,
-        "achievementPoints":6910,
-        "thumbnail":"medivh/66/3930434-avatar.jpg"
-      },
-      "rank":1
-    },
-    {
-      "character":{
-        "name":"Berex",
-        "realm":"Medivh",
-        "class":2,
-        "race":1,
-        "gender":"male",
-        "level":81,
-        "achievementPoints":3410,
-        "thumbnail":"medivh/159/3931551-avatar.jpg"
-      },
-      "rank":2
-    },
-    {
-      "character":{
-        "name":"Avalos",
-        "realm":"Medivh",
-        "class":2,
-        "race":1,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":9755,
-        "thumbnail":"medivh/2/4022530-avatar.jpg"
-      },
-      "rank":1
-    },
-    {
-      "character":{
-        "name":"Getafixes",
-        "realm":"Medivh",
-        "class":11,
-        "race":4,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":7225,
-        "thumbnail":"medivh/220/4064988-avatar.jpg"
-      },
-      "rank":7
-    },
-    {
-      "character":{
-        "name":"Thomaslv",
-        "realm":"Medivh",
-        "class":2,
-        "race":1,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":5130,
-        "thumbnail":"medivh/61/4090173-avatar.jpg"
-      },
-      "rank":6
-    },
-    {
-      "character":{
-        "name":"Jeanelly",
-        "realm":"Medivh",
-        "class":8,
-        "race":7,
-        "gender":"female",
-        "level":85,
-        "achievementPoints":9175,
-        "thumbnail":"medivh/16/11635728-avatar.jpg"
-      },
-      "rank":3
-    },
-    {
-      "character":{
-        "name":"Shaynk",
-        "realm":"Medivh",
-        "class":4,
-        "race":22,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":7005,
-        "thumbnail":"medivh/13/11885837-avatar.jpg"
-      },
-      "rank":1
-    },
-    {
-      "character":{
-        "name":"Odette",
-        "realm":"Medivh",
-        "class":7,
-        "race":11,
-        "gender":"female",
-        "level":85,
-        "achievementPoints":3335,
-        "thumbnail":"medivh/214/14322390-avatar.jpg"
-      },
-      "rank":8
-    },
-    {
-      "character":{
-        "name":"Addeon",
-        "realm":"Medivh",
-        "class":9,
-        "race":7,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":4755,
-        "thumbnail":"medivh/11/16220683-avatar.jpg"
-      },
-      "rank":3
-    },
-    {
-      "character":{
-        "name":"Tinkerton",
-        "realm":"Medivh",
-        "class":4,
-        "race":7,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":7755,
-        "thumbnail":"medivh/7/50893575-avatar.jpg"
-      },
-      "rank":3
-    },
-    {
-      "character":{
-        "name":"Itaachi",
-        "realm":"Medivh",
-        "class":8,
-        "race":7,
-        "gender":"female",
-        "level":85,
-        "achievementPoints":5975,
-        "thumbnail":"medivh/154/74538650-avatar.jpg"
-      },
-      "rank":3
-    },
-    {
-      "character":{
-        "name":"Korale",
-        "realm":"Medivh",
-        "class":5,
-        "race":22,
-        "gender":"male",
-        "level":85,
-        "achievementPoints":5620,
-        "thumbnail":"medivh/88/81679704-avatar.jpg"
-      },
-      "rank":7
-    }
-  ]
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/guild/test-realm/Test%20Guild?fields=members</dd>
+  <dt>Example Data</dt>
+  <dd>[guild-members.json](https://gist.github.com/3772776#file_guild_members.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=guild-members.json"></script>
 
 ### achievements
 
@@ -2325,17 +2205,13 @@ returned.
    when the criteria was considered started. The position of a value
    corresponds to the position of a given achivement criteria.
 
-*An example achievements block*
-```json
-"achievements":{
-    "achievementsCompleted":[4860,4861,4912,4913,4943],
-    "achievementsCompletedTimestamp":[1305087854000,1292834684000,1307514307000,1296629625000,1292837842000],
-    "criteria":[13756,13757,13835,13864,13865],
-    "criteriaQuantity":[25,500300151,1,525,525],
-    "criteriaTimestamp":[1307514307000,1296629625000,1292834684000,1292744289000,1293154824000],
-    "criteriaCreated":[1291708917000,1291716646000,1292834684000,1292573188000,1292728137000]
-  }
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/guild/test-realm/Test%20Guild?fields=achievements</dd>
+  <dt>Example Data</dt>
+  <dd>[guild-achievements.json](https://gist.github.com/3772776#file_guild_achievements.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=guild-achievements.json"></script>
 
 ### news
 
@@ -2343,127 +2219,25 @@ When the news feed is requested, you receive a list of news
 objects. Each one has a type, a timestamp, and then some other data
 depending on the type: itemId, achievement object, etc.
 
-*An example news block*
-```json
-{
-  "news":[
-    {
-      "type":"guildCreated",
-      "timestamp":1335394380000
-    },
-    {
-      "type":"itemLoot",
-      "character":"David",
-      "timestamp":1335737040000,
-      "itemId":72833
-    },
-    {
-      "type":"itemPurchase",
-      "character":"Kim",
-      "timestamp":1335733380000,
-      "itemId":71283
-    },
-    {
-      "type":"guildLevel",
-      "timestamp":1335394380000,
-      "levelUp":20
-    },
-    {
-      "type":"guildAchievement",
-      "character":"Dustin",
-      "timestamp":1335394380000,
-      "achievement":
-        {
-	  "id":4945,
-	  "title":"Guild Level 15",
-	  "points":10,
-	  "description":"Reach guild level 15.",
-	  "reward":"Reward: Wrap of Unity",
-	  "rewardItems":[
-	    {
-	      "id":63206,
-	      "name":"Wrap of Unity",
-	      "icon":"inv_guild_cloak_alliance_b",
-	      "quality":3,
-	      "tooltipParams":{}
-	    },
-	    {
-	      "id":63207,
-	      "name":"Wrap of Unity",
-	      "icon":"inv_guild_cloak_horde_b",
-	      "quality":3,
-	      "tooltipParams":{}
-	    }
-	  ],
-	  "icon":"achievement_guild_level15",
-	  "criteria":[
-	    {
-	      "id":13876,
-	      "description":"Reach guild level 15."
-	    }
-	  ]
-	}
-    },
-    {
-      "type":"playerAchievement",
-      "character":"Mike",
-      "timestamp":1335763860000,
-      "achievement":
-        {
-	  "id":2144,
-	  "title":"What A Long, Strange Trip It's Been",
-	  "points":50,
-	  "description":"Complete the world events achievements listed below.",
-	  "reward":"Rewards: Violet Proto-Drake and Master Riding",
-	  "rewardItems":[
-	    {
-	      "id":44177,
-	      "name":"Reins of the Violet Proto-Drake",
-	      "icon":"ability_mount_drake_proto",
-	      "quality":4,
-	      "tooltipParams":{}
-	    }
-	  ],
-	  "icon":"achievement_bg_masterofallbgs",
-	  "criteria":[
-	    {
-	      "id":7553,
-	      "description":"To Honor One's Elders"
-	    },
-	    {
-	      "id":7554,
-	      "description":"Fool For Love"
-	    },
-	    {
-	      "id":9879,
-	      "description":"Noble Gardener"
-	    },
-	    {
-	      "id":7555,
-	      "description":"For The Children"
-	    },
-	    {
-	      "id":7556,
-	      "description":"The Flame Warden"
-	    },
-	    {
-	      "id":7557,
-	      "description":"Brewmaster"
-	    },
-	    {
-	      "id":7558,
-	      "description":"Hallowed Be Thy Name"
-	    },
-	    {
-	      "id":7559,
-	      "description":"Merrymaker"
-	    }
-	  ]
-	}
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/guild/test-realm/Test%20Guild?fields=news</dd>
+  <dt>Example Data</dt>
+  <dd>[guild-news.json](https://gist.github.com/3772776#file_guild_news.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=guild-news.json"></script>
+
+### challenge
+
+The challenge field provides the top three guild run times for each challenge mode map that is available.
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/guild/test-realm/Test%20Guild?fields=challenge</dd>
+  <dt>Example Data</dt>
+  <dd>[guild-challenge.json](https://gist.github.com/3772776#file_guild_challenge.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=guild-challenge.json"></script>
 
 ## Realm Status API
 
