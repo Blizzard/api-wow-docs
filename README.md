@@ -374,10 +374,10 @@ URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
 </dl>
 <script src="https://gist.github.com/3772776.js?file=battlePet-stats.json"></script>
 
-## Challenge Mode Leaderboards API
+## Challenge Mode API
 
-The Challenge Mode Leaderboards API displays the same information as the
-leader boards on the wow game site.
+The Challenge Mode API displays the same information as the leader boards on the
+wow game site.
 
 ```plain
 URL = Host + "/api/wow/challenge/" + Realm
