@@ -2332,11 +2332,7 @@ that it does not respond to locale or json parameters because it is not part of
 the api service. Requests to the actual data file also do not count towards any
 request limits.
 
-### Item Resources
-
-Item APIs currently provide item information.
-
-#### Item API
+## Item API
 
 The item API provides detailed item information. This includes item
 set information if this item is part of a set.
@@ -2345,56 +2341,13 @@ set information if this item is part of a set.
 URL = Host + "/api/wow/item/" + ItemId
 ```
 
-*An example Item API request and response*
-```plain
-GET /api/wow/item/38268 HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "id":38268,
-  "disenchantingSkillRank":-1,
-  "description":"Give to a Friend",
-  "name":"Spare Hand",
-  "stackable":1,
-  "itemBind": 0,
-  "bonusStats":[],
-  "itemSpells":[],
-  "buyPrice":12,
-  "itemClass": 2,
-  "itemSubClass": 14,
-  "containerSlots":0,
-  "weaponInfo":{
-    "damage":[
-      {
-        "minDamage":1,
-        "maxDamage":2
-      }
-    ],
-    "weaponSpeed":2.5,
-    "dps":0.6
-  },
-  "inventoryType":13,
-  "equippable":true,
-  "itemLevel":1,
-  "maxCount":0,
-  "maxDurability":16,
-  "minFactionId":0,
-  "minReputation":0,
-  "quality":0,
-  "sellPrice":2,
-  "requiredLevel":70,
-  "requiredSkill":0,
-  "requiredSkillRank":0,
-  "itemSource":{
-    "sourceId":0,
-    "sourceType":"NONE"
-  },
-  "baseArmor":0,
-  "hasSockets":false,
-  "isAuctionable":true
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/item/18803](http://us.battle.net/api/wow/item/18803)</dd>
+  <dt>Example Data</dt>
+  <dd>[item.json](https://gist.github.com/3772776#file_item.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=item.json"></script>
 
 #### Item Set API
 
