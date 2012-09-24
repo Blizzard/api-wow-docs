@@ -2334,6 +2334,8 @@ request limits.
 
 ## Item API
 
+The item API provides data about items and item sets.
+
 ### Individual Item
 
 The item API provides detailed item information. This includes item
@@ -2367,11 +2369,11 @@ URL = Host + "/api/wow/item/set/" + SetId
 </dl>
 <script src="https://gist.github.com/3772776.js?file=item-set.json"></script>
 
-### PVP Resources
+## PVP API
 
 PVP APIs currently provide arena team and ladder information.
 
-#### Arena Team API
+### Arena Team API
 
 The Arena Team API provides detailed arena team information.
 
@@ -2380,72 +2382,13 @@ TeamSize = "2v2" | "3v3" | "5v5"
 URL = Host + "/api/wow/arena/" + Realm + "/" + TeamSize + "/" + TeamName
 ```
 
-*An example Arena Team API request and response*
-```plsin
-GET /api/wow/arena/bonechewer/2v2/Samurai%20Jack HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "realm": "Bonechewer",
-  "ranking":3,
-  "rating":2407,
-  "teamsize":2,
-  "created":"2010-12-14",
-  "name":"Samurai Jack",
-  "gamesPlayed":0,
-  "gamesWon":0,
-  "gamesLost":0,
-  "sessionGamesPlayed":84,
-  "sessionGamesWon":65,
-  "sessionGamesLost":19,
-  "lastSessionRanking":49,
-  "side":"horde",
-  "currentWeekRanking":3,
-  "members":[
-    {
-      "character":{
-        "name":"Enzi",
-        "realm":"Bonechewer",
-        "class":5,
-        "race":5,
-        "gender":0,
-        "level":85,
-        "achievementPoints":7825,
-        "thumbnail":"bonechewer/63/50019391-avatar.jpg"
-      },
-      "rank":1,
-      "gamesPlayed":0,
-      "gamesWon":0,
-      "gamesLost":0,
-      "sessionGamesPlayed":79,
-      "sessionGamesWon":61,
-      "sessionGamesLost":18,
-      "personalRating":2407
-    },
-    {
-      "character":{
-        "name":"Treeofapples",
-        "realm":"Bonechewer",
-        "class":11,
-        "race":6,
-        "gender":0,
-        "level":85,
-        "achievementPoints":4755,
-        "thumbnail":"bonechewer/31/56730399-avatar.jpg"
-      },
-      "rank":0,
-      "gamesPlayed":0,
-      "gamesWon":0,
-      "gamesLost":0,
-      "sessionGamesPlayed":84,
-      "sessionGamesWon":65,
-      "sessionGamesLost":19,
-      "personalRating":2407
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/arena/bonechewer/2v2/Samurai%20Jack](http://us.battle.net/api/wow/arena/bonechewer/2v2/Samurai%20Jack)</dd>
+  <dt>Example Data</dt>
+  <dd>[pvp-arena-team.json](https://gist.github.com/3772776#file_pvp_arena_team.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=pvp-arena-team.json"></script>
 
 #### Arena Ladder API
 
@@ -2466,174 +2409,13 @@ Optional Query String Parameters
 * *asc* Whether to return the results in ascending order. Defaults to
    "true", accepts "true" or "false"
 
-*An example Arena Team Ladder API request and response*
-```plain
-GET /api/wow/pvp/arena/ruin/2v2 HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "arenateam":[
-    {
-      "realm":"Mannoroth",
-      "ranking":1,
-      "rating":2652,
-      "teamsize":2,
-      "created":"2011-07-10",
-      "name":"Why is animal on my W",
-      "gamesPlayed":0,
-      "gamesWon":0,
-      "gamesLost":0,
-      "sessionGamesPlayed":95,
-      "sessionGamesWon":82,
-      "sessionGamesLost":13,
-      "lastSessionRanking":0,
-      "side":"alliance",
-      "currentWeekRanking":0,
-      "members":[
-        {
-          "character":{
-            "name":"Soysauce",
-            "realm":"Mannoroth",
-            "class":6,
-            "race":1,
-            "gender":1,
-            "level":85,
-            "achievementPoints":1850,
-            "thumbnail":"mannoroth/63/76583999-avatar.jpg"
-          },
-          "rank":0,
-          "gamesPlayed":0,
-          "gamesWon":0,
-          "gamesLost":0,
-          "sessionGamesPlayed":0,
-          "sessionGamesWon":0,
-          "sessionGamesLost":0,
-          "personalRating":1000
-        }
-      ]
-    },
-    {
-      "realm":"Mannoroth",
-      "ranking":2,
-      "rating":2602,
-      "teamsize":2,
-      "created":"2011-01-02",
-      "name":"WHY'S ANIMAL ON MY FACE",
-      "gamesPlayed":0,
-      "gamesWon":0,
-      "gamesLost":0,
-      "sessionGamesPlayed":100,
-      "sessionGamesWon":88,
-      "sessionGamesLost":12,
-      "lastSessionRanking":4,
-      "side":"alliance",
-      "currentWeekRanking":0,
-      "members":[
-        {
-          "character":{
-            "name":"Xeti",
-            "realm":"Mannoroth",
-            "class":7,
-            "race":3,
-            "gender":1,
-            "level":85,
-            "achievementPoints":4520,
-            "thumbnail":"mannoroth/157/95140253-avatar.jpg"
-          },
-          "rank":0,
-          "gamesPlayed":0,
-          "gamesWon":0,
-          "gamesLost":0,
-          "sessionGamesPlayed":0,
-          "sessionGamesWon":0,
-          "sessionGamesLost":0,
-          "personalRating":1000
-        },
-        {
-          "character":{
-            "name":"Nvo",
-            "realm":"Mannoroth",
-            "class":2,
-            "race":3,
-            "gender":1,
-            "level":85,
-            "achievementPoints":4670,
-            "thumbnail":"mannoroth/213/93150677-avatar.jpg"
-          },
-          "rank":1,
-          "gamesPlayed":0,
-          "gamesWon":0,
-          "gamesLost":0,
-          "sessionGamesPlayed":0,
-          "sessionGamesWon":0,
-          "sessionGamesLost":0,
-          "personalRating":1000
-        }
-      ]
-    },
-    {
-      "realm":"Shattered Hand",
-      "ranking":3,
-      "rating":2471,
-      "teamsize":2,
-      "created":"2011-07-05",
-      "name":"Lord Slug Zero Dmg",
-      "gamesPlayed":18,
-      "gamesWon":16,
-      "gamesLost":2,
-      "sessionGamesPlayed":155,
-      "sessionGamesWon":130,
-      "sessionGamesLost":25,
-      "lastSessionRanking":0,
-      "side":"horde",
-      "currentWeekRanking":1,
-      "members":[
-        {
-          "character":{
-            "name":"Lòrdslúg",
-            "realm":"Shattered Hand",
-            "class":9,
-            "race":2,
-            "gender":1,
-            "level":85,
-            "achievementPoints":4925,
-            "thumbnail":"shattered-hand/121/93928313-avatar.jpg"
-          },
-          "rank":0,
-          "gamesPlayed":18,
-          "gamesWon":16,
-          "gamesLost":2,
-          "sessionGamesPlayed":152,
-          "sessionGamesWon":130,
-          "sessionGamesLost":22,
-          "personalRating":2473
-        },
-        {
-          "character":{
-            "name":"Ohhyea",
-            "realm":"Shattered Hand",
-            "class":11,
-            "race":6,
-            "gender":0,
-            "level":85,
-            "achievementPoints":14395,
-            "thumbnail":"shattered-hand/122/50562426-avatar.jpg"
-          },
-          "rank":1,
-          "gamesPlayed":18,
-          "gamesWon":16,
-          "gamesLost":2,
-          "sessionGamesPlayed":154,
-          "sessionGamesWon":130,
-          "sessionGamesLost":24,
-          "personalRating":2471
-        }
-      ]
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/pvp/arena/ruin/2v2](http://us.battle.net/api/wow/pvp/arena/ruin/2v2)</dd>
+  <dt>Example Data</dt>
+  <dd>[pvp-arena-ladder.json](https://gist.github.com/3772776#file_pvp_arena_ladder.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=pvp-arena-ladder.json"></script>
 
 #### Rated Battleground Ladder API
 
@@ -2651,79 +2433,14 @@ Optional Query String Parameters
 
 * *asc* Whether to return the results in ascending order. Defaults to
   "true", accepts "true" or "false"
-  
-*An example Rated Battleground Ladder API request and response*
-```plain
-GET /api/wow/pvp/ratedbg/ladder HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "bgRecord":[
-    {
-      "rank":1,
-      "bgRating":3021,
-      "wins":290,
-      "losses":32,
-      "played":322,
-      "realm":
-      {
-        "name":"Kel'Thuzad",
-  "slug":"kelthuzad",
-  "battlegroup":"Nightfall"
-      },
-      "battlegroup":
-      {
-        "name":"Nightfall",
-  "slug":"nightfall"
-      },
-      "character":
-      {
-        "name":"Player1",
-  "realm":"Kel'Thuzad",
-  "class":8,
-  "race":1,
-  "gender":1,
-  "level":85,
-  "achievementPoints":5550,
-  "thumbnail":"kelthuzad/173/xxx-avatar.jpg"
-      },
-      "lastModified":1334692961000
-    },
-    {
-      "rank":2,
-      "bgRating":3020,
-      "wins":290,
-      "losses":34,
-      "played":324,
-      "realm":
-      {
-        "name":"Kel'Thuzad",
-  "slug":"kelthuzad",
-  "battlegroup":"Nightfall"
-      },
-      "battlegroup":
-      {
-        "name":"Nightfall",
-  "slug":"nightfall"
-      },
-      "character":
-      {
-        "name":"Player2",
-  "realm":"Kel'Thuzad",
-  "class":3,
-  "race":2,
-  "gender":1,
-  "level":85,
-  "achievementPoints":6650,
-  "thumbnail":"kelthuzad/173/xxx-avatar.jpg"
-      },
-      "lastModified":1334692961000
-    },
-    ...
-  ]
-}
-```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/pvp/ratedbg/ladder](http://us.battle.net/api/wow/pvp/ratedbg/ladder)</dd>
+  <dt>Example Data</dt>
+  <dd>[pvp-ratedbg-ladder.json](https://gist.github.com/3772776#file_pvp_ratedbg_ladder.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=pvp-ratedbg-ladder.json"></script>
 
 ### Quest Resources
 
