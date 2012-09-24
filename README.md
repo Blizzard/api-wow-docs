@@ -1149,6 +1149,15 @@ The item classes data API provides a list of item classes.
 URL = Host + "/api/wow/data/item/classes"
 ```
 
+### Talents
+
+The talents data API provides a list of talents, specs and glyphs
+for each class.
+
+```plain
+URL = Host + "/api/wow/data/talents"
+```
+
 ### Pet Types
 
 The different bat pet types (including what they are strong and weak
