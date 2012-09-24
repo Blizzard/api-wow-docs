@@ -2474,12 +2474,12 @@ URL = Host + "/api/wow/spell/" + SpellId
 </dl>
 <script src="https://gist.github.com/3772776.js?file=spell.json"></script>
 
-### Data Resources
+## Data Resources
 
 The data APIs provide information that can compliment profile
 information to provide structure, definition and context.
 
-#### Battlegroups
+### Battlegroups
 
 The battlegroups data API provides the list of battlegroups for this
 region. Please note the trailing / on this request url.
@@ -2488,7 +2488,7 @@ region. Please note the trailing / on this request url.
 URL = Host + "/api/wow/data/battlegroups/"
 ```
 
-#### Character Races
+### Character Races
 
 The character races data API provides a list of character races.
 
@@ -2496,7 +2496,7 @@ The character races data API provides a list of character races.
 URL = Host + "/api/wow/data/character/races"
 ```
 
-#### Character Classes
+### Character Classes
 
 The character classes data API provides a list of character classes.
 
@@ -2504,7 +2504,7 @@ The character classes data API provides a list of character classes.
 URL = Host + "/api/wow/data/character/classes"
 ```
 
-#### Character Achievements
+### Character Achievements
 
 The character achievements data API provides a list of all of the
 achievements that characters can earn as well as the category
@@ -2514,7 +2514,7 @@ structure and hierarchy.
 URL = Host + "/api/wow/data/character/achievements"
 ```
 
-#### Guild Rewards
+### Guild Rewards
 
 The guild rewards data API provides a list of all guild rewards.
 
@@ -2522,7 +2522,7 @@ The guild rewards data API provides a list of all guild rewards.
 URL = Host + "/api/wow/data/guild/rewards"
 ```
 
-#### Guild Perks
+### Guild Perks
 
 The guild perks data API provides a list of all guild perks.
 
@@ -2530,7 +2530,7 @@ The guild perks data API provides a list of all guild perks.
 URL = Host + "/api/wow/data/guild/perks"
 ```
 
-#### Guild Achievements
+### Guild Achievements
 
 The guild achievements data API provides a list of all of the
 achievements that guilds can earn as well as the category structure
@@ -2540,7 +2540,7 @@ and hierarchy.
 URL = Host + "/api/wow/data/guild/achievements"
 ```
 
-#### Item Classes
+### Item Classes
 
 The item classes data API provides a list of item classes.
 
@@ -2548,7 +2548,7 @@ The item classes data API provides a list of item classes.
 URL = Host + "/api/wow/data/item/classes"
 ```
 
-#### Pet Types
+### Pet Types
 
 The different bat pet types (including what they are strong and weak
 against)
