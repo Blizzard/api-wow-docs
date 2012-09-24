@@ -2357,27 +2357,13 @@ The item set API provides detailed item set information.
 URL = Host + "/api/wow/item/set/" + SetId
 ```
 
-*An example Item Set API request and response*
-```plain
-GET /api/wow/item/set/1060 HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "id":1060,
-  "name":"Deep Earth Vestments",
-  "setBonuses":[
-    {
-      "description":"After using Innervate, the mana cost of your healing spells is reduced by 25% for 15 sec.",
-      "threshold":2
-    },
-    {
-      "description":"Your Rejuvenation and Regrowth spells have a 10% chance to Timeslip and have double the normal duration.",
-      "threshold":4
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/item/set/1060](http://us.battle.net/api/wow/item/set/1060)</dd>
+  <dt>Example Data</dt>
+  <dd>[item-set.json](https://gist.github.com/3772776#file_item_set.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=item-set.json"></script>
 
 ### PVP Resources
 
