@@ -2142,19 +2142,19 @@ requested.
 	<th>Description</th>
   </tr>
   <tr>
-    <td>[members](#guild-profile-api/members)</td>
+    <td><a href="#guild-profile-api/members">members</a></td>
 	<td>A list of characters that are a member of the guild</td>
   </tr>
   <tr>
-    <td>[achievements](#guild-profile-api/achievements)</td>
+    <td><a href="#guild-profile-api/achievements">achievements</a></td>
 	<td>A set of data structures that describe the achievements earned by the guild.</td>
   </tr>
   <tr>
-    <td>[news](#guild-profile-api/news)</td>
+    <td><a href="#guild-profile-api/news">news</a></td>
 	<td>A set of data structures that describe the news feed of the guild.</td>
   </tr>
   <tr>
-    <td>[challenge](#guild-profile-api/challenge)</td>
+    <td><a href="#guild-profile-api/challenge">challenge</a></td>
 	<td>The top 3 challenge mode guild run times for each challenge mode map.</td>
   </tr>
 </table>
