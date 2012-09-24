@@ -545,6 +545,36 @@ requested through the mentioned "fields" query string parameter.
 http://us.battle.net/api/wow/character/Medivh/Uther?fields=guild,items,professions,reputation,stats
 ```
 
+### achievements
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=achievements</dd>
+  <dt>Example Data</dt>
+  <dd>[character-achievements.json](https://gist.github.com/3772776#file_character_achievements.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-achievements.json"></script>
+
+### appearance
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=appearance</dd>
+  <dt>Example Data</dt>
+  <dd>[character-appearance.json](https://gist.github.com/3772776#file_character_appearance.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-appearance.json"></script>
+
+### feed
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=feed</dd>
+  <dt>Example Data</dt>
+  <dd>[character-feed.json](https://gist.github.com/3772776#file_character_feed.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-feed.json"></script>
+
 ### guild
 
 When a guild is requested, a map is returned with key/value pairs that
@@ -554,689 +584,57 @@ not a membership of the guild. To retreive the character's rank within
 the guild, you must specific a seperate request to the guild profile
 resource.
 
-*An example guild field*
-```json
-{
-  "guild":{
-    "name":"Knights of the Silver Hand",
-    "realm":"Medivh",
-    "level":25,
-    "members":50,
-    "achievementPoints":7500,
-    "emblem":{
-      "icon":119,
-      "iconColor":"ffb1b8b1",
-      "border":0,
-      "borderColor":"ffffffff",
-      "backgroundColor":"ff006391"
-    }
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=guild</dd>
+  <dt>Example Data</dt>
+  <dd>[character-guild.json](https://gist.github.com/3772776#file_character_guild.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-guild.json"></script>
+
+### hunterPets
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=hunterPets</dd>
+  <dt>Example Data</dt>
+  <dd>[character-hunterPets.json](https://gist.github.com/3772776#file_character_hunterPets.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-hunterPets.json"></script>
+
 ### items
 
 When the items field is used, a map structure is returned that
 contains information on the equipped items of that character as well
 as the average item level of the character.
 
-*An example items field*
-
-```json
-{ "items" : { "averageItemLevel" : 353,
-      "averageItemLevelEquipped" : 335,
-      "back" : { "icon" : "inv_misc_cape_naxxramas_01",
-          "id" : 56450,
-          "name" : "Azureborne Cloak",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "chest" : { "icon" : "inv_chest_robe_pvppriest_c_01",
-          "id" : 60476,
-          "name" : "Vicious Gladiator's Satin Robe",
-          "quality" : 4,
-          "tooltipParams" : { "enchant" : 4077,
-              "gem0" : 52207,
-              "gem1" : 52226,
-              "set" : [ 60474,
-                  60476,
-                  60477,
-                  60475,
-                  60473
-                ]
-            }
-        },
-      "feet" : { "icon" : "inv_boots_robe_dungeonrobe_c_03",
-          "id" : 63440,
-          "name" : "Boots of Lingering Sorrow",
-          "quality" : 3,
-          "tooltipParams" : { "gem0" : 52117 }
-        },
-      "finger1" : { "icon" : "inv_jewelry_ring_68",
-          "id" : 56333,
-          "name" : "Rose Quartz Band",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "finger2" : { "icon" : "inv_jewelry_ring_75",
-          "id" : 56418,
-          "name" : "Band of Life Energy",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "hands" : { "icon" : "inv_gauntlets_robe_pvppriest_c_01",
-          "id" : 60473,
-          "name" : "Vicious Gladiator's Satin Gloves",
-          "quality" : 4,
-          "tooltipParams" : { "enchant" : 4068,
-              "gem0" : 52245,
-              "set" : [ 60474,
-                  60476,
-                  60477,
-                  60475,
-                  60473
-                ]
-            }
-        },
-      "head" : { "icon" : "inv_helm_robe_pvppriest_c_01",
-          "id" : 60474,
-          "name" : "Vicious Gladiator's Satin Hood",
-          "quality" : 4,
-          "tooltipParams" : { "enchant" : 4207,
-              "gem0" : 52296,
-              "gem1" : 52207,
-              "set" : [ 60474,
-                  60476,
-                  60477,
-                  60475,
-                  60473
-                ]
-            }
-        },
-      "legs" : { "icon" : "inv_pants_robe_pvppriest_c_01",
-          "id" : 60475,
-          "name" : "Vicious Gladiator's Satin Leggings",
-          "quality" : 4,
-          "tooltipParams" : { "enchant" : 4112,
-              "gem0" : 52207,
-              "gem1" : 52245,
-              "set" : [ 60474,
-                  60476,
-                  60477,
-                  60475,
-                  60473
-                ]
-            }
-        },
-      "mainHand" : { "icon" : "inv_staff_13",
-          "id" : 65167,
-          "name" : "Emberstone Staff",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "neck" : { "icon" : "inv_jewelry_necklace_44",
-          "id" : 70075,
-          "name" : "Bloodthirsty Amberjewel Pendant",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "ranged" : { "icon" : "inv_wand_1h_cataclysm_b_01",
-          "id" : 63735,
-          "name" : "Darklight Torch",
-          "quality" : 2,
-          "tooltipParams" : {  }
-        },
-      "shirt" : { "icon" : "inv_shirt_purple_01",
-          "id" : 45037,
-          "name" : "Epic Purple Shirt",
-          "quality" : 4,
-          "tooltipParams" : {  }
-        },
-      "shoulder" : { "icon" : "inv_shoulder_robe_pvppriest_c_01",
-          "id" : 60477,
-          "name" : "Vicious Gladiator's Satin Mantle",
-          "quality" : 4,
-          "tooltipParams" : { "gem0" : 52226,
-              "set" : [ 60474,
-                  60476,
-                  60477,
-                  60475,
-                  60473
-                ]
-            }
-        },
-      "tabard" : { "icon" : "inv_epicguildtabard",
-          "id" : 69210,
-          "name" : "Renowned Guild Tabard",
-          "quality" : 4,
-          "tooltipParams" : {  }
-        },
-      "trinket1" : { "icon" : "spell_shadow_lifedrain",
-          "id" : 56351,
-          "name" : "Tear of Blood",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "trinket2" : { "icon" : "inv_jewelry_trinketpvp_01",
-          "id" : 18862,
-          "name" : "Insignia of the Alliance",
-          "quality" : 3,
-          "tooltipParams" : {  }
-        },
-      "waist" : { "icon" : "inv_belt_cloth_raidpriest_i_01",
-          "id" : 62386,
-          "name" : "Cord of the Raven Queen",
-          "quality" : 4,
-          "tooltipParams" : { "gem0" : 52244 }
-        },
-      "wrist" : { "icon" : "inv_bracer_cloth_pvpwarlock_c_01",
-          "id" : 60634,
-          "name" : "Vicious Gladiator's Cuffs of Prowess",
-          "quality" : 4,
-          "tooltipParams" : {  }
-        }
-    } }
-```
-
-### stats
-
-*An example stats field*
-```json
-{
-  "stats":{
-    "health":155263,
-    "powerType":"mana",
-    "power":24732,
-    "str":3395,
-    "agi":142,
-    "sta":8017,
-    "int":106,
-    "spr":117,
-    "attackPower":7025,
-    "rangedAttackPower":0,
-    "mastery":23.26104,
-    "masteryRating":2736,
-    "crit":1.351225,
-    "critRating":0,
-    "hitRating":58,
-    "hasteRating":0,
-    "expertiseRating":238,
-    "spellPower":2133,
-    "spellPen":0,
-    "spellCrit":3.498852,
-    "spellCritRating":0,
-    "mana5":1191.0,
-    "mana5Combat":1170.0,
-    "armor":36505,
-    "dodge":12.206712,
-    "dodgeRating":1565,
-    "parry":13.33957,
-    "parryRating":1614,
-    "block":57.335938,
-    "blockRating":0,
-	"pvpResilience": 40,
-	"pvpResilienceRating": 0,
-    "mainHandDmgMin":2146.0,
-    "mainHandDmgMax":2868.0,
-    "mainHandSpeed":2.6,
-    "mainHandDps":964.1704,
-    "mainHandExpertise":10,
-    "offHandDmgMin":0.0,
-    "offHandDmgMax":0.0,
-    "offHandSpeed":2.0,
-    "offHandDps":0.0,
-    "offHandExpertise":7,
-    "rangedDmgMin":-1.0,
-    "rangedDmgMax":-1.0,
-    "rangedSpeed":-1.0,
-    "rangedDps":-1.0,
-    "rangedCrit":1.351225,
-    "rangedCritRating":0,
-    "rangedHitRating":58,
-    "pvpPower": 0,
-	"pvpPowerRating": 0
-  }
-}
-```
-
-### feed
-
-*An example feed field*
-```json
-{
-  "feed":[
-    {
-      "type":"LOOT",
-      "timestamp":1335410775000,
-      "itemId":77022
-    },
-    {
-      "type":"ACHIEVEMENT",
-      "timestamp":1335409252000,
-      "achievement":
-        {
-	  "id":5311,
-	  "title":"Elementary",
-	  "points":10,
-	  "description":"Defeat the Elementium Monstrosity in the Bastion of Twilight while only allowing it to create a single Liquid Ice patch.",
-	  "rewardItems":[],
-	  "icon":"achievement_dungeon_bastionoftwilight_twilightascendantcouncil",
-	  "criteria":[
-	    {
-	      "id":15471,
-	      "description":"Elementium Monstrosity"
-	    }
-	  ]
-	},
-      "featOfStrength":false
-    }
-    {
-      "type":"CRITERIA",
-      "timestamp":1334115489000,
-      "achievement":
-        {
-	  "id":3016,
-	  "title":"In His House He Waits Dreaming (25 player)",
-	  "points":10,
-	  "description":"Experience all 3 visions of Yogg-Saron's mind in 25-player mode.",
-	  "rewardItems":[],
-	  "icon":"spell_shadow_brainwash",
-	  "criteria":[
-	    {
-	      "id":10321,
-	      "description":"The Assassination of King Llane"
-	    },
-	    {
-	      "id":10322,
-	      "description":"The Forging of the Demon Soul"
-	    },
-	    {
-	      "id":10323,
-	      "description":"The Tortured Champion"
-	    }
-	  ]
-	},
-      "featOfStrength":false,
-      "criteria":
-        {
-	  "id":10322,
-	  "description":"The Forging of the Demon Soul"
-	}
-    },
-    {
-      "type":"BOSSKILL",
-      "timestamp":1334115040000,
-      "achievement":
-        {
-	  "id":2880,
-	  "title":"General Vezax kills (Ulduar 25 player)",
-	  "points":10,"description":
-	  "General Vezax kills (Ulduar 25 player)",
-	  "rewardItems":[],
-	  "icon":"inv_misc_head_dragon_blue",
-	  "criteria":[
-	    {
-	      "id":9964,"description":"General Vezax"
-	    }     
-	  ]
-	},
-      "featOfStrength":false,
-      "criteria":
-        {
-	  "id":9964,
-	  "description":"General Vezax"
-	},
-      "quantity":9,
-      "name":"General Vezax"
-    }
-  }
-}
-```
-
-### talents
-
-*An example talents field*
-```json
-talents: {
-  selected: true,
-  talents: [
-    {
-      tier: 0,
-      column: 0,
-      spell: {
-        id: 115173,
-        name: "Celerity",
-        subtext: "Passive Talent",
-        icon: "ability_monk_quipunch",
-        description: "Allows you to Roll and Chi Torpedo more often, increases their maximum number of charges by 1, and reduces their cooldown by 5 sec."
-      }
-    },
-    ...
-    }
-  ],
-  glyphs: {
-    major: [
-      {
-        glyph: 1015,
-        item: 85685,
-        name: "Glyph of Breath of Fire",
-        icon: "ability_monk_breathoffire"
-      },
-      ...
-    ],
-    minor: [
-      {
-        glyph: 1041,
-        item: 87888,
-        name: "Glyph of Fighting Pose",
-        icon: "ability_monk_dpsstance"
-      },
-      ...
-    ]
-  },
-  spec: {
-    name: "Windwalker",
-    role: "DPS",
-    backgroundImage: "bg-monk-battledancer",
-    icon: "spell_monk_windwalker_spec",
-    description: "A martial artist without peer who pummels foes with hands and fists.",
-    order: 2
-  },
-  calcTalent: "01.01.",
-  calcSpec: "b",
-  calcGlyph: "Vfp"
-},{
-  talents: [ ],
-  glyphs: {
-    major: [ ],
-    minor: [ ]
-  },
-  calcTalent: "",
-  calcSpec: "",
-  calcGlyph: ""
-}
-```
-
-### reputation
-
-*An example reputation field*
-```json
-{
-  "reputation":[
-    {
-      "id":369,
-      "name":"Gadgetzan",
-      "standing":5,
-      "value":10740,
-      "max":12000
-    },
-    {
-      "id":576,
-      "name":"Timbermaw Hold",
-      "standing":7,
-      "value":572,
-      "max":999
-    },
-    {
-      "id":470,
-      "name":"Ratchet",
-      "standing":5,
-      "value":10501,
-      "max":12000
-    },
-    {
-      "id":59,
-      "name":"Thorium Brotherhood",
-      "standing":7,
-      "value":240,
-      "max":999
-    },
-    {
-      "id":1050,
-      "name":"Valiance Expedition",
-      "standing":7,
-      "value":999,
-      "max":999
-    }
-  ]
-}
-```
-
-### titles
-
-*An example titles field*
-```json
-{
-  "titles":[
-    {
-      "id":62,
-      "name":"Merciless Gladiator %s"
-    },
-    {
-      "id":79,
-      "name":"%s the Diplomat"
-    },
-    {
-      "id":72,
-      "name":"Battlemaster %s"
-    },
-    {
-      "id":48,
-      "name":"Justicar %s",
-      "selected":true
-    },
-    {
-      "id":80,
-      "name":"Brutal Gladiator %s"
-    },
-    {
-      "id":53,
-      "name":"%s, Champion of the Naaru"
-    },
-    {
-      "id":78,
-      "name":"%s the Explorer"
-    },
-    {
-      "id":42,
-      "name":"Gladiator %s"
-    },
-    {
-      "id":83,
-      "name":"Salty %s"
-    },
-    {
-      "id":90,
-      "name":"%s the Malefic"
-    }
-  ]
-}
-```
-
-### professions
-
-*An example professions field*
-```json
-{
-  "professions":{
-    "primary":[
-      {
-        "id":755,
-        "name":"Jewelcrafting",
-        "icon":"inv_misc_gem_01",
-        "rank":525,
-        "max":525,
-        "recipes":[
-          25255,
-          25278,
-          25280,
-          25283,
-          25284,
-          25287
-        ]
-      },
-      {
-        "id":164,
-        "name":"Blacksmithing",
-        "icon":"trade_blacksmithing",
-        "rank":525,
-        "max":525,
-        "recipes":[
-          2660,
-          2661,
-          2662,
-          2663,
-          2664
-        ]
-      }
-    ],
-    "secondary":[
-      {
-        "id":129,
-        "name":"First Aid",
-        "icon":"spell_holy_sealofsacrifice",
-        "rank":525,
-        "max":525,
-        "recipes":[
-          3275,
-          3276,
-          3277,
-          3278,
-          7928
-        ]
-      },
-      {
-        "id":794,
-        "name":"Archaeology",
-        "icon":"trade_archaeology",
-        "rank":406,
-        "max":450,
-        "recipes":[ ]
-      },
-      {
-        "id":356,
-        "name":"Fishing",
-        "icon":"trade_fishing",
-        "rank":492,
-        "max":525,
-        "recipes":[ ]
-      },
-      {
-        "id":185,
-        "name":"Cooking",
-        "icon":"inv_misc_food_15",
-        "rank":525,
-        "max":525,
-        "recipes":[
-          2538,
-          2539,
-          2540,
-          2541,
-          2542
-        ]
-      }
-    ]
-  }
-}
-```
-
-### appearance
-
-*An example appearance field*
-```json
-{
-  "appearance":{
-    "faceVariation":2,
-    "skinColor":0,
-    "hairVariation":1,
-    "hairColor":8,
-    "featureVariation":2,
-    "showHelm":true,
-    "showCloak":true
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=items</dd>
+  <dt>Example Data</dt>
+  <dd>[character-items.json](https://gist.github.com/3772776#file_character_items.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-items.json"></script>
 
 ### mounts
 
-*An example mounts field*
-```json
-{
-  "mounts": {
-    "numCollected":6,
-    "numNotCollected":264,
-    "collected":[
-      {
-        "name":"Magnificent Flying Carpet",
-	    "spellId":61309,
-		"creatureId":33030,
-		"itemId":44558,
-		"qualityId":4,
-		"icon":"ability_mount_magnificentflyingcarpet",
-		"isGround":true,
-		"isFlying":true,
-		"isAquatic":true,
-		"isJumping":true
-	  },
-	  {
-	    "name":"Obsidian Nightwing",
-		"spellId":121820,
-		"creatureId":62454,
-		"itemId":83086,
-		"qualityId":4,
-		"icon":"inv_misc_reforgedarchstone_01",
-		"isGround":true,
-		"isFlying":true,
-		"isAquatic":true,
-		"isJumping":true
- 	  }
-    ]
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=mounts</dd>
+  <dt>Example Data</dt>
+  <dd>[character-mounts.json](https://gist.github.com/3772776#file_character_mounts.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-mounts.json"></script>
 
 ### pets
 
-*An example pets field*
-```json
-{
-  "pets": {
-    "numCollected":9,
-    "numNotCollected":450,
-    "collected":[
-	  {
-	    "name":"Mech",
-		"spellId":78381,
-		"creatureId":42078,
-		"itemId":56806,
-		"qualityId":3,
-		"icon":"t_roboticon",
-		"speciesId":258,
-		"battlePetId":3963,
-		"isFavorite":true,
-		"level":1,
-		"creatureName":"Mini Thor",
-		"breedId":6,
-		"petQualityId":3
-      },
-	  {
-	    "name":"Mini Diablo",
-		"spellId":17708,
-		"creatureId":11326,
-		"itemId":13584,
-		"qualityId":3,
-		"icon":"inv_diablostone",
-		"speciesId":93,
-		"battlePetId":4001,
-		"isFavorite":false,
-		"level":4,
-		"creatureName":"Mini Diablo",
-		"breedId":4,
-		"petQualityId":3
-	  }
-    ]
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=pets</dd>
+  <dt>Example Data</dt>
+  <dd>[character-pets.json](https://gist.github.com/3772776#file_character_pets.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-pets.json"></script>
 
 ### petSlots
 
@@ -1247,902 +645,93 @@ this character. The ability list is the list of 3 active abilities on
 that pet. If the pet is not high enough level than it will always be
 the first three abilities that the pet has.
 
-*An example petSlots fields*
-```json
-{
-  "petSlots":[
-    {
-      "slot":1,
-      "battlePetId":1,
-	  "isEmpty":false,
-	  "isLocked":false,
-	  "abilities":[110,310,376]
-    },
-    {
-      "slot":2,
-	  "battlePetId":7476,
-	  "isEmpty":false,
-	  "isLocked":false,
-	  "abilities":[765,766,767]
-    },
-    {
-      "slot":3,
-	  "battlePetId":0,
-	  "isEmpty":true,
-	  "isLocked":true,
-	  "abilities":[]
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=petSlots</dd>
+  <dt>Example Data</dt>
+  <dd>[character-petSlots.json](https://gist.github.com/3772776#file_character_petSlots.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-petSlots.json"></script>
 
-### hunterPets
+### professions
 
-*An example hunterPets fields*
-```json
-{
-  "hunterPets":[
-    {
-	  "name":"MyPet",
-	  "creature":57239,
-	  "selected":true,
-	  "slot":0,
-	  "spec": {
-	    "name":"Tenacity",
-		"role":"TANK",
-		"backgroundImage":"bg-deathknight-blood",
- 		"icon":"ability_druid_demoralizingroar",
-		"description":"",
-		"order":1 },
-	  "calcSpec":"Z"
-    }
-  ]
-}
-```
-
-### achievements
-
-*An example achievements field*
-```json
-{
-  "achievements":{
-    "achievementsCompleted":[6,7,8,9,10],
-    "achievementsCompletedTimestamp":[1224283700000,1224283700000,1224283700000,1224283700000,1224283700000],
-    "criteria":[34,35,36,37,38],
-    "criteriaQuantity":[85,85,85,85,85],
-    "criteriaTimestamp":[1309580447000,1309580447000,1309580447000,1309580447000,1309580447000],
-    "criteriaCreated":[1309580447000,1309580447000,1309580447000,1309580447000,1309580447000]
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=professions</dd>
+  <dt>Example Data</dt>
+  <dd>[character-professions.json](https://gist.github.com/3772776#file_character_professions.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-professions.json"></script>
 
 ### progression
 
-*An example progression field*
-```json
-{
-  "progression":{
-    "raids":[
-      {
-        "name":"Molten Core",
-        "normal":2,
-        "heroic":0,
-        "id":2717,
-        "bosses":[
-          {
-            "name":"Ragnaros",
-            "normalKills":1,
-            "heroicKills":0,
-            "id":11502
-          }
-        ]
-      },
-      {
-        "name":"Blackwing Lair",
-        "normal":0,
-        "heroic":0,
-        "id":2677,
-        "bosses":[
-          {
-            "name":"Nefarian",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":11583
-          }
-        ]
-      },
-      {
-        "name":"Ruins of Ahn'Qiraj",
-        "normal":2,
-        "heroic":0,
-        "id":3429,
-        "bosses":[
-          {
-            "name":"Ossirian the Unscarred",
-            "normalKills":-1,
-            "heroicKills":0,
-            "id":15339
-          }
-        ]
-      },
-      {
-        "name":"Ahn'Qiraj Temple",
-        "normal":2,
-        "heroic":0,
-        "id":3428,
-        "bosses":[
-          {
-            "name":"C'Thun",
-            "normalKills":1,
-            "heroicKills":0,
-            "id":15727
-          }
-        ]
-      },
-      {
-        "name":"Karazhan",
-        "normal":2,
-        "heroic":0,
-        "id":3457,
-        "bosses":[
-          {
-            "name":"Prince Malchezaar",
-            "normalKills":-1,
-            "heroicKills":0,
-            "id":15690
-          }
-        ]
-      },
-      {
-        "name":"Magtheridon's Lair",
-        "normal":2,
-        "heroic":0,
-        "id":3836,
-        "bosses":[
-          {
-            "name":"Magtheridon",
-            "normalKills":-1,
-            "heroicKills":0,
-            "id":17257
-          }
-        ]
-      },
-      {
-        "name":"Gruul's Lair",
-        "normal":2,
-        "heroic":0,
-        "id":3923,
-        "bosses":[
-          {
-            "name":"Gruul the Dragonkiller",
-            "normalKills":-1,
-            "heroicKills":0,
-            "id":19044
-          }
-        ]
-      },
-      {
-        "name":"Serpentshrine Cavern",
-        "normal":2,
-        "heroic":0,
-        "id":3607,
-        "bosses":[
-          {
-            "name":"Lady Vashj",
-            "normalKills":-1,
-            "heroicKills":0,
-            "id":21212
-          }
-        ]
-      },
-      {
-        "name":"Tempest Keep",
-        "normal":2,
-        "heroic":0,
-        "id":3845,
-        "bosses":[
-          {
-            "name":"Kael'thas Sunstrider",
-            "normalKills":2,
-            "heroicKills":0,
-            "id":19622
-          }
-        ]
-      },
-      {
-        "name":"The Battle for Mount Hyjal",
-        "normal":0,
-        "heroic":0,
-        "id":3606,
-        "bosses":[
-          {
-            "name":"Archimonde",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":17968
-          }
-        ]
-      },
-      {
-        "name":"Black Temple",
-        "normal":2,
-        "heroic":0,
-        "id":3959,
-        "bosses":[
-          {
-            "name":"Illidan Stormrage",
-            "normalKills":1,
-            "heroicKills":0,
-            "id":22917
-          }
-        ]
-      },
-      {
-        "name":"The Sunwell",
-        "normal":0,
-        "heroic":0,
-        "id":4075,
-        "bosses":[
-          {
-            "name":"Kil'jaeden",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":25315
-          }
-        ]
-      },
-      {
-        "name":"Vault of Archavon",
-        "normal":2,
-        "heroic":0,
-        "id":4603,
-        "bosses":[
-          {
-            "name":"Archavon the Stone Watcher",
-            "normalKills":8,
-            "heroicKills":0,
-            "id":31125
-          },
-          {
-            "name":"Emalon the Storm Watcher",
-            "normalKills":2,
-            "heroicKills":0,
-            "id":33993
-          },
-          {
-            "name":"Koralon the Flame Watcher",
-            "normalKills":5,
-            "heroicKills":0,
-            "id":35013
-          },
-          {
-            "name":"Toravon the Ice Watcher",
-            "normalKills":5,
-            "heroicKills":0,
-            "id":38433
-          }
-        ]
-      },
-      {
-        "name":"Naxxramas",
-        "normal":2,
-        "heroic":0,
-        "id":3456,
-        "bosses":[
-          {
-            "name":"Anub'Rekhan",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":15956
-          },
-          {
-            "name":"Grand Widow Faerlina",
-            "normalKills":6,
-            "heroicKills":0,
-            "id":15953
-          },
-          {
-            "name":"Maexxna",
-            "normalKills":7,
-            "heroicKills":0,
-            "id":15952
-          },
-          {
-            "name":"Patchwerk",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":16028
-          },
-          {
-            "name":"Grobbulus",
-            "normalKills":8,
-            "heroicKills":0,
-            "id":15931
-          },
-          {
-            "name":"Gluth",
-            "normalKills":7,
-            "heroicKills":0,
-            "id":15932
-          },
-          {
-            "name":"Thaddius",
-            "normalKills":7,
-            "heroicKills":0,
-            "id":15928
-          },
-          {
-            "name":"Noth the Plaguebringer",
-            "normalKills":10,
-            "heroicKills":0,
-            "id":15954
-          },
-          {
-            "name":"Heigan the Unclean",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":15936
-          },
-          {
-            "name":"Loatheb",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":16011
-          },
-          {
-            "name":"Instructor Razuvious",
-            "normalKills":8,
-            "heroicKills":0,
-            "id":16061
-          },
-          {
-            "name":"Gothik the Harvester",
-            "normalKills":7,
-            "heroicKills":0,
-            "id":16060
-          },
-          {
-            "name":"The Four Horsemen",
-            "normalKills":7,
-            "heroicKills":0,
-            "id":59450
-          },
-          {
-            "name":"Sapphiron",
-            "normalKills":8,
-            "heroicKills":0,
-            "id":15989
-          },
-          {
-            "name":"Kel'Thuzad",
-            "normalKills":8,
-            "heroicKills":0,
-            "id":15990
-          }
-        ]
-      },
-      {
-        "name":"The Obsidian Sanctum",
-        "normal":2,
-        "heroic":0,
-        "id":4493,
-        "bosses":[
-          {
-            "name":"Sartharion",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":28860
-          }
-        ]
-      },
-      {
-        "name":"The Eye of Eternity",
-        "normal":2,
-        "heroic":0,
-        "id":4500,
-        "bosses":[
-          {
-            "name":"Malygos",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":28859
-          }
-        ]
-      },
-      {
-        "name":"Ulduar",
-        "normal":1,
-        "heroic":0,
-        "id":4273,
-        "bosses":[
-          {
-            "name":"Flame Leviathan",
-            "normalKills":6,
-            "heroicKills":0,
-            "id":33113
-          },
-          {
-            "name":"Razorscale",
-            "normalKills":5,
-            "heroicKills":0,
-            "id":33186
-          },
-          {
-            "name":"XT-002 Deconstructor",
-            "normalKills":2,
-            "heroicKills":0,
-            "id":33293
-          },
-          {
-            "name":"Ignis the Furnace Master",
-            "normalKills":2,
-            "heroicKills":0,
-            "id":33118
-          },
-          {
-            "name":"Assembly of Iron",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":65195
-          },
-          {
-            "name":"Kologarn",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":32930
-          },
-          {
-            "name":"Auriaya",
-            "normalKills":1,
-            "heroicKills":0,
-            "id":33515
-          },
-          {
-            "name":"Hodir",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":64899
-          },
-          {
-            "name":"Thorim",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":64985
-          },
-          {
-            "name":"Freya",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":65074
-          },
-          {
-            "name":"Leviathan Mk II",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":33432
-          },
-          {
-            "name":"General Vezax",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":33271
-          },
-          {
-            "name":"Yogg-Saron",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":33288
-          },
-          {
-            "name":"Algalon the Observer",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":65184
-          }
-        ]
-      },
-      {
-        "name":"Onyxia's Lair",
-        "normal":2,
-        "heroic":0,
-        "id":2159,
-        "bosses":[
-          {
-            "name":"Onyxia",
-            "normalKills":4,
-            "heroicKills":0,
-            "id":10184
-          }
-        ]
-      },
-      {
-        "name":"Trial of the Crusader",
-        "normal":2,
-        "heroic":1,
-        "id":4722,
-        "bosses":[
-          {
-            "name":"Icehowl",
-            "normalKills":6,
-            "heroicKills":3,
-            "id":34797
-          },
-          {
-            "name":"Lord Jaraxxus",
-            "normalKills":6,
-            "heroicKills":3,
-            "id":34780
-          },
-          {
-            "name":"Defeat the Faction Champions",
-            "normalKills":5,
-            "heroicKills":1,
-            "id":68184
-          },
-          {
-            "name":"Eydis Darkbane",
-            "normalKills":5,
-            "heroicKills":1,
-            "id":34496
-          },
-          {
-            "name":"Anub'arak",
-            "normalKills":5,
-            "heroicKills":0,
-            "id":34564
-          }
-        ]
-      },
-      {
-        "name":"Icecrown Citadel",
-        "normal":2,
-        "heroic":0,
-        "id":4812,
-        "bosses":[
-          {
-            "name":"Lord Marrowgar",
-            "normalKills":18,
-            "heroicKills":0,
-            "id":36612
-          },
-          {
-            "name":"Lady Deathwhisper",
-            "normalKills":18,
-            "heroicKills":0,
-            "id":36855
-          },
-          {
-            "name":"Claim victory in the Gunship Battle",
-            "normalKills":18,
-            "heroicKills":0,
-            "id":72959
-          },
-          {
-            "name":"The Deathbringer",
-            "normalKills":16,
-            "heroicKills":0,
-            "id":72928
-          },
-          {
-            "name":"Festergut",
-            "normalKills":13,
-            "heroicKills":0,
-            "id":36626
-          },
-          {
-            "name":"Rotface",
-            "normalKills":11,
-            "heroicKills":0,
-            "id":36627
-          },
-          {
-            "name":"Professor Putricide",
-            "normalKills":6,
-            "heroicKills":0,
-            "id":36678
-          },
-          {
-            "name":"Prince Valanar",
-            "normalKills":9,
-            "heroicKills":0,
-            "id":37970
-          },
-          {
-            "name":"Blood-Queen Lana'thel",
-            "normalKills":5,
-            "heroicKills":0,
-            "id":37955
-          },
-          {
-            "name":"Rescue Valithria Dreamwalker",
-            "normalKills":4,
-            "heroicKills":0,
-            "id":72706
-          },
-          {
-            "name":"Sindragosa",
-            "normalKills":2,
-            "heroicKills":0,
-            "id":36853
-          },
-          {
-            "name":"The Lich King",
-            "normalKills":1,
-            "heroicKills":0,
-            "id":36597
-          }
-        ]
-      },
-      {
-        "name":"The Ruby Sanctum",
-        "normal":0,
-        "heroic":0,
-        "id":4987,
-        "bosses":[
-          {
-            "name":"Halion",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":39863
-          }
-        ]
-      },
-      {
-        "name":"Baradin Hold",
-        "normal":0,
-        "heroic":0,
-        "id":5600,
-        "bosses":[
-          {
-            "name":"Argaloth",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":47120
-          },
-          {
-            "name":"Occu'thar",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":52363
-          }
-        ]
-      },
-      {
-        "name":"Blackwing Descent",
-        "normal":0,
-        "heroic":0,
-        "id":5094,
-        "bosses":[
-          {
-            "name":"Magmaw",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":41570
-          },
-          {
-            "name":"Toxitron",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":42180
-          },
-          {
-            "name":"Maloriak",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":41378
-          },
-          {
-            "name":"Atramedes",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":41442
-          },
-          {
-            "name":"Chimaeron",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":43296
-          },
-          {
-            "name":"Nefarian",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":41376
-          }
-        ]
-      },
-      {
-        "name":"The Bastion of Twilight",
-        "normal":0,
-        "heroic":0,
-        "id":5334,
-        "bosses":[
-          {
-            "name":"Halfus Wyrmbreaker",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":44600
-          },
-          {
-            "name":"Valiona",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":45992
-          },
-          {
-            "name":"Elementium Monstrosity",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":43735
-          },
-          {
-            "name":"Cho'gall",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":43324
-          },
-          {
-            "name":"Sinestra",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":45213
-          }
-        ]
-      },
-      {
-        "name":"Throne of the Four Winds",
-        "normal":0,
-        "heroic":0,
-        "id":5638,
-        "bosses":[
-          {
-            "name":"Conclave of Wind",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":88835
-          },
-          {
-            "name":"Al'Akir",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":46753
-          }
-        ]
-      },
-      {
-        "name":"Firelands",
-        "normal":0,
-        "heroic":0,
-        "id":5723,
-        "bosses":[
-          {
-            "name":"Beth'tilac",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":52498
-          },
-          {
-            "name":"Lord Rhyolith",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":53772
-          },
-          {
-            "name":"Alysrazor",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":52530
-          },
-          {
-            "name":"Shannox",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":53691
-          },
-          {
-            "name":"Baleroc",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":53494
-          },
-          {
-            "name":"Majordomo Staghelm",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":52571
-          },
-          {
-            "name":"Ragnaros",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":102237
-          },
-          {
-            "name":"Ragnaros",
-            "normalKills":0,
-            "heroicKills":0,
-            "id":52409
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=progression</dd>
+  <dt>Example Data</dt>
+  <dd>[character-progression.json](https://gist.github.com/3772776#file_character_progression.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-progression.json"></script>
 
 ### pvp
 
-*An example pvp field*
-```json
-"pvp":{
-    "ratedBattlegrounds":{
-      "personalRating": 3100,
-      "battlegrounds":[
-        {
-          "name":"Arathi Basin",
-          "played":98745,
-          "won":98744
-        },
-        {
-          "name":"The Battle for Gilneas",
-          "played":0,
-          "won":0
-        },
-        {
-          "name":"Eye of the Storm",
-          "played":0,
-          "won":0
-        },
-        {
-          "name":"Strand of the Ancients",
-          "played":0,
-          "won":0
-        },
-        {
-          "name":"Twin Peaks",
-          "played":0,
-          "won":0
-        },
-        {
-          "name":"Warsong Gulch",
-          "played":0,
-          "won":0
-        }
-      ]
-    },
-    "arenaTeams":[
-      {
-        "name":"Lordaeron's Defense",
-        "personalRating":2700,
-        "teamRating":2700,
-        "size":"5v5"
-      }
-    ],
-    "totalHonorableKills":98475
-  }
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=pvp</dd>
+  <dt>Example Data</dt>
+  <dd>[character-pvp.json](https://gist.github.com/3772776#file_character_pvp.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-pvp.json"></script>
 
 ### quests
 
-*An example quests field*
-```json
-{
-  "quests":[
-    26977,
-    26997,
-    27044,
-    27060,
-    27064,
-    27072,
-    27092,
-    27106,
-    28238,
-    28596,
-    28807,
-    28832
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=quests</dd>
+  <dt>Example Data</dt>
+  <dd>[character-quests.json](https://gist.github.com/3772776#file_character_quests.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-quests.json"></script>
+
+### reputation
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=reputation</dd>
+  <dt>Example Data</dt>
+  <dd>[character-reputation.json](https://gist.github.com/3772776#file_character_reputation.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-reputation.json"></script>
+
+### stats
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=stats</dd>
+  <dt>Example Data</dt>
+  <dd>[character-stats.json](https://gist.github.com/3772776#file_character_stats.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-stats.json"></script>
+
+### talents
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=talents</dd>
+  <dt>Example Data</dt>
+  <dd>[character-talents.json](https://gist.github.com/3772776#file_character_talents.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-talents.json"></script>
+
+### titles
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=titles</dd>
+  <dt>Example Data</dt>
+  <dd>[character-titles.json](https://gist.github.com/3772776#file_character_titles.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=character-titles.json"></script>
 
 ## Item API
 
