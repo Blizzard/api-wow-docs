@@ -2458,6 +2458,22 @@ URL = Host + "/api/wow/quest/" + QuestId
 </dl>
 <script src="https://gist.github.com/3772776.js?file=quest.json"></script>
 
+## Spell API
+
+The spell API provides some information about spells.
+
+```plain
+URL = Host + "/api/wow/spell/" + SpellId
+```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/spell/8056](http://us.battle.net/api/wow/spell/8056)</dd>
+  <dt>Example Data</dt>
+  <dd>[spell.json](https://gist.github.com/3772776#file_spell.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=spell.json"></script>
+
 ### Data Resources
 
 The data APIs provide information that can compliment profile
