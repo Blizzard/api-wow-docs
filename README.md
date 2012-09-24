@@ -80,34 +80,34 @@ http://eu.battle.net/api/wow/data/character/races?locale=fr_FR
     <td>Europe</td>
 	<td>eu.battle.net</td>
 	<td>
-	  en_GB<br/>
-	  es_ES<br/>
-	  fr_FR<br/>
-	  ru_RU<br/>
-	  de_DE<br/>
-	  pt_PT<br/>
-	  it_IT
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=en_GB">en_GB</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=es_ES">es_ES</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=fr_FR">fr_FR</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=ru_RU">ru_RU</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=de_DE">de_DE</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=pt_PT">pt_PT</a><br/>
+	  <a href="http://eu.battle.net/api/wow/data/character/races?locale=it_IT">it_IT</a>
 	</td>
   </tr>
   <tr>
     <td>Korea</td>
 	<td>kr.battle.net</td>
 	<td>
-	  ko_KR
+	  <a href="http://kr.battle.net/api/wow/data/character/races?locale=ko_KR">ko_KR</a>
 	</td>
   </tr>
   <tr>
     <td>Taiwan</td>
 	<td>tw.battle.net</td>
 	<td>
-	  zh_TW
+	  <a href="http://tw.battle.net/api/wow/data/character/races?locale=zh_TW">zh_TW</a>
 	</td>
   </tr>
   <tr>
     <td>China</td>
 	<td>www.battlenet.com.cn</td>
 	<td>
-	  zh_CN
+	  <a href="http://www.battlenet.com.cn/api/wow/data/character/races?locale=zh_CN">zh_CN</a>
 	</td>
   </tr>
 </table>
