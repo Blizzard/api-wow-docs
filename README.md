@@ -2346,62 +2346,6 @@ The challenge field provides the top three guild run times for each challenge mo
 </dl>
 <script src="https://gist.github.com/3772776.js?file=guild-challenge.json"></script>
 
-## Realm Status API
-
-The realm status API allows developers to retrieve realm status
-information. This information is limited to whether or not the realm
-is up, the type and state of the realm, the current population, and
-the status of the two world pvp zones.
-
-```plain
-URL = Host + "/api/wow/realm/status"
-```
-
-There are no required query string parameters when accessing this
-resource, although the "realms" query string parameter can optionally
-be passed to limit the realms returned to one or more.
-
-#### Pvp Area Status Fields
-
-* *area* An internal id of this zone.
-
-* *controlling-faction* Which faction is controlling the zone at the
-   moment.
-
-* *status* The current status of the zone. The possible values are
-
-  * -1: Unknown
-  * 0: Idle
-  * 1: Populating
-  * 2: Active
-  * 3: Concluded
-
-* *next* A timestamp of when the next battle starts.
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/realm/status](http://us.battle.net/api/wow/realm/status)</dd>
-  <dt>Example Data</dt>
-  <dd>[realm-status.json](https://gist.github.com/3772776#file_realm_status.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=realm-status.json"></script>
-
-## Recipe API
-
-The recipe API provides basic recipe information.
-
-```plain
-URL = Host + "/api/wow/recipe/" + RecipeId
-```
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/recipe/33994](http://us.battle.net/api/wow/recipe/33994)</dd>
-  <dt>Example Data</dt>
-  <dd>[recipe.json](https://gist.github.com/3772776#file_recipe.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=recipe.json"></script>
-
 ## PVP API
 
 PVP APIs currently provide arena team and ladder information.
@@ -2490,6 +2434,62 @@ URL = Host + "/api/wow/quest/" + QuestId
   <dd>[quest.json](https://gist.github.com/3772776#file_quest.json)</dd>
 </dl>
 <script src="https://gist.github.com/3772776.js?file=quest.json"></script>
+
+## Realm Status API
+
+The realm status API allows developers to retrieve realm status
+information. This information is limited to whether or not the realm
+is up, the type and state of the realm, the current population, and
+the status of the two world pvp zones.
+
+```plain
+URL = Host + "/api/wow/realm/status"
+```
+
+There are no required query string parameters when accessing this
+resource, although the "realms" query string parameter can optionally
+be passed to limit the realms returned to one or more.
+
+#### Pvp Area Status Fields
+
+* *area* An internal id of this zone.
+
+* *controlling-faction* Which faction is controlling the zone at the
+   moment.
+
+* *status* The current status of the zone. The possible values are
+
+  * -1: Unknown
+  * 0: Idle
+  * 1: Populating
+  * 2: Active
+  * 3: Concluded
+
+* *next* A timestamp of when the next battle starts.
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/realm/status](http://us.battle.net/api/wow/realm/status)</dd>
+  <dt>Example Data</dt>
+  <dd>[realm-status.json](https://gist.github.com/3772776#file_realm_status.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=realm-status.json"></script>
+
+## Recipe API
+
+The recipe API provides basic recipe information.
+
+```plain
+URL = Host + "/api/wow/recipe/" + RecipeId
+```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/recipe/33994](http://us.battle.net/api/wow/recipe/33994)</dd>
+  <dt>Example Data</dt>
+  <dd>[recipe.json](https://gist.github.com/3772776#file_recipe.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=recipe.json"></script>
 
 ## Spell API
 
