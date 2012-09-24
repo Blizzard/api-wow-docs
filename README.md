@@ -366,6 +366,14 @@ URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
   </tr>
 </table>
 
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/battlePet/stats/258?level=25&breedId=5&quailtyId=4](http://us.battle.net/api/wow/battlePet/stats/258?level=25&breedId=5&quailtyId=4)</dd>
+  <dt>Example Data</dt>
+  <dd>[battlePet-stats.json](https://gist.github.com/3772776#file_battle_pet_stats.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=battlePet-stats.json"></script>
+
 ## Character Profile API
 
 The Character Profile API is the primary way to access character
