@@ -2303,7 +2303,7 @@ checking a per-realm index file to determine if a recent dump has been
 generated and then fetching the most recently generated dump file if
 necessary.
 
-#### Current Auctions APIs
+#### Auction Data Status
 
 This API resource provides a per-realm list of recently generated
 auction house data dumps.
@@ -2315,83 +2315,22 @@ URL = Host + "/api/wow/auction/data/" + realm
 There are no required query string parameters when accessing this
 resource.
 
-*An example Current Auctions request and response*
-```plain
-GET /api/wow/auction/data/medivh HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "files":[
-    {
-      "url":"http://us.battle.net/auction-data/medivh/auctions-1311362443895.json.gz",
-      "lastModified":1311362443895
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/auction/data/medivh](http://us.battle.net/api/wow/auction/data/medivh)</dd>
+  <dt>Example Data</dt>
+  <dd>[auction-data.json](https://gist.github.com/3772776#file_auction_data.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=auction-data.json"></script>
 
-#### Current Auctions Data
+#### Auction Data Files
 
 The current auctions data is represented as JSON structures containing
-auction data for the three auctions houses available on each realm.
-
-```json
-{
-    "realm": {
-        "name": "Medivh",
-        "slug": "medivh"
-    },
-    "alliance": {
-        "auctions": [
-            {
-                "auc": 500,
-                "item": 49284,
-                "owner": "Uther",
-                "bid": 150000,
-                "buyout": 450000,
-                "quantity": 11,
-                "timeLeft": "VERY_LONG"
-            },
-            {
-                "auc": 504,
-                "item": 2160,
-                "owner": "Ronakada",
-                "bid": 140000,
-                "buyout": 150000,
-                "quantity": 1,
-                "timeLeft": "LONG"
-            }
-        ]
-    },
-    "horde": {
-        "auctions": [
-            {
-                "auc": 501,
-                "item": 44575,
-                "owner": "Thrall",
-                "bid": 26751,
-                "buyout": 57665,
-                "quantity": 1
-                "timeLeft": "MEDIUM"
-            }
-        ]
-    },
-    "neutral": {
-        "auctions": [
-            {
-                "auc": 502,
-                "item": 63271,
-                "owner": "Arthas",
-                "bid": 20000,
-                "buyout": 50000,
-                "quantity": 1
-                "timeLeft": "SHORT"
-            }
-        ]
-    }
-}
-```
+auction data for the three auctions houses available on each realm. This file
+is served as a static file from the url listed in the above request. This means
+that it does not respond to locale or json parameters because it is not part of
+the api service. Requests to the actual data file also do not count towards any
+request limits.
 
 ### Item Resources
 
