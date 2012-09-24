@@ -2442,11 +2442,7 @@ Optional Query String Parameters
 </dl>
 <script src="https://gist.github.com/3772776.js?file=pvp-ratedbg-ladder.json"></script>
 
-### Quest Resources
-
-Quest APIs currently provide quest information.
-
-#### Quest API
+## Quest API
 
 The quest API provides detailed quest information.
 
@@ -2454,21 +2450,13 @@ The quest API provides detailed quest information.
 URL = Host + "/api/wow/quest/" + QuestId
 ```
 
-*An example quest API request and response*
-```plain
-GET /api/wow/quest/13146 HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "id":13157,
-  "title":"The Crusaders' Pinnacle",
-  "reqLevel":77,
-  "suggestedPartyMembers":0,
-  "category":"Icecrown",
-  "level":79
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/quest/13146](http://us.battle.net/api/wow/quest/13146)</dd>
+  <dt>Example Data</dt>
+  <dd>[quest.json](https://gist.github.com/3772776#file_quest.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=quest.json"></script>
 
 ### Data Resources
 
