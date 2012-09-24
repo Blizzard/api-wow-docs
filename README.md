@@ -71,9 +71,9 @@ http://eu.battle.net/api/wow/data/character/races?locale=fr_FR
     <td>US</td>
 	<td>us.battle.net</td>
 	<td>
-	  en_US<br/>
-	  es_MX<br/>
-	  pt_BR
+	  <a href="http://us.battle.net/api/wow/data/character/races?locale=en_US">en_US</a><br/>
+	  <a href="http://us.battle.net/api/wow/data/character/races?locale=es_MX">es_MX</a><br/>
+	  <a href="http://us.battle.net/api/wow/data/character/races?locale=pt_BR">pt_BR</a>
 	</td>
   </tr>
   <tr>
