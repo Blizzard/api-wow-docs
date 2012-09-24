@@ -2271,57 +2271,13 @@ be passed to limit the realms returned to one or more.
 
 * *next* A timestamp of when the next battle starts.
 
-*An example Realm Status request and response*
-```plain
-GET /api/wow/realm/status?realms=Medivh,Lightbringer HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-  "realms":[
-    {
-      "type":"pve",
-      "queue":false,
-      "wintergrasp":{
-        "area":1,
-	"controlling-faction":1,
-	"status":0,
-	"next":1334885402591
-      },
-      "tol-barad":{
-        "area":21,
-	"controlling-faction":1,
-	"status":0,
-	"next":1334884311692
-      },
-      "status":true,
-      "population":"high",
-      "name":"Lightbringer",
-      "slug":"lightbringer"
-    },
-    {
-      "type":"pve",
-      "queue":false,
-      "wintergrasp":{
-        "area":1,
-	"controlling-faction":0,
-	"status":0,
-	"next":1334885402591
-      },
-      "tol-barad":{
-        "area":21,
-	"controlling-faction":0,
-	"status":0,
-	"next":1334884311692
-      },
-      "status":true,
-      "population":"medium",
-      "name":"Medivh",
-      "slug":"medivh"
-    }
-  ]
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/realm/status](http://us.battle.net/api/wow/realm/status)</dd>
+  <dt>Example Data</dt>
+  <dd>[realm-status.json](https://gist.github.com/3772776#file_realm_status.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=realm-status.json"></script>
 
 ## Recipe API
 
