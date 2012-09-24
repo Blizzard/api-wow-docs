@@ -2334,6 +2334,8 @@ request limits.
 
 ## Item API
 
+### Individual Item
+
 The item API provides detailed item information. This includes item
 set information if this item is part of a set.
 
@@ -2349,9 +2351,9 @@ URL = Host + "/api/wow/item/" + ItemId
 </dl>
 <script src="https://gist.github.com/3772776.js?file=item.json"></script>
 
-#### Item Set API
+### Item Set
 
-The item set API provides detailed item set information.
+The item set data provides the data for an item set.
 
 ```plain
 URL = Host + "/api/wow/item/set/" + SetId
