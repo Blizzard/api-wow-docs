@@ -298,6 +298,43 @@ This provides data about an individual achievement.
 </dl>
 <script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
 
+## Auction API
+
+Auction APIs currently provide rolling batches of data about current
+auctions. Fetching auction dumps is a two step process that involves
+checking a per-realm index file to determine if a recent dump has been
+generated and then fetching the most recently generated dump file if
+necessary.
+
+#### Auction Data Status
+
+This API resource provides a per-realm list of recently generated
+auction house data dumps.
+
+```plain
+URL = Host + "/api/wow/auction/data/" + realm
+```
+
+There are no required query string parameters when accessing this
+resource.
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/auction/data/medivh](http://us.battle.net/api/wow/auction/data/medivh)</dd>
+  <dt>Example Data</dt>
+  <dd>[auction-data.json](https://gist.github.com/3772776#file_auction_data.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=auction-data.json"></script>
+
+#### Auction Data Files
+
+The current auctions data is represented as JSON structures containing
+auction data for the three auctions houses available on each realm. This file
+is served as a static file from the url listed in the above request. This means
+that it does not respond to locale or json parameters because it is not part of
+the api service. Requests to the actual data file also do not count towards any
+request limits.
+
 ## BattlePet API
 
 ### Abilities
@@ -2128,6 +2165,43 @@ the first three abilities that the pet has.
 }
 ```
 
+## Item API
+
+The item API provides data about items and item sets.
+
+### Individual Item
+
+The item API provides detailed item information. This includes item
+set information if this item is part of a set.
+
+```plain
+URL = Host + "/api/wow/item/" + ItemId
+```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/item/18803](http://us.battle.net/api/wow/item/18803)</dd>
+  <dt>Example Data</dt>
+  <dd>[item.json](https://gist.github.com/3772776#file_item.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=item.json"></script>
+
+### Item Set
+
+The item set data provides the data for an item set.
+
+```plain
+URL = Host + "/api/wow/item/set/" + SetId
+```
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/item/set/1060](http://us.battle.net/api/wow/item/set/1060)</dd>
+  <dt>Example Data</dt>
+  <dd>[item-set.json](https://gist.github.com/3772776#file_item_set.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=item-set.json"></script>
+
 ## Guild Profile API
 
 The guild profile API is the primary way to access guild
@@ -2327,80 +2401,6 @@ URL = Host + "/api/wow/recipe/" + RecipeId
   <dd>[recipe.json](https://gist.github.com/3772776#file_recipe.json)</dd>
 </dl>
 <script src="https://gist.github.com/3772776.js?file=recipe.json"></script>
-
-## Auction API
-
-Auction APIs currently provide rolling batches of data about current
-auctions. Fetching auction dumps is a two step process that involves
-checking a per-realm index file to determine if a recent dump has been
-generated and then fetching the most recently generated dump file if
-necessary.
-
-#### Auction Data Status
-
-This API resource provides a per-realm list of recently generated
-auction house data dumps.
-
-```plain
-URL = Host + "/api/wow/auction/data/" + realm
-```
-
-There are no required query string parameters when accessing this
-resource.
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/auction/data/medivh](http://us.battle.net/api/wow/auction/data/medivh)</dd>
-  <dt>Example Data</dt>
-  <dd>[auction-data.json](https://gist.github.com/3772776#file_auction_data.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=auction-data.json"></script>
-
-#### Auction Data Files
-
-The current auctions data is represented as JSON structures containing
-auction data for the three auctions houses available on each realm. This file
-is served as a static file from the url listed in the above request. This means
-that it does not respond to locale or json parameters because it is not part of
-the api service. Requests to the actual data file also do not count towards any
-request limits.
-
-## Item API
-
-The item API provides data about items and item sets.
-
-### Individual Item
-
-The item API provides detailed item information. This includes item
-set information if this item is part of a set.
-
-```plain
-URL = Host + "/api/wow/item/" + ItemId
-```
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/item/18803](http://us.battle.net/api/wow/item/18803)</dd>
-  <dt>Example Data</dt>
-  <dd>[item.json](https://gist.github.com/3772776#file_item.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=item.json"></script>
-
-### Item Set
-
-The item set data provides the data for an item set.
-
-```plain
-URL = Host + "/api/wow/item/set/" + SetId
-```
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/item/set/1060](http://us.battle.net/api/wow/item/set/1060)</dd>
-  <dt>Example Data</dt>
-  <dd>[item-set.json](https://gist.github.com/3772776#file_item_set.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=item-set.json"></script>
 
 ## PVP API
 
