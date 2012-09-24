@@ -374,6 +374,31 @@ URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
 </dl>
 <script src="https://gist.github.com/3772776.js?file=battlePet-stats.json"></script>
 
+## Challenge Mode Leaderboards API
+
+The Challenge Mode Leaderboards API displays the same information as the
+leader boards on the wow game site.
+
+```plain
+URL = Host + "/api/wow/challenge/" + Realm
+
+Realm = <proper realm name> | <normalized realm name>
+```
+
+The data in this request has data for all 9 challenge mode maps (currently). The map
+field includes the current medal times for each dungeon. Inside each ladder we provide
+data about each character that was part of each run. The character data includes the
+current cached spec of the character while the member field includes the spec of the
+character during the challenge mode run.
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/challenge/medivh](http://us.battle.net/api/wow/challenge/medivh)</dd>
+  <dt>Example Data</dt>
+  <dd>[challenge.json](https://gist.github.com/3772776#file_challenge.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=challenge.json"></script>
+
 ## Character Profile API
 
 The Character Profile API is the primary way to access character
