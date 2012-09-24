@@ -2287,19 +2287,13 @@ The recipe API provides basic recipe information.
 URL = Host + "/api/wow/recipe/" + RecipeId
 ```
 
-*An example recipe API request and response*
-```plain
-GET /api/wow/recipe/33994 HTTP/1.1
-Host: us.battle.net
-```
-```json
-{
-    "id": 33994,
-    "name": "Enchant Gloves - Precise Strikes",
-    "profession": "Enchanting",
-    "icon": "spell_holy_greaterheal"
-}
-```
+<dl>
+  <dt>Example URL</dt>
+  <dd>[/api/wow/recipe/33994](http://us.battle.net/api/wow/recipe/33994)</dd>
+  <dt>Example Data</dt>
+  <dd>[recipe.json](https://gist.github.com/3772776#file_recipe.json)</dd>
+</dl>
+<script src="https://gist.github.com/3772776.js?file=recipe.json"></script>
 
 ## Auction API
 
