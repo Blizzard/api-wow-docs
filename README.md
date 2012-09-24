@@ -454,32 +454,11 @@ Realm = <proper realm name> | <normalized realm name>
 
 <dl>
   <dt>Example URL</dt>
-  <dd>[/api/wow/character/achievement/2144](http://us.battle.net/api/wow/achievement/2144)</dd>
+  <dd>/api/wow/character/test-realm/Peratryn</dd>
   <dt>Example Data</dt>
-  <dd>[achievement.json](https://gist.github.com/3772776#file_achievement.json)</dd>
+  <dd>[character.json](https://gist.github.com/3772776#file_character.json)</dd>
 </dl>
-<script src="https://gist.github.com/3772776.js?file=achievement.json"></script>
-
-
-There are no required query string parameters when accessing this
-resource, although the "fields" query string parameter can optionally
-be passed to indicate that one or more of the optional datasets is to
-be retrieved. Those additional fields are listed in the subsection
-titled "Optional Fields".
-
-*An example Character Profile API request and response.*
-```plain
-GET /api/wow/character/Medivh/Uther?fields=guild
-Host: us.battle.net
-HTTP/1.1 200 OK
-<http headers>
-```
-
-```json
-{"realm": "Medivh", "battlegroup": "Ruin", "name": "Uther", "level": 85, "lastModified": 1307596000000,
-"thumbnail": "medivh/1/1-avatar.jpg", "race": 1, "achievementPoints": 9745, "gender": 0, "class": 2,
-"guild": { ... } }
-```
+<script src="https://gist.github.com/3772776.js?file=character.json"></script>
 
 #### Optional Fields
 
