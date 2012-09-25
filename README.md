@@ -405,7 +405,7 @@ URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
 
 <dl>
   <dt>Example URL</dt>
-  <dd>[/api/wow/battlePet/stats/258?level=25&breedId=5&quailtyId=4](http://us.battle.net/api/wow/battlePet/stats/258?level=25&breedId=5&quailtyId=4)</dd>
+  <dd>[/api/wow/battlePet/stats/258?level=25&breedId=5&qualityId=4](http://us.battle.net/api/wow/battlePet/stats/258?level=25&breedId=5&qualityId=4)</dd>
   <dt>Example Data</dt>
   <dd>[battlePet-stats.json](https://gist.github.com/3772776#file_battle_pet_stats.json)</dd>
 </dl>
