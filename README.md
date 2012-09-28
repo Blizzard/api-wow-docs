@@ -416,6 +416,8 @@ URL = Host + "/api/wow/battlePet/stats/" + SpeciesID
 The Challenge Mode API displays the same information as the leader boards on the
 wow game site.
 
+### Realm Leaderboard
+
 ```plain
 URL = Host + "/api/wow/challenge/" + Realm
 
@@ -436,6 +438,15 @@ character during the challenge mode run.
 </dl>
 <script src="https://gist.github.com/3772776.js?file=challenge.json"></script>
 
+### Region Leaderboard
+
+The region leaderboard has the exact same data format as the realm leaderboards
+except there is no `realm` field. It is simply the top 100 results gathered for
+each map for all of the available realm leaderboards in a region.
+
+```plain
+URL = Host + "/api/wow/challenge/region"
+```
 ## Character Profile API
 
 The Character Profile API is the primary way to access character
