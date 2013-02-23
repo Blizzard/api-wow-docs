@@ -1305,6 +1305,10 @@ use. Blizzard Entertainment may at its sole discretion request that
 any application that uses its intellectual property be removed and no
 longer distributed.
 
+### Translations
+Portuguese (pt_BR)
+[https://github.com/KaduNovoK/api-wow-docs/tree/translate_pt_BR](https://github.com/KaduNovoK/api-wow-docs/tree/translate_pt_BR).
+
 ### Policy Compliance Notice
 
 Blizzard Entertainment is committed to maintaining the integrity of
