@@ -171,7 +171,7 @@ directive for the Authorization header. The second and third values
 are the application public key and the request signature. The
 application public key is assigned by Blizzard during the application
 registration process. The signature is generated with each request and
-is discribed by the following algorithm.
+is described by the following algorithm.
 
     UrlPath = <HTTP-Request-URI, from the port to the query string>
     
