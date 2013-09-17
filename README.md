@@ -927,76 +927,24 @@ The challenge field provides the top three guild run times for each challenge mo
 
 ## PVP API
 
-PVP APIs currently provide arena team and ladder information.
+PVP APIs currently provide leaderboard information for the 2v2, 3v3, 5v5 and Rated Battleground leaderboards.
 
-### Arena Team API
+### Leaderboard API 
 
-The Arena Team API provides detailed arena team information.
+The leaderboard api provides detailed leaderboard information.
 
 ```plain
-TeamSize = "2v2" | "3v3" | "5v5"
-URL = Host + "/api/wow/arena/" + Realm + "/" + TeamSize + "/" + TeamName
+Bracket = "2v2" | "3v3" | "5v5" | "rbg"
+URL = Host + "/api/wow/leaderboard/" + Bracket
 ```
 
 <dl>
   <dt>Example URL</dt>
-  <dd>[/api/wow/arena/bonechewer/2v2/Samurai%20Jack](http://us.battle.net/api/wow/arena/bonechewer/2v2/Samurai%20Jack)</dd>
+  <dd>[/api/wow/leaderboard/3v3](http://us.battle.net/api/wow/leaderboard/3v3)</dd>
   <dt>Example Data</dt>
-  <dd>[pvp-arena-team.json](https://gist.github.com/3772776#file_pvp_arena_team.json)</dd>
+  <dd>[leaderboard.json](https://gist.github.com/3772776#file_leaderboard.json)</dd>
 </dl>
-<script src="https://gist.github.com/3772776.js?file=pvp-arena-team.json"></script>
-
-#### Arena Ladder API
-
-The Arena Team Ladder API provides arena ladder information for a
-battlegroup.
-
-```plain
-TeamSize = "2v2" | "3v3" | "5v5"
-URL = Host + "/api/wow/pvp/arena/" + Battlegroup + "/" + TeamSize
-```
-
-Optional Query String Parameters
-
-* *page* Which page of results to return (defaults to 1)
-
-* *size* How many results to return per page (defaults to 50)
-
-* *asc* Whether to return the results in ascending order. Defaults to
-   "true", accepts "true" or "false"
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/pvp/arena/ruin/2v2](http://us.battle.net/api/wow/pvp/arena/ruin/2v2)</dd>
-  <dt>Example Data</dt>
-  <dd>[pvp-arena-ladder.json](https://gist.github.com/3772776#file_pvp_arena_ladder.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=pvp-arena-ladder.json"></script>
-
-#### Rated Battleground Ladder API
-
-The Rated Battleground Ladder API provides ladder information for a region.
-
-```plain
-URL = Host + "/api/wow/pvp/ratedbg/ladder"
-```
-
-Optional Query String Parameters
-
-* *page* Which page of results to return (defaults to 1)
-
-* *size* How many results to return per page (defaults to 50)
-
-* *asc* Whether to return the results in ascending order. Defaults to
-  "true", accepts "true" or "false"
-
-<dl>
-  <dt>Example URL</dt>
-  <dd>[/api/wow/pvp/ratedbg/ladder](http://us.battle.net/api/wow/pvp/ratedbg/ladder)</dd>
-  <dt>Example Data</dt>
-  <dd>[pvp-ratedbg-ladder.json](https://gist.github.com/3772776#file_pvp_ratedbg_ladder.json)</dd>
-</dl>
-<script src="https://gist.github.com/3772776.js?file=pvp-ratedbg-ladder.json"></script>
+<script src="https://gist.github.com/3772776.js?file=leaderboard.json"></script>
 
 ## Quest API
 
