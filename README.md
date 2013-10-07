@@ -998,9 +998,9 @@ be passed to limit the realms returned to one or more.
   <dt>Example URL</dt>
   <dd>[/api/wow/realm/status](http://us.battle.net/api/wow/realm/status)</dd>
   <dt>Example Data</dt>
-  <dd>[realm-status.json](https://gist.github.com/3772776#file_realm_status.json)</dd>
+  <dd>[realm-status.json](https://gist.github.com/6870480)</dd>
 </dl>
-<script src="https://gist.github.com/3772776.js?file=realm-status.json"></script>
+<script src="https://gist.github.com/6870480.js"></script>
 
 ## Recipe API
 
