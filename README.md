@@ -134,23 +134,10 @@ is that you can make more requests per day.
 
 #### Application Registration
 
-To send authenticated request you first need to register an
-application. Because registration isn't automated, application
-registration is limited to those who meet the following criteria:
-
-* You plan on making requests from one or more IP addresses. (e.g. a
-  production environment and development environment)
-
-* You can justify making more than 2,000 requests per day from one or
-  more IP addresses.
-
-Registering an application is a matter of providing a description of
-the application, how you plan on using the API and your contact
-information to
-[api-support@blizzard.com](mailto:api-support@blizzard.com) with the
-subject "Application Registration Request". Once we receive your
-request, we will contact you to either provide additional information
-or with application keys to use.
+**NOTE**
+While we work on improving the authentication process we're no longer
+handing out api keys. All anonymous requests have the same limit as a
+normal key.
 
 #### Authentication Process
 
