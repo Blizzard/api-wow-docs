@@ -536,6 +536,10 @@ requested through the mentioned "fields" query string parameter.
     <td><a href="#character-profile-api/titles">titles</a></td>
     <td>A list of the titles obtained by the character including the currently selected title.</td>
   </tr>
+  <tr>
+    <td><a href="#character-profile-api/audit">audit</a></td>
+    <td>Raw character audit data that powers the character audit on the game site</td>
+  </tr>
 </table>
 
 *An example Character Profile request with several addtional fields.*
@@ -730,6 +734,16 @@ the first three abilities that the pet has.
   <dd>[character-titles.json](https://gist.github.com/3772776#file_character_titles.json)</dd>
 </dl>
 <script src="https://gist.github.com/3772776.js?file=character-titles.json"></script>
+
+### audit
+
+<dl>
+  <dt>Example URL</dt>
+  <dd>/api/wow/character/test-realm/Peratryn?fields=audit</dd>
+  <dt>Example Data</dt>
+  <dd>[character-audit.json](https://gist.github.com/cgiroir/8741047)</dd>
+</dl>
+<script src="https://gist.github.com/cgiroir/8741047.js"></script>
 
 ## Item API
 
