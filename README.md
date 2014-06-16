@@ -151,7 +151,7 @@ with your application identifier and the request signature.
     Date: Fri, 10 Jun 2011 20:59:24 GMT
     Authorization: BNET c1fbf21b79c03191d:+3fE0RaKc+PqxN0gi8va5GQC35A=
 
-In the above exmple, the value of the Authorization header has three
+In the above example, the value of the Authorization header has three
 parts `"BNET"`, `"c1fbf21b79c03191d"` and
 `"+3fE0RaKc+PqxN0gi8va5GQC35A="`. The first part is a processing
 directive for the Authorization header. The second and third values
